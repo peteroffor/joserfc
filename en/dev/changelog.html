@@ -196,8 +196,9 @@ html.dark {
   <div class="localtoc">
     <h3>Table of Contents</h3>
     <ul>
-<li><a class="reference internal" href="#id1">0.2.0</a></li>
-<li><a class="reference internal" href="#id2">0.1.0</a></li>
+<li><a class="reference internal" href="#id1">0.3.0</a></li>
+<li><a class="reference internal" href="#id2">0.2.0</a></li>
+<li><a class="reference internal" href="#id3">0.1.0</a></li>
 </ul>
 
 
@@ -232,12 +233,24 @@ html.dark {
           <section id="changelog">
 <h1>Changelog<a class="headerlink" href="#changelog" title="Permalink to this heading">¶</a></h1>
 <section id="id1">
-<h2>0.2.0<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
+<h2>0.3.0<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
+<p><strong>Released on June 29, 2023</strong></p>
+<ul class="simple">
+<li><p>Return <code class="docutils literal notranslate"><span class="pre">str</span></code> instead of <code class="docutils literal notranslate"><span class="pre">bytes</span></code> for JWS and JWE serializations</p></li>
+<li><p>Add a <code class="docutils literal notranslate"><span class="pre">detach_content</span></code> method for JWS</p></li>
+<li><p>Remove <code class="docutils literal notranslate"><span class="pre">jwt.extract</span></code> method, because <code class="docutils literal notranslate"><span class="pre">extract</span></code> won’t work for JWE</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">JWKRegistry</span></code> for JWK</p></li>
+<li><p>Update <code class="docutils literal notranslate"><span class="pre">JSONEncryption.add_recipient</span></code> parameters</p></li>
+<li><p>Export register methods for JWE drafts</p></li>
+</ul>
+</section>
+<section id="id2">
+<h2>0.2.0<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
 <p><strong>Released on June 25, 2023</strong></p>
 <p>A beta release.</p>
 </section>
-<section id="id2">
-<h2>0.1.0<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
+<section id="id3">
+<h2>0.1.0<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h2>
 <p><strong>Released on Mar 5, 2023</strong></p>
 <p>Initial release.</p>
 </section>
