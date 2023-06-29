@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>JSON Web Encryption - JOSE</title>
+      <title>JSON Web Encryption - joserfc</title>
     <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Algorithms" href="algorithms.html" /><link rel="prev" title="JSON Web Signature" href="jws.html" />
     <link rel="canonical" href="https://jose.authlib.org/en/dev/guide/jwe.html" />
   <script>
@@ -272,7 +272,7 @@ compact, URL-safe string.  This string is:</p>
 </div>
 <section id="encryption">
 <h3>Encryption<a class="headerlink" href="#encryption" title="Permalink to this heading">¶</a></h3>
-<p>You can call <code class="xref py py-meth docutils literal notranslate"><span class="pre">jwe.encrypt_compact()</span></code> to construct a compact JWE serialization:</p>
+<p>You can call <a class="reference internal" href="../api/jwe.html#joserfc.jwe.encrypt_compact" title="joserfc.jwe.encrypt_compact"><code class="xref py py-meth docutils literal notranslate"><span class="pre">jwe.encrypt_compact()</span></code></a> to construct a compact JWE serialization:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="kn">from</span> <span class="nn">joserfc</span> <span class="kn">import</span> <span class="n">jwe</span>
 </span><span id="1-2"><span class="kn">from</span> <span class="nn">joserfc.jwk</span> <span class="kn">import</span> <span class="n">OctKey</span>
 </span><span id="1-3">
@@ -291,7 +291,7 @@ according to <a class="reference internal" href="algorithms.html#jwe-algorithms"
 <section id="decryption">
 <h3>Decryption<a class="headerlink" href="#decryption" title="Permalink to this heading">¶</a></h3>
 <p>It is very easy to decrypt the compact serialization in the previous example with
-<code class="xref py py-meth docutils literal notranslate"><span class="pre">jwe.decrypt_compact()</span></code>:</p>
+<a class="reference internal" href="../api/jwe.html#joserfc.jwe.decrypt_compact" title="joserfc.jwe.decrypt_compact"><code class="xref py py-meth docutils literal notranslate"><span class="pre">jwe.decrypt_compact()</span></code></a>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="n">obj</span> <span class="o">=</span> <span class="n">jwe</span><span class="o">.</span><span class="n">decrypt_compact</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
 </span><span id="1-2"><span class="c1"># obj.protected =&gt; {&quot;alg&quot;: &quot;A128KW&quot;, &quot;enc&quot;: &quot;A128GCM&quot;}</span>
 </span><span id="1-3"><span class="c1"># obj.plaintext =&gt; b&quot;hello&quot;</span>
@@ -329,7 +329,7 @@ URL safe.</p>
 <section id="id1">
 <h3>Encryption<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h3>
 <p>The structure for JSON JWE serialization is a little complex, developers
-SHOULD create an object of <code class="xref py py-class docutils literal notranslate"><span class="pre">jwe.JSONEncryption</span></code> at first:</p>
+SHOULD create an object of <a class="reference internal" href="../api/jwe.html#joserfc.jwe.JSONEncryption" title="joserfc.jwe.JSONEncryption"><code class="xref py py-class docutils literal notranslate"><span class="pre">jwe.JSONEncryption</span></code></a> at first:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="kn">from</span> <span class="nn">joserfc.jwk</span> <span class="kn">import</span> <span class="n">OctKey</span><span class="p">,</span> <span class="n">RSAKey</span>
 </span><span id="1-2"><span class="kn">from</span> <span class="nn">joserfc.jwe</span> <span class="kn">import</span> <span class="n">JSONEncryption</span><span class="p">,</span> <span class="n">encrypt_json</span>
 </span><span id="1-3">
@@ -366,7 +366,7 @@ SHOULD create an object of <code class="xref py py-class docutils literal notran
 </section>
 <section id="id2">
 <h3>Decryption<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h3>
-<p>Calling <code class="xref py py-meth docutils literal notranslate"><span class="pre">jwe.decrypt_json()</span></code> could decrypt the JSON Serialization in the above
+<p>Calling <a class="reference internal" href="../api/jwe.html#joserfc.jwe.decrypt_json" title="joserfc.jwe.decrypt_json"><code class="xref py py-meth docutils literal notranslate"><span class="pre">jwe.decrypt_json()</span></code></a> could decrypt the JSON Serialization in the above
 example. Most of the time, you would need a JWK Set of private keys for decryption.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="kn">import</span> <span class="nn">json</span>
 </span><span id="1-2"><span class="kn">from</span> <span class="nn">joserfc</span> <span class="kn">import</span> <span class="n">jwe</span>

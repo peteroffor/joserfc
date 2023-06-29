@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Algorithms - JOSE</title>
+      <title>Algorithms - joserfc</title>
     <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Registry" href="registry.html" /><link rel="prev" title="JSON Web Encryption" href="jwe.html" />
     <link rel="canonical" href="https://jose.authlib.org/en/dev/guide/algorithms.html" />
   <script>
@@ -465,8 +465,8 @@ while <code class="docutils literal notranslate"><span class="pre">pycryptodome<
 </section>
 <section id="use-custom-registry">
 <h4>Use custom <code class="docutils literal notranslate"><span class="pre">registry</span></code><a class="headerlink" href="#use-custom-registry" title="Permalink to this heading">¶</a></h4>
-<p>Use a custom <code class="docutils literal notranslate"><span class="pre">registry</span></code> in <code class="xref py py-meth docutils literal notranslate"><span class="pre">encrypt_compact()</span></code>, <code class="xref py py-meth docutils literal notranslate"><span class="pre">decrypt_compact()</span></code>,
-<code class="xref py py-meth docutils literal notranslate"><span class="pre">encrypt_json()</span></code>, and <code class="xref py py-meth docutils literal notranslate"><span class="pre">decrypt_json()</span></code>.</p>
+<p>Use a custom <code class="docutils literal notranslate"><span class="pre">registry</span></code> in <a class="reference internal" href="../api/jwe.html#joserfc.jwe.encrypt_compact" title="joserfc.jwe.encrypt_compact"><code class="xref py py-meth docutils literal notranslate"><span class="pre">encrypt_compact()</span></code></a>, <a class="reference internal" href="../api/jwe.html#joserfc.jwe.decrypt_compact" title="joserfc.jwe.decrypt_compact"><code class="xref py py-meth docutils literal notranslate"><span class="pre">decrypt_compact()</span></code></a>,
+<a class="reference internal" href="../api/jwe.html#joserfc.jwe.encrypt_json" title="joserfc.jwe.encrypt_json"><code class="xref py py-meth docutils literal notranslate"><span class="pre">encrypt_json()</span></code></a>, and <a class="reference internal" href="../api/jwe.html#joserfc.jwe.decrypt_json" title="joserfc.jwe.decrypt_json"><code class="xref py py-meth docutils literal notranslate"><span class="pre">decrypt_json()</span></code></a>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="kn">from</span> <span class="nn">joserfc</span> <span class="kn">import</span> <span class="n">jwe</span>
 </span><span id="1-2"><span class="kn">from</span> <span class="nn">joserfc.jwk</span> <span class="kn">import</span> <span class="n">OctKey</span>
 </span><span id="1-3">
@@ -519,7 +519,7 @@ algorithms, developers MUST register them manually:</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">ECDH-1PU</span></code> algorithms require a <strong>sender key</strong>, which MUST be a private key when
-calling <code class="xref py py-meth docutils literal notranslate"><span class="pre">encrypt_compact()</span></code> and <code class="xref py py-meth docutils literal notranslate"><span class="pre">encrypt_json()</span></code> methods.</p>
+calling <a class="reference internal" href="../api/jwe.html#joserfc.jwe.encrypt_compact" title="joserfc.jwe.encrypt_compact"><code class="xref py py-meth docutils literal notranslate"><span class="pre">encrypt_compact()</span></code></a> and <a class="reference internal" href="../api/jwe.html#joserfc.jwe.encrypt_json" title="joserfc.jwe.encrypt_json"><code class="xref py py-meth docutils literal notranslate"><span class="pre">encrypt_json()</span></code></a> methods.</p>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">sender_key</span></code> can be a <code class="xref py py-class docutils literal notranslate"><span class="pre">KeySet</span></code>, and JWE will find the correct key
 according to <code class="docutils literal notranslate"><span class="pre">skid</span></code> header value.</p>

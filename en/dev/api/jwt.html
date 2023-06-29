@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>JWT API - JOSE</title>
+      <title>JWT API - joserfc</title>
     <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Security" href="../security.html" /><link rel="prev" title="JWK API" href="jwk.html" />
     <link rel="canonical" href="https://jose.authlib.org/en/dev/api/jwt.html" />
   <script>
@@ -108,6 +108,9 @@ html.dark {
         <i class="i-icon theme-icon"></i>
       </button>
       
+        <button class="js-menu xl:hidden flex items-center ml-1" aria-label="Show table of contents" type="button" aria-controls="rside" aria-expanded="false">
+          <i class="i-icon outdent"></i>
+        </button>
     </div>
   </div>
 </div>
@@ -189,7 +192,30 @@ html.dark {
     <button class="rside-close js-menu xl:hidden" aria-label="Close Table of Contents" type="button" aria-controls="rside" aria-expanded="false">
       <i class="i-icon close"></i>
     </button>
-    <div class="sy-scrollbar px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4"><a class="js-repo-stats repo-stats flex items-center" href="https://github.com/authlib/joserfc"
+    <div class="sy-scrollbar px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4">
+  <div class="localtoc">
+    <h3>Table of Contents</h3>
+    <ul>
+<li><a class="reference internal" href="#joserfc.jwt.ClaimsOption"><code class="docutils literal notranslate"><span class="pre">ClaimsOption</span></code></a></li>
+<li><a class="reference internal" href="#joserfc.jwt.JWTClaimsRegistry"><code class="docutils literal notranslate"><span class="pre">JWTClaimsRegistry</span></code></a><ul>
+<li><a class="reference internal" href="#joserfc.jwt.JWTClaimsRegistry.validate_aud"><code class="docutils literal notranslate"><span class="pre">JWTClaimsRegistry.validate_aud()</span></code></a></li>
+<li><a class="reference internal" href="#joserfc.jwt.JWTClaimsRegistry.validate_exp"><code class="docutils literal notranslate"><span class="pre">JWTClaimsRegistry.validate_exp()</span></code></a></li>
+<li><a class="reference internal" href="#joserfc.jwt.JWTClaimsRegistry.validate_iat"><code class="docutils literal notranslate"><span class="pre">JWTClaimsRegistry.validate_iat()</span></code></a></li>
+<li><a class="reference internal" href="#joserfc.jwt.JWTClaimsRegistry.validate_nbf"><code class="docutils literal notranslate"><span class="pre">JWTClaimsRegistry.validate_nbf()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#joserfc.jwt.Token"><code class="docutils literal notranslate"><span class="pre">Token</span></code></a><ul>
+<li><a class="reference internal" href="#joserfc.jwt.Token.claims"><code class="docutils literal notranslate"><span class="pre">Token.claims</span></code></a></li>
+<li><a class="reference internal" href="#joserfc.jwt.Token.header"><code class="docutils literal notranslate"><span class="pre">Token.header</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#joserfc.jwt.check_sensitive_data"><code class="docutils literal notranslate"><span class="pre">check_sensitive_data()</span></code></a></li>
+<li><a class="reference internal" href="#joserfc.jwt.decode"><code class="docutils literal notranslate"><span class="pre">decode()</span></code></a></li>
+<li><a class="reference internal" href="#joserfc.jwt.encode"><code class="docutils literal notranslate"><span class="pre">encode()</span></code></a></li>
+</ul>
+
+
+  </div><a class="js-repo-stats repo-stats flex items-center" href="https://github.com/authlib/joserfc"
   data-type="github" data-user="authlib" data-repo="joserfc">
   <span class="w-8 flex items-center justify-around shrink-0 text-2xl">
     <i class="i-icon github"></i>
@@ -220,6 +246,135 @@ html.dark {
           <section id="jwt-api">
 <h1>JWT API<a class="headerlink" href="#jwt-api" title="Permalink to this heading">¶</a></h1>
 <p>This part of the documentation covers all the interfaces of <code class="docutils literal notranslate"><span class="pre">joserfc.jwt</span></code>.</p>
+<span class="target" id="module-joserfc.jwt"></span><dl class="py class">
+<dt class="sig sig-object py" id="joserfc.jwt.ClaimsOption">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">joserfc.jwt.</span></span><span class="sig-name descname"><span class="pre">ClaimsOption</span></span><a class="headerlink" href="#joserfc.jwt.ClaimsOption" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference external" href="http://openid.net/specs/openid-connect-core-1_0.html#IndividualClaimsRequests">http://openid.net/specs/openid-connect-core-1_0.html#IndividualClaimsRequests</a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="joserfc.jwt.JWTClaimsRegistry">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">joserfc.jwt.</span></span><span class="sig-name descname"><span class="pre">JWTClaimsRegistry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">now</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">leeway</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#joserfc.jwt.ClaimsOption" title="joserfc.rfc7519.registry.ClaimsOption"><span class="pre">ClaimsOption</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#joserfc.jwt.JWTClaimsRegistry" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="joserfc.jwt.JWTClaimsRegistry.validate_aud">
+<span class="sig-name descname"><span class="pre">validate_aud</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#joserfc.jwt.JWTClaimsRegistry.validate_aud" title="Permalink to this definition">¶</a></dt>
+<dd><p>The “aud” (audience) claim identifies the recipients that the JWT is
+intended for.  Each principal intended to process the JWT MUST
+identify itself with a value in the audience claim.  If the principal
+processing the claim does not identify itself with a value in the
+“aud” claim when this claim is present, then the JWT MUST be
+rejected.  In the general case, the “aud” value is an array of
+case-sensitive strings, each containing a StringOrURI value.  In the
+special case when the JWT has one audience, the “aud” value MAY be a
+single case-sensitive string containing a StringOrURI value.  The
+interpretation of audience values is generally application specific.
+Use of this claim is OPTIONAL.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="joserfc.jwt.JWTClaimsRegistry.validate_exp">
+<span class="sig-name descname"><span class="pre">validate_exp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#joserfc.jwt.JWTClaimsRegistry.validate_exp" title="Permalink to this definition">¶</a></dt>
+<dd><p>The “exp” (expiration time) claim identifies the expiration time on
+or after which the JWT MUST NOT be accepted for processing.  The
+processing of the “exp” claim requires that the current date/time
+MUST be before the expiration date/time listed in the “exp” claim.
+Implementers MAY provide for some small leeway, usually no more than
+a few minutes, to account for clock skew.  Its value MUST be a number
+containing a NumericDate value.  Use of this claim is OPTIONAL.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="joserfc.jwt.JWTClaimsRegistry.validate_iat">
+<span class="sig-name descname"><span class="pre">validate_iat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#joserfc.jwt.JWTClaimsRegistry.validate_iat" title="Permalink to this definition">¶</a></dt>
+<dd><p>The “iat” (issued at) claim identifies the time at which the JWT was
+issued.  This claim can be used to determine the age of the JWT.  Its
+value MUST be a number containing a NumericDate value.  Use of this
+claim is OPTIONAL.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="joserfc.jwt.JWTClaimsRegistry.validate_nbf">
+<span class="sig-name descname"><span class="pre">validate_nbf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#joserfc.jwt.JWTClaimsRegistry.validate_nbf" title="Permalink to this definition">¶</a></dt>
+<dd><p>The “nbf” (not before) claim identifies the time before which the JWT
+MUST NOT be accepted for processing.  The processing of the “nbf”
+claim requires that the current date/time MUST be after or equal to
+the not-before date/time listed in the “nbf” claim.  Implementers MAY
+provide for some small leeway, usually no more than a few minutes, to
+account for clock skew.  Its value MUST be a number containing a
+NumericDate value.  Use of this claim is OPTIONAL.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="joserfc.jwt.Token">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">joserfc.jwt.</span></span><span class="sig-name descname"><span class="pre">Token</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">header</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">claims</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#joserfc.jwt.Token" title="Permalink to this definition">¶</a></dt>
+<dd><p>The extracted token object, which contains <code class="docutils literal notranslate"><span class="pre">header</span></code> and <code class="docutils literal notranslate"><span class="pre">claims</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>header</strong> – the header part of the JWT</p></li>
+<li><p><strong>claims</strong> – the payload part of the JWT</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="joserfc.jwt.Token.claims">
+<span class="sig-name descname"><span class="pre">claims</span></span><a class="headerlink" href="#joserfc.jwt.Token.claims" title="Permalink to this definition">¶</a></dt>
+<dd><p>payload claims in dict</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="joserfc.jwt.Token.header">
+<span class="sig-name descname"><span class="pre">header</span></span><a class="headerlink" href="#joserfc.jwt.Token.header" title="Permalink to this definition">¶</a></dt>
+<dd><p>header in dict</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="joserfc.jwt.check_sensitive_data">
+<span class="sig-prename descclassname"><span class="pre">joserfc.jwt.</span></span><span class="sig-name descname"><span class="pre">check_sensitive_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">claims</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#joserfc.jwt.check_sensitive_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if claims contains sensitive information.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="joserfc.jwt.decode">
+<span class="sig-prename descclassname"><span class="pre">joserfc.jwt.</span></span><span class="sig-name descname"><span class="pre">decode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">AnyStr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">AnyStr</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="jwk.html#joserfc.jwk.SymmetricKey" title="joserfc.rfc7517.models.SymmetricKey"><span class="pre">SymmetricKey</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="jwk.html#joserfc.jwk.AsymmetricKey" title="joserfc.rfc7517.models.AsymmetricKey"><span class="pre">AsymmetricKey</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="jwk.html#joserfc.jwk.CurveKey" title="joserfc.rfc7517.models.CurveKey"><span class="pre">CurveKey</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">KeySet</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="jwk.html#joserfc.jwk.SymmetricKey" title="joserfc.rfc7517.models.SymmetricKey"><span class="pre">SymmetricKey</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="jwk.html#joserfc.jwk.AsymmetricKey" title="joserfc.rfc7517.models.AsymmetricKey"><span class="pre">AsymmetricKey</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="jwk.html#joserfc.jwk.CurveKey" title="joserfc.rfc7517.models.CurveKey"><span class="pre">CurveKey</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">algorithms</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">registry</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="jws.html#joserfc.jws.JWSRegistry" title="joserfc.rfc7515.registry.JWSRegistry"><span class="pre">JWSRegistry</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">JWERegistry</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#joserfc.jwt.Token" title="joserfc.jwt.Token"><span class="pre">Token</span></a></span></span><a class="headerlink" href="#joserfc.jwt.decode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decode the JSON Web Token string with the given key, and validate
+it with the claims requests.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> – text of the JWT</p></li>
+<li><p><strong>key</strong> – key used to verify the signature</p></li>
+<li><p><strong>algorithms</strong> – a list of allowed algorithms</p></li>
+<li><p><strong>registry</strong> – a <code class="docutils literal notranslate"><span class="pre">JWSRegistry</span></code> or <code class="docutils literal notranslate"><span class="pre">JWERegistry</span></code> to use</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raise<span class="colon">:</span></dt>
+<dd class="field-even"><p>BadSignatureError</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="joserfc.jwt.encode">
+<span class="sig-prename descclassname"><span class="pre">joserfc.jwt.</span></span><span class="sig-name descname"><span class="pre">encode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">header</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">claims</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">AnyStr</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="jwk.html#joserfc.jwk.SymmetricKey" title="joserfc.rfc7517.models.SymmetricKey"><span class="pre">SymmetricKey</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="jwk.html#joserfc.jwk.AsymmetricKey" title="joserfc.rfc7517.models.AsymmetricKey"><span class="pre">AsymmetricKey</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="jwk.html#joserfc.jwk.CurveKey" title="joserfc.rfc7517.models.CurveKey"><span class="pre">CurveKey</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">KeySet</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="jwk.html#joserfc.jwk.SymmetricKey" title="joserfc.rfc7517.models.SymmetricKey"><span class="pre">SymmetricKey</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="jwk.html#joserfc.jwk.AsymmetricKey" title="joserfc.rfc7517.models.AsymmetricKey"><span class="pre">AsymmetricKey</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="jwk.html#joserfc.jwk.CurveKey" title="joserfc.rfc7517.models.CurveKey"><span class="pre">CurveKey</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">algorithms</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">registry</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="jws.html#joserfc.jws.JWSRegistry" title="joserfc.rfc7515.registry.JWSRegistry"><span class="pre">JWSRegistry</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">JWERegistry</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#joserfc.jwt.encode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Encode a JSON Web Token with the given header, and claims.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>header</strong> – A dict of the JWT header</p></li>
+<li><p><strong>claims</strong> – A dict of the JWT claims to be encoded</p></li>
+<li><p><strong>key</strong> – key used to sign the signature</p></li>
+<li><p><strong>algorithms</strong> – a list of allowed algorithms</p></li>
+<li><p><strong>registry</strong> – a <code class="docutils literal notranslate"><span class="pre">JWSRegistry</span></code> or <code class="docutils literal notranslate"><span class="pre">JWERegistry</span></code> to use</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 
         </article>

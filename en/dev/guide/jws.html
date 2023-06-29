@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>JSON Web Signature - JOSE</title>
+      <title>JSON Web Signature - joserfc</title>
     <link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="JSON Web Encryption" href="jwe.html" /><link rel="prev" title="JSON Web Token" href="jwt.html" />
     <link rel="canonical" href="https://jose.authlib.org/en/dev/guide/jws.html" />
   <script>
@@ -267,7 +267,7 @@ content as a compact, URL-safe string. This string is:</p>
 </div>
 <section id="serialization">
 <h3>Serialization<a class="headerlink" href="#serialization" title="Permalink to this heading">¶</a></h3>
-<p>You can call <code class="xref py py-meth docutils literal notranslate"><span class="pre">jws.serialize_compact()</span></code> to construct a compact JWS serialization:</p>
+<p>You can call <a class="reference internal" href="../api/jws.html#joserfc.jws.serialize_compact" title="joserfc.jws.serialize_compact"><code class="xref py py-meth docutils literal notranslate"><span class="pre">jws.serialize_compact()</span></code></a> to construct a compact JWS serialization:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="kn">from</span> <span class="nn">joserfc</span> <span class="kn">import</span> <span class="n">jws</span>
 </span><span id="1-2">
 </span><span id="1-3"><span class="n">protected</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;alg&quot;</span><span class="p">:</span> <span class="s2">&quot;HS256&quot;</span><span class="p">}</span>
@@ -279,7 +279,7 @@ content as a compact, URL-safe string. This string is:</p>
 example, <code class="docutils literal notranslate"><span class="pre">protected</span></code> is the “protected header” part, <cite>“hello”</cite> is the payload part, and
 <cite>“secret”</cite> is a plain private key.</p>
 <p>We encourage developers to use a specified key type, the above <cite>“secret”</cite> is actually a
-<code class="xref py py-class docutils literal notranslate"><span class="pre">jwk.OctKey</span></code>. A better example could be:</p>
+<a class="reference internal" href="../api/jwk.html#joserfc.jwk.OctKey" title="joserfc.jwk.OctKey"><code class="xref py py-class docutils literal notranslate"><span class="pre">jwk.OctKey</span></code></a>. A better example could be:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="kn">from</span> <span class="nn">joserfc</span> <span class="kn">import</span> <span class="n">jws</span>
 </span><span id="1-2"><span class="kn">from</span> <span class="nn">joserfc.jwk</span> <span class="kn">import</span> <span class="n">OctKey</span>
 </span><span id="1-3">
@@ -293,7 +293,7 @@ example, <code class="docutils literal notranslate"><span class="pre">protected<
 </section>
 <section id="deserialization">
 <h3>Deserialization<a class="headerlink" href="#deserialization" title="Permalink to this heading">¶</a></h3>
-<p>Calling <code class="xref py py-meth docutils literal notranslate"><span class="pre">jws.deserialize_compact()</span></code> to extract and verify the compact
+<p>Calling <a class="reference internal" href="../api/jws.html#joserfc.jws.deserialize_compact" title="joserfc.jws.deserialize_compact"><code class="xref py py-meth docutils literal notranslate"><span class="pre">jws.deserialize_compact()</span></code></a> to extract and verify the compact
 serialization with a public key.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="kn">from</span> <span class="nn">joserfc</span> <span class="kn">import</span> <span class="n">jws</span>
 </span><span id="1-2"><span class="kn">from</span> <span class="nn">joserfc.jwk</span> <span class="kn">import</span> <span class="n">OctKey</span>
@@ -332,7 +332,7 @@ for compactness nor URL-safe.</p>
 </div>
 <section id="id1">
 <h3>Serialization<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h3>
-<p>You can call <code class="xref py py-meth docutils literal notranslate"><span class="pre">jws.serialize_json()</span></code> to construct a JSON JWS serialization:</p>
+<p>You can call <a class="reference internal" href="../api/jws.html#joserfc.jws.serialize_json" title="joserfc.jws.serialize_json"><code class="xref py py-meth docutils literal notranslate"><span class="pre">jws.serialize_json()</span></code></a> to construct a JSON JWS serialization:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="kn">import</span> <span class="nn">json</span>
 </span><span id="1-2"><span class="kn">from</span> <span class="nn">joserfc</span> <span class="kn">import</span> <span class="n">jws</span>
 </span><span id="1-3"><span class="kn">from</span> <span class="nn">joserfc.jwk</span> <span class="kn">import</span> <span class="n">KeySet</span>
@@ -378,11 +378,11 @@ the payload to sign a signature for the member:</p>
 </span></pre></div>
 </div>
 <p>In the above example, we passed a <code class="xref py py-class docutils literal notranslate"><span class="pre">jwk.KeySet</span></code> as the private key parameter, the
-<code class="xref py py-meth docutils literal notranslate"><span class="pre">jws.serialize_json()</span></code> will find the correct key in the key set by <code class="docutils literal notranslate"><span class="pre">kid</span></code>.</p>
+<a class="reference internal" href="../api/jws.html#joserfc.jws.serialize_json" title="joserfc.jws.serialize_json"><code class="xref py py-meth docutils literal notranslate"><span class="pre">jws.serialize_json()</span></code></a> will find the correct key in the key set by <code class="docutils literal notranslate"><span class="pre">kid</span></code>.</p>
 </section>
 <section id="id2">
 <h3>Deserialization<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h3>
-<p>Calling <code class="xref py py-meth docutils literal notranslate"><span class="pre">jws.deserialize_json()</span></code> to extract and verify the JSON
+<p>Calling <a class="reference internal" href="../api/jws.html#joserfc.jws.deserialize_json" title="joserfc.jws.deserialize_json"><code class="xref py py-meth docutils literal notranslate"><span class="pre">jws.deserialize_json()</span></code></a> to extract and verify the JSON
 serialization with a public key.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;your-public-jwks.json&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
 </span><span id="1-2">    <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
@@ -440,7 +440,7 @@ a list of members to construct a general serialization:</p>
 </span><span id="1-10"><span class="n">jws</span><span class="o">.</span><span class="n">serialize_json</span><span class="p">([</span><span class="n">member</span><span class="p">],</span> <span class="n">payload</span><span class="p">,</span> <span class="n">private_key</span><span class="p">)</span>
 </span></pre></div>
 </div>
-<p>The returned value from <code class="docutils literal notranslate"><span class="pre">deserialize_json</span></code> is an object of <code class="xref py py-class docutils literal notranslate"><span class="pre">jws.JSONSignature</span></code>,
+<p>The returned value from <code class="docutils literal notranslate"><span class="pre">deserialize_json</span></code> is an object of <a class="reference internal" href="../api/jws.html#joserfc.jws.JSONSignature" title="joserfc.jws.JSONSignature"><code class="xref py py-class docutils literal notranslate"><span class="pre">jws.JSONSignature</span></code></a>,
 you can tell if the signature is flattened or general with <code class="docutils literal notranslate"><span class="pre">obj.flattened</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="n">obj</span> <span class="o">=</span> <span class="n">jws</span><span class="o">.</span><span class="n">deserialize_json</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">public_key</span><span class="p">)</span>
 </span><span id="1-2"><span class="k">if</span> <span class="n">obj</span><span class="o">.</span><span class="n">flattened</span><span class="p">:</span>
