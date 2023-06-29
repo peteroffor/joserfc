@@ -200,7 +200,7 @@ html.dark {
     <ul>
 <li><a class="reference internal" href="#encode-and-decode-jwt">Encode and decode JWT</a></li>
 <li><a class="reference internal" href="#import-and-generate-jwk">Import and generate JWK</a></li>
-<li><a class="reference internal" href="#next">Next</a></li>
+<li><a class="reference internal" href="#dive-deep">Dive deep</a></li>
 </ul>
 
 
@@ -255,8 +255,8 @@ encoding and decoding a JWT.</p>
 </section>
 <section id="import-and-generate-jwk">
 <h2>Import and generate JWK<a class="headerlink" href="#import-and-generate-jwk" title="Permalink to this heading">¶</a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">joserfc</span> <span class="kn">import</span> <span class="n">jwk</span>
-</span><span id="1-2"><span class="gp">&gt;&gt;&gt; </span><span class="n">rsa_key</span> <span class="o">=</span> <span class="n">jwk</span><span class="o">.</span><span class="n">generate_key</span><span class="p">(</span><span class="s1">&#39;RSA&#39;</span><span class="p">,</span> <span class="mi">512</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">joserfc.jwk</span> <span class="kn">import</span> <span class="n">RSAKey</span>
+</span><span id="1-2"><span class="gp">&gt;&gt;&gt; </span><span class="n">rsa_key</span> <span class="o">=</span> <span class="n">RSAKey</span><span class="o">.</span><span class="n">generate_key</span><span class="p">(</span><span class="mi">512</span><span class="p">)</span>
 </span><span id="1-3"><span class="gp">&gt;&gt;&gt; </span><span class="n">rsa_key</span><span class="o">.</span><span class="n">as_bytes</span><span class="p">(</span><span class="n">private</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </span><span id="1-4"><span class="go">b&#39;-----BEGIN PRIVATE KEY-----\n....&#39;</span>
 </span><span id="1-5"><span class="gp">&gt;&gt;&gt; </span><span class="n">rsa_key</span><span class="o">.</span><span class="n">as_bytes</span><span class="p">(</span><span class="n">private</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -268,20 +268,20 @@ encoding and decoding a JWT.</p>
 </span><span id="1-11"><span class="go">}</span>
 </span></pre></div>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">joserfc</span> <span class="kn">import</span> <span class="n">jwk</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">joserfc.jwk</span> <span class="kn">import</span> <span class="n">RSAKey</span>
 </span><span id="1-2"><span class="gp">&gt;&gt;&gt; </span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;your-rsa-key.pem&quot;</span><span class="p">)</span>
 </span><span id="1-3"><span class="gp">&gt;&gt;&gt; </span><span class="n">pem_data</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 </span><span id="1-4"><span class="gp">&gt;&gt;&gt; </span><span class="n">pem_data</span>
 </span><span id="1-5"><span class="go">&#39;-----BEGIN PUBLIC KEY-----\n...&#39;</span>
-</span><span id="1-6"><span class="gp">&gt;&gt;&gt; </span><span class="n">rsa_key</span> <span class="o">=</span> <span class="n">jwk</span><span class="o">.</span><span class="n">import_key</span><span class="p">(</span><span class="s2">&quot;RSA&quot;</span><span class="p">,</span> <span class="n">pem_data</span><span class="p">)</span>
+</span><span id="1-6"><span class="gp">&gt;&gt;&gt; </span><span class="n">rsa_key</span> <span class="o">=</span> <span class="n">RSAKey</span><span class="o">.</span><span class="n">import_key</span><span class="p">(</span><span class="n">pem_data</span><span class="p">)</span>
 </span><span id="1-7"><span class="gp">&gt;&gt;&gt; </span><span class="n">rsa_key</span><span class="o">.</span><span class="n">as_bytes</span><span class="p">()</span>
 </span><span id="1-8"><span class="go">b&#39;-----BEGIN PUBLIC KEY-----\n...&#39;</span>
 </span></pre></div>
 </div>
 <p>Learn the details of <a class="reference internal" href="jwk.html#jwk"><span class="std std-ref">JSON Web Key</span></a> in the next chapter.</p>
 </section>
-<section id="next">
-<h2>Next<a class="headerlink" href="#next" title="Permalink to this heading">¶</a></h2>
+<section id="dive-deep">
+<h2>Dive deep<a class="headerlink" href="#dive-deep" title="Permalink to this heading">¶</a></h2>
 <p>Next, learn each module in details.</p>
 <div class="toctree-wrapper compound">
 <ul>

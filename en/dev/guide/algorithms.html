@@ -250,10 +250,10 @@ JSON Web Key (JWK).</p>
 <h2>JSON Web Key<a class="headerlink" href="#json-web-key" title="Permalink to this heading">¶</a></h2>
 <p>The JSON Web Key (JWK) algorithms contains:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="jwk.html#octkey"><span class="std std-ref">OctKey</span></a></p></li>
-<li><p><a class="reference internal" href="jwk.html#rsakey"><span class="std std-ref">RSAKey</span></a></p></li>
-<li><p><a class="reference internal" href="jwk.html#eckey"><span class="std std-ref">ECKey</span></a></p></li>
-<li><p><a class="reference internal" href="jwk.html#okpkey"><span class="std std-ref">OKPKey</span></a></p></li>
+<li><p><a class="reference internal" href="jwk.html#octkey"><span class="std std-ref">OctKey</span></a> : accepts key size in bits, which means the <code class="docutils literal notranslate"><span class="pre">key_size</span></code> MUST be dividable by 8.</p></li>
+<li><p><a class="reference internal" href="jwk.html#rsakey"><span class="std std-ref">RSAKey</span></a> : accepts key size in bits, <code class="docutils literal notranslate"><span class="pre">key_size</span></code> MUST <code class="docutils literal notranslate"><span class="pre">&gt;=512</span></code> and dividable by 8.</p></li>
+<li><p><a class="reference internal" href="jwk.html#eckey"><span class="std std-ref">ECKey</span></a> : accepts <code class="docutils literal notranslate"><span class="pre">crv</span></code> with <code class="docutils literal notranslate"><span class="pre">P-256</span></code>, <code class="docutils literal notranslate"><span class="pre">P-384</span></code>, <code class="docutils literal notranslate"><span class="pre">P-521</span></code>, and <code class="docutils literal notranslate"><span class="pre">secp256k1</span></code>.</p></li>
+<li><p><a class="reference internal" href="jwk.html#okpkey"><span class="std std-ref">OKPKey</span></a> : accepts <code class="docutils literal notranslate"><span class="pre">crv</span></code> with <code class="docutils literal notranslate"><span class="pre">Ed25519</span></code>, <code class="docutils literal notranslate"><span class="pre">Ed448</span></code>, <code class="docutils literal notranslate"><span class="pre">X25519</span></code>, and <code class="docutils literal notranslate"><span class="pre">X448</span></code>.</p></li>
 </ul>
 </section>
 <section id="json-web-signature">
@@ -436,10 +436,10 @@ Please refer to the following sections for more information.</p>
 <p>You can use <code class="docutils literal notranslate"><span class="pre">OKPKey</span></code> with the “crv” (curve) parameter set to <code class="docutils literal notranslate"><span class="pre">X25519</span></code> or <code class="docutils literal notranslate"><span class="pre">X448</span></code>
 for the following algorithms:</p>
 <ul class="simple">
-<li><p>“ECDH-ES”</p></li>
-<li><p>“ECDH-ES+A128KW”</p></li>
-<li><p>“ECDH-ES+A192KW”</p></li>
-<li><p>“ECDH-ES+A256KW”</p></li>
+<li><p>ECDH-ES</p></li>
+<li><p>ECDH-ES+A128KW</p></li>
+<li><p>ECDH-ES+A192KW</p></li>
+<li><p>ECDH-ES+A256KW</p></li>
 </ul>
 <p>This allows you to utilize these elliptic curve algorithms with <code class="docutils literal notranslate"><span class="pre">OKPKey</span></code> for your
 cryptographic operations.</p>
@@ -451,17 +451,15 @@ To use <code class="docutils literal notranslate"><span class="pre">C20P</span><
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span id="1-1">pip<span class="w"> </span>install<span class="w"> </span>pycryptodome
 </span></pre></div>
 </div>
-<p>This is caused by <code class="docutils literal notranslate"><span class="pre">cryptography</span></code> package does only support “ChaCha20” cipher, while
-<code class="docutils literal notranslate"><span class="pre">pycryptodome</span></code> supports both “ChaCha20” and “XChaCha20” ciphers.</p>
+<p>This is caused by <code class="docutils literal notranslate"><span class="pre">cryptography</span></code> package does only support “ChaCha20” cipher, not <strong>XChaCha20</strong>,
+while <code class="docutils literal notranslate"><span class="pre">pycryptodome</span></code> supports both “ChaCha20” and “XChaCha20” ciphers.</p>
 <section id="register-ciphers">
 <h4>Register ciphers<a class="headerlink" href="#register-ciphers" title="Permalink to this heading">¶</a></h4>
 <p>The default <a class="reference internal" href="registry.html#registry"><span class="std std-ref">Registry</span></a> doesn’t contain draft ciphers, developers MUST register
 <code class="docutils literal notranslate"><span class="pre">C20P</span></code> and <code class="docutils literal notranslate"><span class="pre">XC20P</span></code> at first:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="kn">from</span> <span class="nn">joserfc.jwe</span> <span class="kn">import</span> <span class="n">JWERegistry</span>
-</span><span id="1-2"><span class="kn">from</span> <span class="nn">joserfc.drafts.jwe_chacha20</span> <span class="kn">import</span> <span class="n">C20P</span><span class="p">,</span> <span class="n">XC20P</span>
-</span><span id="1-3">
-</span><span id="1-4"><span class="n">JWERegistry</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">C20P</span><span class="p">)</span>
-</span><span id="1-5"><span class="n">JWERegistry</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">XC20P</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="kn">from</span> <span class="nn">joserfc.drafts.jwe_chacha20</span> <span class="kn">import</span> <span class="n">register_chaha20_poly1305</span>
+</span><span id="1-2">
+</span><span id="1-3"><span class="n">register_chaha20_poly1305</span><span class="p">()</span>
 </span></pre></div>
 </div>
 </section>
@@ -472,7 +470,7 @@ To use <code class="docutils literal notranslate"><span class="pre">C20P</span><
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="kn">from</span> <span class="nn">joserfc</span> <span class="kn">import</span> <span class="n">jwe</span>
 </span><span id="1-2"><span class="kn">from</span> <span class="nn">joserfc.jwk</span> <span class="kn">import</span> <span class="n">OctKey</span>
 </span><span id="1-3">
-</span><span id="1-4"><span class="n">registry</span> <span class="o">=</span> <span class="n">JWERegistry</span><span class="p">(</span>
+</span><span id="1-4"><span class="n">registry</span> <span class="o">=</span> <span class="n">jwe</span><span class="o">.</span><span class="n">JWERegistry</span><span class="p">(</span>
 </span><span id="1-5">    <span class="c1"># add more &quot;alg&quot; and &quot;enc&quot; if you want</span>
 </span><span id="1-6">    <span class="n">algorithms</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;A128KW&quot;</span><span class="p">,</span> <span class="s2">&quot;C20P&quot;</span><span class="p">]</span>
 </span><span id="1-7"><span class="p">)</span>
@@ -491,6 +489,40 @@ To use <code class="docutils literal notranslate"><span class="pre">C20P</span><
 </section>
 <section id="ecdh-1pu-algorithms">
 <span id="ecdh1pu"></span><h3>ECDH-1PU algorithms<a class="headerlink" href="#ecdh-1pu-algorithms" title="Permalink to this heading">¶</a></h3>
+<p>Key Agreement with Elliptic Curve Diffie-Hellman One-Pass Unified Model (ECDH-1PU)
+are still in drafts, they are not registered by default. To use <code class="docutils literal notranslate"><span class="pre">ECDH-1PU</span></code> related
+algorithms, developers MUST register them manually:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="kn">from</span> <span class="nn">joserfc.drafts.jwe_ecdh_1pu</span> <span class="kn">import</span> <span class="n">register_ecdh_1pu</span>
+</span><span id="1-2">
+</span><span id="1-3"><span class="n">register_ecdh_1pu</span><span class="p">()</span>
+</span></pre></div>
+</div>
+<p>Then use a custom <code class="docutils literal notranslate"><span class="pre">registry</span></code> with the required <code class="docutils literal notranslate"><span class="pre">ECDH-1PU</span></code> algorithms. For instance:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="kn">from</span> <span class="nn">joserfc</span> <span class="kn">import</span> <span class="n">jwe</span>
+</span><span id="1-2"><span class="kn">from</span> <span class="nn">joserfc.jwk</span> <span class="kn">import</span> <span class="n">ECKey</span>
+</span><span id="1-3">
+</span><span id="1-4"><span class="n">registry</span> <span class="o">=</span> <span class="n">jwe</span><span class="o">.</span><span class="n">JWERegistry</span><span class="p">(</span>
+</span><span id="1-5">    <span class="n">algorithms</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;ECDH-1PU+A128KW&quot;</span><span class="p">,</span> <span class="s2">&quot;A128CBC-HS256&quot;</span><span class="p">]</span>
+</span><span id="1-6"><span class="p">)</span>
+</span><span id="1-7"><span class="n">protected</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;alg&quot;</span><span class="p">:</span> <span class="s2">&quot;ECDH-1PU+A128KW&quot;</span><span class="p">,</span> <span class="s2">&quot;enc&quot;</span><span class="p">:</span> <span class="s2">&quot;A128CBC-HS256&quot;</span><span class="p">}</span>
+</span><span id="1-8"><span class="n">recipient_key</span> <span class="o">=</span> <span class="n">ECKey</span><span class="o">.</span><span class="n">import_key</span><span class="p">(</span><span class="s2">&quot;your-ec-public-key.json&quot;</span><span class="p">)</span>
+</span><span id="1-9"><span class="n">sender_key</span> <span class="o">=</span> <span class="n">ECKey</span><span class="o">.</span><span class="n">import_key</span><span class="p">(</span><span class="s2">&quot;your-ec-sender-key.json&quot;</span><span class="p">)</span>  <span class="c1"># this SHOULD be a private key</span>
+</span><span id="1-10"><span class="n">encrypted_text</span> <span class="o">=</span> <span class="n">jwe</span><span class="o">.</span><span class="n">encrypt_compact</span><span class="p">(</span>
+</span><span id="1-11">    <span class="n">protected</span><span class="p">,</span>
+</span><span id="1-12">    <span class="sa">b</span><span class="s2">&quot;hello&quot;</span><span class="p">,</span>
+</span><span id="1-13">    <span class="n">public_key</span><span class="o">=</span><span class="n">recipient_key</span><span class="p">,</span>
+</span><span id="1-14">    <span class="n">registry</span><span class="o">=</span><span class="n">registry</span><span class="p">,</span>
+</span><span id="1-15">    <span class="n">sender_key</span><span class="o">=</span><span class="n">sender_key</span><span class="p">,</span>
+</span><span id="1-16"><span class="p">)</span>
+</span></pre></div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">ECDH-1PU</span></code> algorithms require a <strong>sender key</strong>, which MUST be a private key when
+calling <code class="xref py py-meth docutils literal notranslate"><span class="pre">encrypt_compact()</span></code> and <code class="xref py py-meth docutils literal notranslate"><span class="pre">encrypt_json()</span></code> methods.</p>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">sender_key</span></code> can be a <code class="xref py py-class docutils literal notranslate"><span class="pre">KeySet</span></code>, and JWE will find the correct key
+according to <code class="docutils literal notranslate"><span class="pre">skid</span></code> header value.</p>
 </section>
 </section>
 </section>

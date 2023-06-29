@@ -54,6 +54,8 @@ html.dark {
 <meta property="og:url" content="https://jose.authlib.org/en/dev/guide/jws.html"/>
 <meta property="og:title" content="JSON Web Signature"/>
 <meta name="twitter:card" content="summary"/>
+<meta name="description" content="How to serialize and deserialize JWS in Compact, General JSON, and Flattened JSON Serialization."/>
+<meta property="og:description" content="How to serialize and deserialize JWS in Compact, General JSON, and Flattened JSON Serialization."/>
 <meta name="twitter:creator" content="@lepture"/>
 <meta name="twitter:site" content="@authlib"/></head>
 <body><div class="document"><div class="sy-head">
@@ -256,16 +258,12 @@ content as a compact, URL-safe string. This string is:</p>
 </span><span id="1-3">BASE64URL(JWS Signature)
 </span></pre></div>
 </div>
-<p>An example of a compact serialization:</p>
+<p>An example of a compact serialization (line breaks for display purposes only):</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span><span id="1-1">eyJ0eXAiOiJKV1QiLA0KICJhbGciOiJIUzI1NiJ9.
 </span><span id="1-2">eyJpc3MiOiJqb2UiLA0KICJleHAiOjEzMDA4MTkzODAsDQogImh0dHA6Ly9leGFt
 </span><span id="1-3">cGxlLmNvbS9pc19yb290Ijp0cnVlfQ.
 </span><span id="1-4">dBjftJeZ4CVP-mB92K27uhbUJU1p1r_wW1gFWFOEjXk
 </span></pre></div>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>line breaks for display purposes only</p>
 </div>
 <section id="serialization">
 <h3>Serialization<a class="headerlink" href="#serialization" title="Permalink to this heading">¶</a></h3>
@@ -303,8 +301,8 @@ serialization with a public key.</p>
 </span><span id="1-4"><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;eyJhbGciOiJIUzI1NiJ9.aGVsbG8.UYmO_lPAY5V0Wf4KZsfhiYs1SxqXPhxvjuYqellDV5A&quot;</span>
 </span><span id="1-5"><span class="n">key</span> <span class="o">=</span> <span class="n">OctKey</span><span class="o">.</span><span class="n">import_key</span><span class="p">(</span><span class="s2">&quot;secret&quot;</span><span class="p">)</span>
 </span><span id="1-6"><span class="n">obj</span> <span class="o">=</span> <span class="n">jws</span><span class="o">.</span><span class="n">deserialize_compact</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
-</span><span id="1-7"><span class="c1"># =&gt; obj.protected == {&quot;alg&quot;: &quot;HS256&quot;}</span>
-</span><span id="1-8"><span class="c1"># =&gt; obj.payload == b&quot;hello&quot;</span>
+</span><span id="1-7"><span class="c1"># obj.protected =&gt; {&quot;alg&quot;: &quot;HS256&quot;}</span>
+</span><span id="1-8"><span class="c1"># obj.payload =&gt; b&quot;hello&quot;</span>
 </span></pre></div>
 </div>
 </section>
