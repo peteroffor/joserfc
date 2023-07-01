@@ -14,12 +14,12 @@
     } else if (isDarkTheme) {
       document.documentElement.classList.add('dark')
     }
-  </script><link rel="shortcut icon" href="../_static/icon.svg"/><link rel="stylesheet" href="../_static/pygments.css?v=2023.6.27" type="text/css" />
-    <link rel="stylesheet" href="../_static/shibuya.css?v=2023.6.27" type="text/css" />
+  </script><link rel="shortcut icon" href="../_static/icon.svg"/><link rel="stylesheet" href="../_static/pygments.css?v=2023.6.30" type="text/css" />
+    <link rel="stylesheet" href="../_static/shibuya.css?v=2023.6.30" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
-    <link media="print" rel="stylesheet" type="text/css" href="../_static/print.css?v=2023.6.27" />
+    <link media="print" rel="stylesheet" type="text/css" href="../_static/print.css?v=2023.6.30" />
     <style>
 :root {
   --sy-f-sys:-apple-system, BlinkMacSystemFont, Segoe UI, Oxygen, Ubuntu, Droid Sans, Helvetica Neue;--sy-f-cjk:PingFang SC, Hiragino Sans GB, Droid Sans Fallback, Microsoft YaHei;--sy-f-heading:var(--sy-f-sys), var(--sy-f-cjk), sans-serif;--sy-f-text:var(--sy-f-sys), var(--sy-f-cjk), sans-serif;--sy-f-mono:Menlo, Monaco, Consolas, "Courier New", monospace;--sy-c-divider:rgba(var(--sy-rc-text), 0.1);--sy-c-divider-weak:rgba(var(--sy-rc-text), 0.05);--sy-c-border:rgba(var(--sy-rc-text), 0.14);--sy-s-banner-height:0rem;--sy-s-navbar-height:4rem;--sy-s-offset-top:calc(var(--sy-s-navbar-height) + var(--sy-s-banner-height));--sy-c-link:rgb(var(--sy-rc-theme));
@@ -54,6 +54,8 @@ html.dark {
 <meta property="og:url" content="https://jose.authlib.org/en/dev/guide/jwt.html"/>
 <meta property="og:title" content="JSON Web Token"/>
 <meta name="twitter:card" content="summary"/>
+<meta name="description" content="How to encode and decode a JSON Web Token (JWT) in python."/>
+<meta property="og:description" content="How to encode and decode a JSON Web Token (JWT) in python."/>
 <meta name="twitter:creator" content="@lepture"/>
 <meta name="twitter:site" content="@authlib"/></head>
 <body><div class="document"><div class="sy-head">
@@ -145,7 +147,7 @@ html.dark {
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Essentials</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Quick Start</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Guide</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="jwk.html">JSON Web Key</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">JSON Web Token</a></li>
 <li class="toctree-l2"><a class="reference internal" href="jws.html">JSON Web Signature</a></li>
@@ -214,7 +216,6 @@ html.dark {
 <li><a class="reference internal" href="#algorithms-registry">Algorithms &amp; Registry</a></li>
 </ul>
 
-
   </div><a class="js-repo-stats repo-stats flex items-center" href="https://github.com/authlib/joserfc"
   data-type="github" data-user="authlib" data-repo="joserfc">
   <span class="w-8 flex items-center justify-around shrink-0 text-2xl">
@@ -245,11 +246,13 @@ html.dark {
         <article class="yue" role="main">
           <section id="json-web-token">
 <span id="jwt"></span><h1>JSON Web Token<a class="headerlink" href="#json-web-token" title="Permalink to this heading">¶</a></h1>
-<p>JSON Web Token (JWT) is built on top of <a class="reference internal" href="jws.html#jws"><span class="std std-ref">JSON Web Signature</span></a> or <a class="reference internal" href="jwe.html#jwe"><span class="std std-ref">JSON Web Encryption</span></a> with certain payload claims.
-The claims should be in JSON format, with specified fields.</p>
+<p>JSON Web Token (JWT) is built on top of <a class="reference internal" href="jws.html#jws"><span class="std std-ref">JSON Web Signature</span></a> or <a class="reference internal" href="jwe.html#jwe"><span class="std std-ref">JSON Web Encryption</span></a> and includes
+specific payload claims. These claims are required to be in JSON format and
+follow a predefined set of fields.</p>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
-<p>Do you know JWT is not a part of JOSE. It is created by the OAuth working group.</p>
+<p>Do you know that JSON Web Token (JWT) is not a part of JOSE. Instead,
+it was created by the OAuth working group.</p>
 </div>
 <section id="encode-token">
 <h2>Encode token<a class="headerlink" href="#encode-token" title="Permalink to this heading">¶</a></h2>
@@ -353,7 +356,7 @@ is an example of JWE:</p>
 </span></pre></div>
 </div>
 <p>The JWE formatted result contains 5 parts, while JWS only contains 3 parts,
-a JWE example would be something like this:</p>
+a JWE example would be something like this (line breaks for display only):</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span><span id="1-1">eyJhbGciOiJBMTI4S1ciLCJlbmMiOiJBMTI4R0NNIiwidHlwIjoiSldUIn0.
 </span><span id="1-2">F3plSTFE5GPJNs_qGsmoVx4o402URh5G.
 </span><span id="1-3">57P7XX6C3hJbk-Nl.
@@ -361,7 +364,6 @@ a JWE example would be something like this:</p>
 </span><span id="1-5">uv1BZZy5F-ci54BS11EYGg
 </span></pre></div>
 </div>
-<p><strong>line breaks for display only</strong></p>
 <p>Another difference is the key used for <code class="docutils literal notranslate"><span class="pre">encode</span></code> and <code class="docutils literal notranslate"><span class="pre">decode</span></code>.</p>
 <p>For <a class="reference internal" href="jws.html#jws"><span class="std std-ref">JSON Web Signature</span></a>, a private key is used for <code class="docutils literal notranslate"><span class="pre">encode</span></code>, and a public key is used for
 <code class="docutils literal notranslate"><span class="pre">decode</span></code>. The <code class="docutils literal notranslate"><span class="pre">encode</span></code> method will use a private key to sign, and the <code class="docutils literal notranslate"><span class="pre">decode</span></code>
@@ -545,7 +547,7 @@ raise an error.</p>
       <script src="../_static/clipboard.min.js"></script>
       <script src="../_static/copybutton.js"></script>
       <script src="../_static/design-tabs.js"></script>
-      <script src="../_static/shibuya.js?v=2023.6.27"></script>
+      <script src="../_static/shibuya.js?v=2023.6.30"></script>
     
 </body>
 </html>
