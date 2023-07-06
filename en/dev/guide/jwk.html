@@ -482,11 +482,19 @@ of a JWK Set:</p>
 </section>
 <section id="import-a-key-set">
 <h3>Import a key set<a class="headerlink" href="#import-a-key-set" title="Permalink to this heading">¶</a></h3>
+<p>An example about importing JWKS from a local file:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="kn">import</span> <span class="nn">json</span>
 </span><span id="1-2">
 </span><span id="1-3"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;your-jwks.json&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
 </span><span id="1-4">    <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
 </span><span id="1-5">    <span class="n">key_set</span> <span class="o">=</span> <span class="n">KeySet</span><span class="o">.</span><span class="n">import_key_set</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<p>An example about importing JWKS from a URL:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="kn">import</span> <span class="nn">requests</span>
+</span><span id="1-2">
+</span><span id="1-3"><span class="n">resp</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://example.com/jwks.json&quot;</span><span class="p">)</span>
+</span><span id="1-4"><span class="n">key_set</span> <span class="o">=</span> <span class="n">KeySet</span><span class="o">.</span><span class="n">import_key_set</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
 </span></pre></div>
 </div>
 </section>

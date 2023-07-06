@@ -108,6 +108,9 @@ html.dark {
         <i class="i-icon theme-icon"></i>
       </button>
       
+        <button class="js-menu xl:hidden flex items-center ml-1" aria-label="Show table of contents" type="button" aria-controls="rside" aria-expanded="false">
+          <i class="i-icon outdent"></i>
+        </button>
     </div>
   </div>
 </div>
@@ -189,7 +192,17 @@ html.dark {
     <button class="rside-close js-menu xl:hidden" aria-label="Close Table of Contents" type="button" aria-controls="rside" aria-expanded="false">
       <i class="i-icon close"></i>
     </button>
-    <div class="sy-scrollbar px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4"><a class="js-repo-stats repo-stats flex items-center" href="https://github.com/authlib/joserfc"
+    <div class="sy-scrollbar px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4">
+  <div class="localtoc">
+    <h3>Table of Contents</h3>
+    <ul>
+<li><a class="reference internal" href="#interfaces">Interfaces</a></li>
+<li><a class="reference internal" href="#python-versions">Python Versions</a></li>
+<li><a class="reference internal" href="#new-rfcs">New RFCs</a></li>
+<li><a class="reference internal" href="#upgrade-notes">Upgrade notes</a></li>
+</ul>
+
+  </div><a class="js-repo-stats repo-stats flex items-center" href="https://github.com/authlib/joserfc"
   data-type="github" data-user="authlib" data-repo="joserfc">
   <span class="w-8 flex items-center justify-around shrink-0 text-2xl">
     <i class="i-icon github"></i>
@@ -219,7 +232,39 @@ html.dark {
         <article class="yue" role="main">
           <section id="api-stability">
 <h1>API stability<a class="headerlink" href="#api-stability" title="Permalink to this heading">¶</a></h1>
-<p>Work in progress, not stable.</p>
+<p>The API of joserfc is currently a work in progress and may not be considered
+fully stable. However, with each release, the API stability is improving and
+getting closer to a stable state.</p>
+<section id="interfaces">
+<h2>Interfaces<a class="headerlink" href="#interfaces" title="Permalink to this heading">¶</a></h2>
+<p>Starting from <strong>version 0.5.0</strong>, the method names and their parameters are expected
+to remain stable. This means that once you have updated your code to use the
+methods provided by joserfc, you can rely on them without the need for frequent changes.</p>
+</section>
+<section id="python-versions">
+<h2>Python Versions<a class="headerlink" href="#python-versions" title="Permalink to this heading">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">joserfc</span></code> is designed to support Python 3.8 and above. It is recommended to use
+<code class="docutils literal notranslate"><span class="pre">joserfc</span></code> with Python versions 3.8 and higher to ensure compatibility and take
+advantage of the latest language features and improvements.</p>
+</section>
+<section id="new-rfcs">
+<h2>New RFCs<a class="headerlink" href="#new-rfcs" title="Permalink to this heading">¶</a></h2>
+<p>To maintain a stable and reliable library, joserfc will not introduce new RFC
+implementations until the 1.0.0 release. This approach ensures that the existing
+functionality is thoroughly tested and the library reaches a mature state before
+incorporating new specifications.</p>
+<p>When new RFC implementations are added after the 1.0.0 release, the minor version
+of joserfc will be incremented. This versioning approach helps to communicate the
+introduction of new features and RFC support to users, while also indicating
+potential changes to the API and behavior.</p>
+</section>
+<section id="upgrade-notes">
+<h2>Upgrade notes<a class="headerlink" href="#upgrade-notes" title="Permalink to this heading">¶</a></h2>
+<p>Please note that while efforts are made to maintain compatibility and stability,
+it is always a good practice to thoroughly test and validate your code when upgrading
+to a new version of joserfc to ensure a smooth transition and avoid any potential
+compatibility issues.</p>
+</section>
 </section>
 
         </article>
