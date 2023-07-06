@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Migrations - joserfc</title>
-    <link rel="index" title="Index" href="../genindex/" /><link rel="search" title="Search" href="../search/" /><link rel="next" title="Migrating from Authlib" href="authlib/" /><link rel="prev" title="Registry" href="../guide/registry/" />
-    <link rel="canonical" href="https://jose.authlib.org/en/dev/migrations/" />
+      <title>Changelog - joserfc</title>
+    <link rel="index" title="Index" href="../genindex/" /><link rel="search" title="Search" href="../search/" /><link rel="prev" title="Sponsors" href="../contributing/sponsors/" />
+    <link rel="canonical" href="https://jose.authlib.org/en/dev/changelog/" />
   <script>
     const isDarkTheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
     const sessionTheme = sessionStorage['_theme']
@@ -51,8 +51,8 @@ html.dark {
 }
 </style>
     <meta property="og:type" content="website"/>
-<meta property="og:url" content="https://jose.authlib.org/en/dev/migrations/"/>
-<meta property="og:title" content="Migrations"/>
+<meta property="og:url" content="https://jose.authlib.org/en/dev/changelog/"/>
+<meta property="og:title" content="Changelog"/>
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:creator" content="@lepture"/>
 <meta name="twitter:site" content="@authlib"/></head>
@@ -108,6 +108,9 @@ html.dark {
         <i class="i-icon theme-icon"></i>
       </button>
       
+        <button class="js-menu xl:hidden flex items-center ml-1" aria-label="Show table of contents" type="button" aria-controls="rside" aria-expanded="false">
+          <i class="i-icon outdent"></i>
+        </button>
     </div>
   </div>
 </div>
@@ -141,7 +144,7 @@ html.dark {
 <li class="toctree-l1"><a class="reference internal" href="../install/">Installation</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Essentials</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../guide/">Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../guide/jwk/">JSON Web Key</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../guide/jwt/">JSON Web Token</a></li>
@@ -151,9 +154,9 @@ html.dark {
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../guide/algorithms/">Algorithms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guide/registry/">Registry</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Migrations</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="authlib/">Migrating from Authlib</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pyjwt/">Migrating from PyJWT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../migrations/">Migrations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../migrations/authlib/">Migrating from Authlib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../migrations/pyjwt/">Migrating from PyJWT</a></li>
 </ul>
 </li>
 </ul>
@@ -163,7 +166,7 @@ html.dark {
 <li class="toctree-l1"><a class="reference internal" href="../recipes/openssl/">Using OpenSSL command</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Development</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../api/">API References</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../api/jws/">JWS API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/jwe/">JWE API</a></li>
@@ -178,7 +181,7 @@ html.dark {
 <li class="toctree-l2"><a class="reference internal" href="../contributing/sponsors/">Sponsors</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../changelog/">Changelog</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Changelog</a></li>
 </ul>
 
         </div>
@@ -189,7 +192,17 @@ html.dark {
     <button class="rside-close js-menu xl:hidden" aria-label="Close Table of Contents" type="button" aria-controls="rside" aria-expanded="false">
       <i class="i-icon close"></i>
     </button>
-    <div class="sy-scrollbar px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4"><a class="js-repo-stats repo-stats flex items-center" href="https://github.com/authlib/joserfc"
+    <div class="sy-scrollbar px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4">
+  <div class="localtoc">
+    <h3>Table of Contents</h3>
+    <ul>
+<li><a class="reference internal" href="#id1">0.4.0</a></li>
+<li><a class="reference internal" href="#id2">0.3.0</a></li>
+<li><a class="reference internal" href="#id3">0.2.0</a></li>
+<li><a class="reference internal" href="#id4">0.1.0</a></li>
+</ul>
+
+  </div><a class="js-repo-stats repo-stats flex items-center" href="https://github.com/authlib/joserfc"
   data-type="github" data-user="authlib" data-repo="joserfc">
   <span class="w-8 flex items-center justify-around shrink-0 text-2xl">
     <i class="i-icon github"></i>
@@ -208,7 +221,7 @@ html.dark {
     </span>
   </span>
 </a><div class="edit-this-page">
-  <a href="https://github.com/authlib/joserfc/blob/master/docs/en/migrations/index.rst">Edit this page</a>
+  <a href="https://github.com/authlib/joserfc/blob/master/docs/en/changelog.rst">Edit this page</a>
 </div><div id="ethical-ad-placement" data-ea-publisher="readthedocs"></div>
     </div>
   </aside>
@@ -217,16 +230,42 @@ html.dark {
     <div class="flex flex-col break-words justify-between">
       <div class="min-w-0 max-w-6xl px-6 pb-6 pt-6 xl:px-12">
         <article class="yue" role="main">
-          <section id="migrations">
-<h1>Migrations<a class="headerlink" href="#migrations" title="Permalink to this heading">¶</a></h1>
-<p>Here are some migration guides to help you transition from other libraries
-to <code class="docutils literal notranslate"><span class="pre">joserfc</span></code>:</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="authlib/">Migrating from Authlib</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pyjwt/">Migrating from PyJWT</a></li>
+          <section id="changelog">
+<h1>Changelog<a class="headerlink" href="#changelog" title="Permalink to this heading">¶</a></h1>
+<section id="id1">
+<h2>0.4.0<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
+<p><strong>Released on July 6, 2023</strong></p>
+<ul class="simple">
+<li><p>Change <code class="docutils literal notranslate"><span class="pre">options</span></code> to <code class="docutils literal notranslate"><span class="pre">parameters</span></code> for JWK methods</p></li>
+<li><p>Change <code class="docutils literal notranslate"><span class="pre">JWSRegistry</span></code> and <code class="docutils literal notranslate"><span class="pre">JWERegistry</span></code> parameters</p></li>
+<li><p>Guess <code class="docutils literal notranslate"><span class="pre">sender_key</span></code> from JWKs in JWE</p></li>
+<li><p>Add importing key from DER encoding bytes</p></li>
+<li><p>Fix JWS JSON serialization when members have only unprotected headers</p></li>
+<li><p>Check key type before processing algorithms of JWS and JWE</p></li>
 </ul>
-</div>
+</section>
+<section id="id2">
+<h2>0.3.0<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
+<p><strong>Released on June 29, 2023</strong></p>
+<ul class="simple">
+<li><p>Return <code class="docutils literal notranslate"><span class="pre">str</span></code> instead of <code class="docutils literal notranslate"><span class="pre">bytes</span></code> for JWS and JWE serializations</p></li>
+<li><p>Add a <code class="docutils literal notranslate"><span class="pre">detach_content</span></code> method for JWS</p></li>
+<li><p>Remove <code class="docutils literal notranslate"><span class="pre">jwt.extract</span></code> method, because <code class="docutils literal notranslate"><span class="pre">extract</span></code> won’t work for JWE</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">JWKRegistry</span></code> for JWK</p></li>
+<li><p>Update <code class="docutils literal notranslate"><span class="pre">JSONEncryption.add_recipient</span></code> parameters</p></li>
+<li><p>Export register methods for JWE drafts</p></li>
+</ul>
+</section>
+<section id="id3">
+<h2>0.2.0<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h2>
+<p><strong>Released on June 25, 2023</strong></p>
+<p>A beta release.</p>
+</section>
+<section id="id4">
+<h2>0.1.0<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h2>
+<p><strong>Released on Mar 5, 2023</strong></p>
+<p>Initial release.</p>
+</section>
 </section>
 
         </article>
@@ -235,25 +274,17 @@ to <code class="docutils literal notranslate"><span class="pre">joserfc</span></
       <div class="min-w-0 max-w-6xl px-6 pb-6 xl:pt-6 xl:px-12">
         <div class="navigation flex print:hidden">
   <div class="navigation-prev">
-    <a href="../guide/registry/">
+    <a href="../contributing/sponsors/">
       <i class="i-icon chevron"></i>
       <div class="page-info">
         <span>Previous</span>
         
-        <div class="title">Registry</div>
+        <div class="title">Sponsors</div>
         
       </div>
     </a>
   </div>
-  <div class="navigation-next">
-    <a href="authlib/">
-      <div class="page-info">
-        <span>Next</span>
-        <div class="title">Migrating from Authlib</div>
-      </div>
-      <i class="i-icon chevron"></i>
-    </a>
-  </div>
+  
 </div>
         
       </div>

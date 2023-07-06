@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>JWK API - joserfc</title>
+    <link rel="index" title="Index" href="../../genindex/" /><link rel="search" title="Search" href="../../search/" /><link rel="next" title="JWT API" href="../jwt/" /><link rel="prev" title="JWE API" href="../jwe/" />
+    <link rel="canonical" href="https://jose.authlib.org/en/dev/api/jwk/" />
+  <script>
+    const isDarkTheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const sessionTheme = sessionStorage['_theme']
+    if (sessionTheme) {
+      document.documentElement.classList.add(sessionTheme)
+    } else if (isDarkTheme) {
+      document.documentElement.classList.add('dark')
+    }
+  </script><link rel="shortcut icon" href="../../_static/icon.svg"/><link rel="stylesheet" href="../../_static/pygments.css?v=2023.6.30" type="text/css" />
+    <link rel="stylesheet" href="../../_static/shibuya.css?v=2023.6.30" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=2023.6.30" />
+    <style>
+:root {
+  --sy-f-sys:-apple-system, BlinkMacSystemFont, Segoe UI, Oxygen, Ubuntu, Droid Sans, Helvetica Neue;--sy-f-cjk:PingFang SC, Hiragino Sans GB, Droid Sans Fallback, Microsoft YaHei;--sy-f-heading:var(--sy-f-sys), var(--sy-f-cjk), sans-serif;--sy-f-text:var(--sy-f-sys), var(--sy-f-cjk), sans-serif;--sy-f-mono:Menlo, Monaco, Consolas, "Courier New", monospace;--sy-c-divider:rgba(var(--sy-rc-text), 0.1);--sy-c-divider-weak:rgba(var(--sy-rc-text), 0.05);--sy-c-border:rgba(var(--sy-rc-text), 0.14);--sy-s-banner-height:0rem;--sy-s-navbar-height:4rem;--sy-s-offset-top:calc(var(--sy-s-navbar-height) + var(--sy-s-banner-height));--sy-c-link:rgb(var(--sy-rc-theme));
+  --sy-rc-theme:62,127,203;--sy-rc-bg:255, 255, 255;--sy-rc-invert:0, 0, 0;--sy-rc-text:0, 0, 0;--sy-c-bg:#fff;--sy-c-bg-weak:#f9f9f9;--sy-c-text:#374151;--sy-c-text-weak:#6b7280;--sy-c-heading:#111827;--sy-c-bold:#111827;--sy-c-foot-text:#232226;--sy-c-foot-bg:#fafafa;--sy-c-foot-divider:#f0f0f0;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --sy-rc-theme:62,127,203;--sy-rc-bg:255, 255, 255;--sy-rc-invert:0, 0, 0;--sy-rc-text:0, 0, 0;--sy-c-bg:#fff;--sy-c-bg-weak:#f9f9f9;--sy-c-text:#374151;--sy-c-text-weak:#6b7280;--sy-c-heading:#111827;--sy-c-bold:#111827;--sy-c-foot-text:#232226;--sy-c-foot-bg:#fafafa;--sy-c-foot-divider:#f0f0f0;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --sy-rc-theme:102,173,255;--sy-rc-bg:18, 18, 18;--sy-rc-invert:255, 255, 255;--sy-rc-text:255, 255, 255;--sy-c-bg:#121212;--sy-c-bg-weak:#212833;--sy-c-text:#cedbea;--sy-c-text-weak:#77889f;--sy-c-heading:#ebf0f4;--sy-c-bold:#ebf0f4;--sy-c-foot-text:#eee;--sy-c-foot-bg:#000;--sy-c-foot-divider:#000;
+  }
+}
+html.light {
+  --sy-rc-theme:62,127,203;--sy-rc-bg:255, 255, 255;--sy-rc-invert:0, 0, 0;--sy-rc-text:0, 0, 0;--sy-c-bg:#fff;--sy-c-bg-weak:#f9f9f9;--sy-c-text:#374151;--sy-c-text-weak:#6b7280;--sy-c-heading:#111827;--sy-c-bold:#111827;--sy-c-foot-text:#232226;--sy-c-foot-bg:#fafafa;--sy-c-foot-divider:#f0f0f0;
+}
+html.dark {
+  --sy-rc-theme:102,173,255;--sy-rc-bg:18, 18, 18;--sy-rc-invert:255, 255, 255;--sy-rc-text:255, 255, 255;--sy-c-bg:#121212;--sy-c-bg-weak:#212833;--sy-c-text:#cedbea;--sy-c-text-weak:#77889f;--sy-c-heading:#ebf0f4;--sy-c-bold:#ebf0f4;--sy-c-foot-text:#eee;--sy-c-foot-bg:#000;--sy-c-foot-divider:#000;
+}
+</style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-heading: Inter, var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    <meta property="og:type" content="website"/>
+<meta property="og:url" content="https://jose.authlib.org/en/dev/api/jwk/"/>
+<meta property="og:title" content="JWK API"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:creator" content="@lepture"/>
+<meta name="twitter:site" content="@authlib"/></head>
+<body><div class="document"><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <div class="sy-head-links flex items-center">
+      <div class="md:hidden flex items-center">
+        <button class="hamburger js-menu mr-3" aria-label="Menu" type="button" aria-controls="lside" aria-expanded="false">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </button>
+      </div>
+      <a class="sy-head-brand" href="../../">
+        <img class="light-logo" src="../../_static/light-logo.svg" alt="joserfc" height="28" />
+        <img class="dark-logo" src="../../_static/dark-logo.svg" alt="joserfc" height="28" />
+        <strong>joserfc</strong>
+      </a><nav class="sy-head-nav ml-4 hidden md:block">
+        
+<ul>
+      <li class="link"><button type="button">
+            <span>Projects</span>
+            <i class="i-icon chevron"></i>
+          </button>
+        <ul>
+          <li><a href="https://authlib.org/">
+                <span>Authlib</span>
+                <small>OAuth, JOSE, OpenID, etc.</small>
+              </a></li><li><a href="https://jose.authlib.org/">
+                <span>JOSE RFC</span>
+                <small>JWS, JWE, JWK, and JWT.</small>
+              </a></li><li><a href="https://otp.authlib.org/">
+                <span>OTP Auth</span>
+                <small>One time password, HOTP/TOTP.</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/lepture"><span>Sponsor me</span><i class="i-icon external-link"></i></a>
+        </li></ul>
+
+      </nav></div>
+    <div class="sy-head-actions flex gap-2 items-center print:hidden">
+      
+      <div class="hidden md:block"><form class="searchbox flex items-center" action="../../search/" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form>
+      </div>
+        <a class="flex items-center ml-1" href="https://github.com/authlib/joserfc" aria-label="GitHub">
+          <i class="i-icon github"></i>
+        </a>
+      <button class="js-theme theme-switch flex items-center ml-1" data-aria-light="Switch to dark mode" data-aria-dark="Switch to light mode">
+        <i class="i-icon theme-icon"></i>
+      </button>
+      
+        <button class="js-menu xl:hidden flex items-center ml-1" aria-label="Show table of contents" type="button" aria-controls="rside" aria-expanded="false">
+          <i class="i-icon outdent"></i>
+        </button>
+    </div>
+  </div>
+</div>
+<div class="sy-page sy-container flex mx-auto">
+  <aside id="lside" class="sy-lside md:w-64 md:shrink-0 print:hidden">
+    <div class="sy-lside-inner md:sticky">
+      <div class="sy-lside-top md:hidden pt-3 pb-3 px-6">
+        <div class="pt-3"><form class="searchbox flex items-center" action="../../search/" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <button>Go</button>
+</form>
+        </div><div class="pt-3">
+          
+<ul>
+      <li class="link"><button type="button">
+            <span>Projects</span>
+            <i class="i-icon chevron"></i>
+          </button>
+        <ul>
+          <li><a href="https://authlib.org/">Authlib</a></li><li><a href="https://jose.authlib.org/">JOSE RFC</a></li><li><a href="https://otp.authlib.org/">OTP Auth</a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/lepture"><span>Sponsor me</span><i class="i-icon external-link"></i></a>
+        </li></ul>
+
+        </div></div>
+      <div class="sy-scrollbar p-6"><div class="js-carbon" data-carbon-code="CE7DKK3W" data-carbon-placement="authliborg"></div>
+        <div class="globaltoc">
+          <p class="caption" role="heading"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/introduction/">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../install/">Installation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Essentials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/">Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../guide/jwk/">JSON Web Key</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../guide/jwt/">JSON Web Token</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../guide/jws/">JSON Web Signature</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../guide/jwe/">JSON Web Encryption</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/algorithms/">Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/registry/">Registry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../migrations/">Migrations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../migrations/authlib/">Migrating from Authlib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../migrations/pyjwt/">Migrating from PyJWT</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Recipes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/azure/">Dynamic keys for Azure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../recipes/openssl/">Using OpenSSL command</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../">API References</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../jws/">JWS API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../jwe/">JWE API</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">JWK API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../jwt/">JWT API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../security/">Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../stability/">API stability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/">Contributing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../contributing/structure/">Understand code structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../contributing/sponsors/">Sponsors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog/">Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <aside id="rside" class="sy-rside pb-3 w-64 shrink-0 order-last">
+    <button class="rside-close js-menu xl:hidden" aria-label="Close Table of Contents" type="button" aria-controls="rside" aria-expanded="false">
+      <i class="i-icon close"></i>
+    </button>
+    <div class="sy-scrollbar px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4">
+  <div class="localtoc">
+    <h3>Table of Contents</h3>
+    <ul>
+<li><a class="reference internal" href="#joserfc.jwk.AsymmetricKey"><code class="docutils literal notranslate"><span class="pre">AsymmetricKey</span></code></a></li>
+<li><a class="reference internal" href="#joserfc.jwk.CurveKey"><code class="docutils literal notranslate"><span class="pre">CurveKey</span></code></a></li>
+<li><a class="reference internal" href="#joserfc.jwk.ECKey"><code class="docutils literal notranslate"><span class="pre">ECKey</span></code></a><ul>
+<li><a class="reference internal" href="#joserfc.jwk.ECKey.value_registry"><code class="docutils literal notranslate"><span class="pre">ECKey.value_registry</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#joserfc.jwk.JWKRegistry"><code class="docutils literal notranslate"><span class="pre">JWKRegistry</span></code></a><ul>
+<li><a class="reference internal" href="#joserfc.jwk.JWKRegistry.generate_key"><code class="docutils literal notranslate"><span class="pre">JWKRegistry.generate_key()</span></code></a></li>
+<li><a class="reference internal" href="#joserfc.jwk.JWKRegistry.import_key"><code class="docutils literal notranslate"><span class="pre">JWKRegistry.import_key()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#joserfc.jwk.OKPKey"><code class="docutils literal notranslate"><span class="pre">OKPKey</span></code></a><ul>
+<li><a class="reference internal" href="#joserfc.jwk.OKPKey.value_registry"><code class="docutils literal notranslate"><span class="pre">OKPKey.value_registry</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#joserfc.jwk.OctKey"><code class="docutils literal notranslate"><span class="pre">OctKey</span></code></a><ul>
+<li><a class="reference internal" href="#joserfc.jwk.OctKey.generate_key"><code class="docutils literal notranslate"><span class="pre">OctKey.generate_key()</span></code></a></li>
+<li><a class="reference internal" href="#joserfc.jwk.OctKey.value_registry"><code class="docutils literal notranslate"><span class="pre">OctKey.value_registry</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#joserfc.jwk.RSAKey"><code class="docutils literal notranslate"><span class="pre">RSAKey</span></code></a><ul>
+<li><a class="reference internal" href="#joserfc.jwk.RSAKey.value_registry"><code class="docutils literal notranslate"><span class="pre">RSAKey.value_registry</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#joserfc.jwk.SymmetricKey"><code class="docutils literal notranslate"><span class="pre">SymmetricKey</span></code></a><ul>
+<li><a class="reference internal" href="#joserfc.jwk.SymmetricKey.is_private"><code class="docutils literal notranslate"><span class="pre">SymmetricKey.is_private</span></code></a></li>
+<li><a class="reference internal" href="#joserfc.jwk.SymmetricKey.private_key"><code class="docutils literal notranslate"><span class="pre">SymmetricKey.private_key</span></code></a></li>
+<li><a class="reference internal" href="#joserfc.jwk.SymmetricKey.public_key"><code class="docutils literal notranslate"><span class="pre">SymmetricKey.public_key</span></code></a></li>
+<li><a class="reference internal" href="#joserfc.jwk.SymmetricKey.raw_value"><code class="docutils literal notranslate"><span class="pre">SymmetricKey.raw_value</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#joserfc.jwk.guess_key"><code class="docutils literal notranslate"><span class="pre">guess_key()</span></code></a></li>
+</ul>
+
+  </div><a class="js-repo-stats repo-stats flex items-center" href="https://github.com/authlib/joserfc"
+  data-type="github" data-user="authlib" data-repo="joserfc">
+  <span class="w-8 flex items-center justify-around shrink-0 text-2xl">
+    <i class="i-icon github"></i>
+  </span>
+  <span class="flex-grow px-2">
+    <span>authlib/joserfc</span>
+    <span class="flex text-sm repo-stats-count">
+      <span class="flex items-center pr-3">
+        <i class="i-icon star"></i>
+        <strong class="js-repo-stars ml-1">0</strong>
+      </span>
+      <span class="flex items-center">
+        <i class="i-icon git-fork"></i>
+        <strong class="js-repo-forks ml-1">0</strong>
+      </span>
+    </span>
+  </span>
+</a><div class="edit-this-page">
+  <a href="https://github.com/authlib/joserfc/blob/master/docs/en/api/jwk.rst">Edit this page</a>
+</div><div id="ethical-ad-placement" data-ea-publisher="readthedocs"></div>
+    </div>
+  </aside>
+  <div class="rside-overlay js-menu" role="button" aria-label="Close Table of Contents" aria-controls="rside" aria-expanded="false"></div>
+  <main class="sy-main w-full max-sm:max-w-full print:pt-6">
+    <div class="flex flex-col break-words justify-between">
+      <div class="min-w-0 max-w-6xl px-6 pb-6 pt-6 xl:px-12">
+        <article class="yue" role="main">
+          <section id="jwk-api">
+<h1>JWK API<a class="headerlink" href="#jwk-api" title="Permalink to this heading">¶</a></h1>
+<p>This part of the documentation covers all the interfaces of <code class="docutils literal notranslate"><span class="pre">joserfc.jwk</span></code>.</p>
+<span class="target" id="module-joserfc.jwk"></span><dl class="py class">
+<dt class="sig sig-object py" id="joserfc.jwk.AsymmetricKey">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">joserfc.jwk.</span></span><span class="sig-name descname"><span class="pre">AsymmetricKey</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw_value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">original_value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameters</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">KeyParameters</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#joserfc.jwk.AsymmetricKey" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="joserfc.jwk.CurveKey">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">joserfc.jwk.</span></span><span class="sig-name descname"><span class="pre">CurveKey</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw_value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">original_value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameters</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">KeyParameters</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#joserfc.jwk.CurveKey" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="joserfc.jwk.ECKey">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">joserfc.jwk.</span></span><span class="sig-name descname"><span class="pre">ECKey</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw_value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">original_value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameters</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">KeyParameters</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#joserfc.jwk.ECKey" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="joserfc.jwk.ECKey.value_registry">
+<span class="sig-name descname"><span class="pre">value_registry</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">KeyParameterRegistryDict</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'crv':</span> <span class="pre">&lt;joserfc.registry.KeyParameter</span> <span class="pre">object&gt;,</span> <span class="pre">'d':</span> <span class="pre">&lt;joserfc.registry.KeyParameter</span> <span class="pre">object&gt;,</span> <span class="pre">'x':</span> <span class="pre">&lt;joserfc.registry.KeyParameter</span> <span class="pre">object&gt;,</span> <span class="pre">'y':</span> <span class="pre">&lt;joserfc.registry.KeyParameter</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#joserfc.jwk.ECKey.value_registry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Registry definition for EC Key
+<a class="reference external" href="https://www.rfc-editor.org/rfc/rfc7518#section-6.2">https://www.rfc-editor.org/rfc/rfc7518#section-6.2</a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="joserfc.jwk.JWKRegistry">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">joserfc.jwk.</span></span><span class="sig-name descname"><span class="pre">JWKRegistry</span></span><a class="headerlink" href="#joserfc.jwk.JWKRegistry" title="Permalink to this definition">¶</a></dt>
+<dd><p>A registry for JWK to record <code class="docutils literal notranslate"><span class="pre">joserfc</span></code> supported key types.
+Normally, you would use explicit key types like <code class="docutils literal notranslate"><span class="pre">OctKey</span></code>, <code class="docutils literal notranslate"><span class="pre">RSAKey</span></code>;
+This registry provides a way to dynamically import and generate keys.
+For instance:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="c1"># instead of choosing which key type to use yourself,</span>
+</span><span id="1-2"><span class="c1"># JWKRegistry can import it automatically</span>
+</span><span id="1-3"><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;kty&quot;</span><span class="p">:</span> <span class="s2">&quot;oct&quot;</span><span class="p">,</span> <span class="s2">&quot;k&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">}</span>
+</span><span id="1-4"><span class="n">key</span> <span class="o">=</span> <span class="n">JWKRegistry</span><span class="o">.</span><span class="n">import_key</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="joserfc.jwk.JWKRegistry.generate_key">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">generate_key</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">crv_or_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameters</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">KeyParameters</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">private</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#joserfc.jwk.SymmetricKey" title="joserfc.rfc7517.models.SymmetricKey"><span class="pre">SymmetricKey</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#joserfc.jwk.AsymmetricKey" title="joserfc.rfc7517.models.AsymmetricKey"><span class="pre">AsymmetricKey</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#joserfc.jwk.CurveKey" title="joserfc.rfc7517.models.CurveKey"><span class="pre">CurveKey</span></a></span></span><a class="headerlink" href="#joserfc.jwk.JWKRegistry.generate_key" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class method for generating key according to the given key type.
+When <code class="docutils literal notranslate"><span class="pre">key_type</span></code> is “oct” and “RSA”, the second parameter SHOULD be
+a key size in bits. When <code class="docutils literal notranslate"><span class="pre">key_type</span></code> is “EC” and “OKP”, the second
+parameter SHOULD be a “crv” string.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="n">JWKRegistry</span><span class="o">.</span><span class="n">generate_key</span><span class="p">(</span><span class="s2">&quot;RSA&quot;</span><span class="p">,</span> <span class="mi">2048</span><span class="p">)</span>
+</span><span id="1-2"><span class="n">JWKRegistry</span><span class="o">.</span><span class="n">generate_key</span><span class="p">(</span><span class="s2">&quot;EC&quot;</span><span class="p">,</span> <span class="s2">&quot;P-256&quot;</span><span class="p">)</span>
+</span></pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="joserfc.jwk.JWKRegistry.import_key">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">import_key</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bytes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameters</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">KeyParameters</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#joserfc.jwk.SymmetricKey" title="joserfc.rfc7517.models.SymmetricKey"><span class="pre">SymmetricKey</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#joserfc.jwk.AsymmetricKey" title="joserfc.rfc7517.models.AsymmetricKey"><span class="pre">AsymmetricKey</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#joserfc.jwk.CurveKey" title="joserfc.rfc7517.models.CurveKey"><span class="pre">CurveKey</span></a></span></span><a class="headerlink" href="#joserfc.jwk.JWKRegistry.import_key" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class method for importing a key from bytes, string, and dict.
+When <code class="docutils literal notranslate"><span class="pre">value</span></code> is a dict, this method can tell the key type automatically,
+otherwise, developers SHOULD pass the <code class="docutils literal notranslate"><span class="pre">key_type</span></code> themselves.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> – the key data in bytes, string, or dict.</p></li>
+<li><p><strong>key_type</strong> – an optional key type in string.</p></li>
+<li><p><strong>parameters</strong> – extra key parameters</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>OctKey, RSAKey, ECKey, or OKPKey</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="joserfc.jwk.OKPKey">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">joserfc.jwk.</span></span><span class="sig-name descname"><span class="pre">OKPKey</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw_value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">original_value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameters</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">KeyParameters</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#joserfc.jwk.OKPKey" title="Permalink to this definition">¶</a></dt>
+<dd><p>Key class of the <code class="docutils literal notranslate"><span class="pre">OKP</span></code> key type.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="joserfc.jwk.OKPKey.value_registry">
+<span class="sig-name descname"><span class="pre">value_registry</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">KeyParameterRegistryDict</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'crv':</span> <span class="pre">&lt;joserfc.registry.KeyParameter</span> <span class="pre">object&gt;,</span> <span class="pre">'d':</span> <span class="pre">&lt;joserfc.registry.KeyParameter</span> <span class="pre">object&gt;,</span> <span class="pre">'x':</span> <span class="pre">&lt;joserfc.registry.KeyParameter</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#joserfc.jwk.OKPKey.value_registry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Registry definition for OKP Key
+<a class="reference external" href="https://www.rfc-editor.org/rfc/rfc8037#section-2">https://www.rfc-editor.org/rfc/rfc8037#section-2</a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="joserfc.jwk.OctKey">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">joserfc.jwk.</span></span><span class="sig-name descname"><span class="pre">OctKey</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw_value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">original_value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameters</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">KeyParameters</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#joserfc.jwk.OctKey" title="Permalink to this definition">¶</a></dt>
+<dd><p>OctKey is a symmetric key, defined by RFC7518 Section 6.4.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="joserfc.jwk.OctKey.generate_key">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">generate_key</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">256</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameters</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">KeyParameters</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">private</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#joserfc.jwk.OctKey" title="joserfc.rfc7518.oct_key.OctKey"><span class="pre">OctKey</span></a></span></span><a class="headerlink" href="#joserfc.jwk.OctKey.generate_key" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate a <code class="docutils literal notranslate"><span class="pre">OctKey</span></code> with the given bit size (not bytes).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>key_size</strong> – size in bit</p></li>
+<li><p><strong>parameters</strong> – extra parameter in JWK</p></li>
+<li><p><strong>private</strong> – must be True</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="joserfc.jwk.OctKey.value_registry">
+<span class="sig-name descname"><span class="pre">value_registry</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">KeyParameterRegistryDict</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'k':</span> <span class="pre">&lt;joserfc.registry.KeyParameter</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#joserfc.jwk.OctKey.value_registry" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference external" href="https://www.rfc-editor.org/rfc/rfc7518#section-6.4">https://www.rfc-editor.org/rfc/rfc7518#section-6.4</a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="joserfc.jwk.RSAKey">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">joserfc.jwk.</span></span><span class="sig-name descname"><span class="pre">RSAKey</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw_value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">original_value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameters</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">KeyParameters</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#joserfc.jwk.RSAKey" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="joserfc.jwk.RSAKey.value_registry">
+<span class="sig-name descname"><span class="pre">value_registry</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">KeyParameterRegistryDict</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'d':</span> <span class="pre">&lt;joserfc.registry.KeyParameter</span> <span class="pre">object&gt;,</span> <span class="pre">'dp':</span> <span class="pre">&lt;joserfc.registry.KeyParameter</span> <span class="pre">object&gt;,</span> <span class="pre">'dq':</span> <span class="pre">&lt;joserfc.registry.KeyParameter</span> <span class="pre">object&gt;,</span> <span class="pre">'e':</span> <span class="pre">&lt;joserfc.registry.KeyParameter</span> <span class="pre">object&gt;,</span> <span class="pre">'n':</span> <span class="pre">&lt;joserfc.registry.KeyParameter</span> <span class="pre">object&gt;,</span> <span class="pre">'oth':</span> <span class="pre">&lt;joserfc.registry.KeyParameter</span> <span class="pre">object&gt;,</span> <span class="pre">'p':</span> <span class="pre">&lt;joserfc.registry.KeyParameter</span> <span class="pre">object&gt;,</span> <span class="pre">'q':</span> <span class="pre">&lt;joserfc.registry.KeyParameter</span> <span class="pre">object&gt;,</span> <span class="pre">'qi':</span> <span class="pre">&lt;joserfc.registry.KeyParameter</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#joserfc.jwk.RSAKey.value_registry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Registry definition for RSA Key
+<a class="reference external" href="https://www.rfc-editor.org/rfc/rfc7518#section-6.3">https://www.rfc-editor.org/rfc/rfc7518#section-6.3</a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="joserfc.jwk.SymmetricKey">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">joserfc.jwk.</span></span><span class="sig-name descname"><span class="pre">SymmetricKey</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw_value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">original_value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameters</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">KeyParameters</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#joserfc.jwk.SymmetricKey" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py property">
+<dt class="sig sig-object py" id="joserfc.jwk.SymmetricKey.is_private">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_private</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#joserfc.jwk.SymmetricKey.is_private" title="Permalink to this definition">¶</a></dt>
+<dd><p>A symmetric key will always be private.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="joserfc.jwk.SymmetricKey.private_key">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">private_key</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bytes</span></em><a class="headerlink" href="#joserfc.jwk.SymmetricKey.private_key" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the <code class="docutils literal notranslate"><span class="pre">raw_value</span></code> as the private key.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="joserfc.jwk.SymmetricKey.public_key">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">public_key</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bytes</span></em><a class="headerlink" href="#joserfc.jwk.SymmetricKey.public_key" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the <code class="docutils literal notranslate"><span class="pre">raw_value</span></code> as the public key.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="joserfc.jwk.SymmetricKey.raw_value">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">raw_value</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bytes</span></em><a class="headerlink" href="#joserfc.jwk.SymmetricKey.raw_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>The raw key in bytes.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="joserfc.jwk.guess_key">
+<span class="sig-prename descclassname"><span class="pre">joserfc.jwk.</span></span><span class="sig-name descname"><span class="pre">guess_key</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">AnyStr</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#joserfc.jwk.SymmetricKey" title="joserfc.rfc7517.models.SymmetricKey"><span class="pre">SymmetricKey</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#joserfc.jwk.AsymmetricKey" title="joserfc.rfc7517.models.AsymmetricKey"><span class="pre">AsymmetricKey</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#joserfc.jwk.CurveKey" title="joserfc.rfc7517.models.CurveKey"><span class="pre">CurveKey</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">KeySet</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#joserfc.jwk.SymmetricKey" title="joserfc.rfc7517.models.SymmetricKey"><span class="pre">SymmetricKey</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#joserfc.jwk.AsymmetricKey" title="joserfc.rfc7517.models.AsymmetricKey"><span class="pre">AsymmetricKey</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#joserfc.jwk.CurveKey" title="joserfc.rfc7517.models.CurveKey"><span class="pre">CurveKey</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obj</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">GuestProtocol</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#joserfc.jwk.SymmetricKey" title="joserfc.rfc7517.models.SymmetricKey"><span class="pre">SymmetricKey</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#joserfc.jwk.AsymmetricKey" title="joserfc.rfc7517.models.AsymmetricKey"><span class="pre">AsymmetricKey</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#joserfc.jwk.CurveKey" title="joserfc.rfc7517.models.CurveKey"><span class="pre">CurveKey</span></a></span></span><a class="headerlink" href="#joserfc.jwk.guess_key" title="Permalink to this definition">¶</a></dt>
+<dd><p>Guess key from a various sources.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>key</strong> – a very flexible key</p></li>
+<li><p><strong>obj</strong> – a protocol that has <code class="docutils literal notranslate"><span class="pre">headers</span></code> and <code class="docutils literal notranslate"><span class="pre">set_kid</span></code> methods</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+        </article>
+        
+      </div>
+      <div class="min-w-0 max-w-6xl px-6 pb-6 xl:pt-6 xl:px-12">
+        <div class="navigation flex print:hidden">
+  <div class="navigation-prev">
+    <a href="../jwe/">
+      <i class="i-icon chevron"></i>
+      <div class="page-info">
+        <span>Previous</span>
+        
+        <div class="title">JWE API</div>
+        
+      </div>
+    </a>
+  </div>
+  <div class="navigation-next">
+    <a href="../jwt/">
+      <div class="page-info">
+        <span>Next</span>
+        <div class="title">JWT API</div>
+      </div>
+      <i class="i-icon chevron"></i>
+    </a>
+  </div>
+</div>
+        
+      </div>
+    </div>
+  </main>
+</div>
+<footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>Copyright &copy; 2023, Hsiaoming Yang</p>
+        
+        <p>
+          Made with
+          
+          <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+          
+          <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+        </p>
+      </div>
+      <div class="sy-foot-socials">
+          <a href="https://github.com/authlib/joserfc" aria-label="GitHub"><i class="i-icon github"></i></a>
+          <a href="https://twitter.com/authlib" aria-label="Twitter"><i class="i-icon twitter"></i></a>
+          <a href="https://discord.gg/RNetSNNq" aria-label="Discord"><i class="i-icon discord"></i></a>
+      </div>
+    </div>
+  </div>
+</footer></div>
+      <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+      <script src="../../_static/doctools.js"></script>
+      <script src="../../_static/sphinx_highlight.js"></script>
+      <script src="../../_static/clipboard.min.js"></script>
+      <script src="../../_static/copybutton.js"></script>
+      <script src="../../_static/design-tabs.js"></script>
+      <script src="../../_static/shibuya.js?v=2023.6.30"></script>
+    
+</body>
+</html>

@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Migrations - joserfc</title>
-    <link rel="index" title="Index" href="../genindex/" /><link rel="search" title="Search" href="../search/" /><link rel="next" title="Migrating from Authlib" href="authlib/" /><link rel="prev" title="Registry" href="../guide/registry/" />
-    <link rel="canonical" href="https://jose.authlib.org/en/dev/migrations/" />
+      <title>API stability - joserfc</title>
+    <link rel="index" title="Index" href="../genindex/" /><link rel="search" title="Search" href="../search/" /><link rel="next" title="Contributing" href="../contributing/" /><link rel="prev" title="Security" href="../security/" />
+    <link rel="canonical" href="https://jose.authlib.org/en/dev/stability/" />
   <script>
     const isDarkTheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
     const sessionTheme = sessionStorage['_theme']
@@ -51,8 +51,8 @@ html.dark {
 }
 </style>
     <meta property="og:type" content="website"/>
-<meta property="og:url" content="https://jose.authlib.org/en/dev/migrations/"/>
-<meta property="og:title" content="Migrations"/>
+<meta property="og:url" content="https://jose.authlib.org/en/dev/stability/"/>
+<meta property="og:title" content="API stability"/>
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:creator" content="@lepture"/>
 <meta name="twitter:site" content="@authlib"/></head>
@@ -108,6 +108,9 @@ html.dark {
         <i class="i-icon theme-icon"></i>
       </button>
       
+        <button class="js-menu xl:hidden flex items-center ml-1" aria-label="Show table of contents" type="button" aria-controls="rside" aria-expanded="false">
+          <i class="i-icon outdent"></i>
+        </button>
     </div>
   </div>
 </div>
@@ -141,7 +144,7 @@ html.dark {
 <li class="toctree-l1"><a class="reference internal" href="../install/">Installation</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Essentials</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../guide/">Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../guide/jwk/">JSON Web Key</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../guide/jwt/">JSON Web Token</a></li>
@@ -151,9 +154,9 @@ html.dark {
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../guide/algorithms/">Algorithms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guide/registry/">Registry</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Migrations</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="authlib/">Migrating from Authlib</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pyjwt/">Migrating from PyJWT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../migrations/">Migrations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../migrations/authlib/">Migrating from Authlib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../migrations/pyjwt/">Migrating from PyJWT</a></li>
 </ul>
 </li>
 </ul>
@@ -163,7 +166,7 @@ html.dark {
 <li class="toctree-l1"><a class="reference internal" href="../recipes/openssl/">Using OpenSSL command</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Development</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../api/">API References</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../api/jws/">JWS API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/jwe/">JWE API</a></li>
@@ -172,7 +175,7 @@ html.dark {
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../security/">Security</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../stability/">API stability</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API stability</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contributing/">Contributing</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../contributing/structure/">Understand code structure</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../contributing/sponsors/">Sponsors</a></li>
@@ -189,7 +192,17 @@ html.dark {
     <button class="rside-close js-menu xl:hidden" aria-label="Close Table of Contents" type="button" aria-controls="rside" aria-expanded="false">
       <i class="i-icon close"></i>
     </button>
-    <div class="sy-scrollbar px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4"><a class="js-repo-stats repo-stats flex items-center" href="https://github.com/authlib/joserfc"
+    <div class="sy-scrollbar px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4">
+  <div class="localtoc">
+    <h3>Table of Contents</h3>
+    <ul>
+<li><a class="reference internal" href="#interfaces">Interfaces</a></li>
+<li><a class="reference internal" href="#python-versions">Python Versions</a></li>
+<li><a class="reference internal" href="#new-rfcs">New RFCs</a></li>
+<li><a class="reference internal" href="#upgrade-notes">Upgrade notes</a></li>
+</ul>
+
+  </div><a class="js-repo-stats repo-stats flex items-center" href="https://github.com/authlib/joserfc"
   data-type="github" data-user="authlib" data-repo="joserfc">
   <span class="w-8 flex items-center justify-around shrink-0 text-2xl">
     <i class="i-icon github"></i>
@@ -208,7 +221,7 @@ html.dark {
     </span>
   </span>
 </a><div class="edit-this-page">
-  <a href="https://github.com/authlib/joserfc/blob/master/docs/en/migrations/index.rst">Edit this page</a>
+  <a href="https://github.com/authlib/joserfc/blob/master/docs/en/stability.rst">Edit this page</a>
 </div><div id="ethical-ad-placement" data-ea-publisher="readthedocs"></div>
     </div>
   </aside>
@@ -217,16 +230,41 @@ html.dark {
     <div class="flex flex-col break-words justify-between">
       <div class="min-w-0 max-w-6xl px-6 pb-6 pt-6 xl:px-12">
         <article class="yue" role="main">
-          <section id="migrations">
-<h1>Migrations<a class="headerlink" href="#migrations" title="Permalink to this heading">¶</a></h1>
-<p>Here are some migration guides to help you transition from other libraries
-to <code class="docutils literal notranslate"><span class="pre">joserfc</span></code>:</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="authlib/">Migrating from Authlib</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pyjwt/">Migrating from PyJWT</a></li>
-</ul>
-</div>
+          <section id="api-stability">
+<h1>API stability<a class="headerlink" href="#api-stability" title="Permalink to this heading">¶</a></h1>
+<p>The API of joserfc is currently a work in progress and may not be considered
+fully stable. However, with each release, the API stability is improving and
+getting closer to a stable state.</p>
+<section id="interfaces">
+<h2>Interfaces<a class="headerlink" href="#interfaces" title="Permalink to this heading">¶</a></h2>
+<p>Starting from <strong>version 0.5.0</strong>, the method names and their parameters are expected
+to remain stable. This means that once you have updated your code to use the
+methods provided by joserfc, you can rely on them without the need for frequent changes.</p>
+</section>
+<section id="python-versions">
+<h2>Python Versions<a class="headerlink" href="#python-versions" title="Permalink to this heading">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">joserfc</span></code> is designed to support Python 3.8 and above. It is recommended to use
+<code class="docutils literal notranslate"><span class="pre">joserfc</span></code> with Python versions 3.8 and higher to ensure compatibility and take
+advantage of the latest language features and improvements.</p>
+</section>
+<section id="new-rfcs">
+<h2>New RFCs<a class="headerlink" href="#new-rfcs" title="Permalink to this heading">¶</a></h2>
+<p>To maintain a stable and reliable library, joserfc will not introduce new RFC
+implementations until the 1.0.0 release. This approach ensures that the existing
+functionality is thoroughly tested and the library reaches a mature state before
+incorporating new specifications.</p>
+<p>When new RFC implementations are added after the 1.0.0 release, the minor version
+of joserfc will be incremented. This versioning approach helps to communicate the
+introduction of new features and RFC support to users, while also indicating
+potential changes to the API and behavior.</p>
+</section>
+<section id="upgrade-notes">
+<h2>Upgrade notes<a class="headerlink" href="#upgrade-notes" title="Permalink to this heading">¶</a></h2>
+<p>Please note that while efforts are made to maintain compatibility and stability,
+it is always a good practice to thoroughly test and validate your code when upgrading
+to a new version of joserfc to ensure a smooth transition and avoid any potential
+compatibility issues.</p>
+</section>
 </section>
 
         </article>
@@ -235,21 +273,21 @@ to <code class="docutils literal notranslate"><span class="pre">joserfc</span></
       <div class="min-w-0 max-w-6xl px-6 pb-6 xl:pt-6 xl:px-12">
         <div class="navigation flex print:hidden">
   <div class="navigation-prev">
-    <a href="../guide/registry/">
+    <a href="../security/">
       <i class="i-icon chevron"></i>
       <div class="page-info">
         <span>Previous</span>
         
-        <div class="title">Registry</div>
+        <div class="title">Security</div>
         
       </div>
     </a>
   </div>
   <div class="navigation-next">
-    <a href="authlib/">
+    <a href="../contributing/">
       <div class="page-info">
         <span>Next</span>
-        <div class="title">Migrating from Authlib</div>
+        <div class="title">Contributing</div>
       </div>
       <i class="i-icon chevron"></i>
     </a>

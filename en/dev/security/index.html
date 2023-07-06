@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Migrations - joserfc</title>
-    <link rel="index" title="Index" href="../genindex/" /><link rel="search" title="Search" href="../search/" /><link rel="next" title="Migrating from Authlib" href="authlib/" /><link rel="prev" title="Registry" href="../guide/registry/" />
-    <link rel="canonical" href="https://jose.authlib.org/en/dev/migrations/" />
+      <title>Security - joserfc</title>
+    <link rel="index" title="Index" href="../genindex/" /><link rel="search" title="Search" href="../search/" /><link rel="next" title="API stability" href="../stability/" /><link rel="prev" title="JWT API" href="../api/jwt/" />
+    <link rel="canonical" href="https://jose.authlib.org/en/dev/security/" />
   <script>
     const isDarkTheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
     const sessionTheme = sessionStorage['_theme']
@@ -51,8 +51,8 @@ html.dark {
 }
 </style>
     <meta property="og:type" content="website"/>
-<meta property="og:url" content="https://jose.authlib.org/en/dev/migrations/"/>
-<meta property="og:title" content="Migrations"/>
+<meta property="og:url" content="https://jose.authlib.org/en/dev/security/"/>
+<meta property="og:title" content="Security"/>
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:creator" content="@lepture"/>
 <meta name="twitter:site" content="@authlib"/></head>
@@ -108,6 +108,9 @@ html.dark {
         <i class="i-icon theme-icon"></i>
       </button>
       
+        <button class="js-menu xl:hidden flex items-center ml-1" aria-label="Show table of contents" type="button" aria-controls="rside" aria-expanded="false">
+          <i class="i-icon outdent"></i>
+        </button>
     </div>
   </div>
 </div>
@@ -141,7 +144,7 @@ html.dark {
 <li class="toctree-l1"><a class="reference internal" href="../install/">Installation</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Essentials</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../guide/">Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../guide/jwk/">JSON Web Key</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../guide/jwt/">JSON Web Token</a></li>
@@ -151,9 +154,9 @@ html.dark {
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../guide/algorithms/">Algorithms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guide/registry/">Registry</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Migrations</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="authlib/">Migrating from Authlib</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pyjwt/">Migrating from PyJWT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../migrations/">Migrations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../migrations/authlib/">Migrating from Authlib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../migrations/pyjwt/">Migrating from PyJWT</a></li>
 </ul>
 </li>
 </ul>
@@ -163,7 +166,7 @@ html.dark {
 <li class="toctree-l1"><a class="reference internal" href="../recipes/openssl/">Using OpenSSL command</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Development</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../api/">API References</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../api/jws/">JWS API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/jwe/">JWE API</a></li>
@@ -171,7 +174,7 @@ html.dark {
 <li class="toctree-l2"><a class="reference internal" href="../api/jwt/">JWT API</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../security/">Security</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Security</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../stability/">API stability</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contributing/">Contributing</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../contributing/structure/">Understand code structure</a></li>
@@ -189,7 +192,15 @@ html.dark {
     <button class="rside-close js-menu xl:hidden" aria-label="Close Table of Contents" type="button" aria-controls="rside" aria-expanded="false">
       <i class="i-icon close"></i>
     </button>
-    <div class="sy-scrollbar px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4"><a class="js-repo-stats repo-stats flex items-center" href="https://github.com/authlib/joserfc"
+    <div class="sy-scrollbar px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4">
+  <div class="localtoc">
+    <h3>Table of Contents</h3>
+    <ul>
+<li><a class="reference internal" href="#the-process">The Process</a></li>
+<li><a class="reference internal" href="#previous-cves">Previous CVEs</a></li>
+</ul>
+
+  </div><a class="js-repo-stats repo-stats flex items-center" href="https://github.com/authlib/joserfc"
   data-type="github" data-user="authlib" data-repo="joserfc">
   <span class="w-8 flex items-center justify-around shrink-0 text-2xl">
     <i class="i-icon github"></i>
@@ -208,7 +219,7 @@ html.dark {
     </span>
   </span>
 </a><div class="edit-this-page">
-  <a href="https://github.com/authlib/joserfc/blob/master/docs/en/migrations/index.rst">Edit this page</a>
+  <a href="https://github.com/authlib/joserfc/blob/master/docs/en/security.rst">Edit this page</a>
 </div><div id="ethical-ad-placement" data-ea-publisher="readthedocs"></div>
     </div>
   </aside>
@@ -217,16 +228,36 @@ html.dark {
     <div class="flex flex-col break-words justify-between">
       <div class="min-w-0 max-w-6xl px-6 pb-6 pt-6 xl:px-12">
         <article class="yue" role="main">
-          <section id="migrations">
-<h1>Migrations<a class="headerlink" href="#migrations" title="Permalink to this heading">¶</a></h1>
-<p>Here are some migration guides to help you transition from other libraries
-to <code class="docutils literal notranslate"><span class="pre">joserfc</span></code>:</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="authlib/">Migrating from Authlib</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pyjwt/">Migrating from PyJWT</a></li>
-</ul>
+          <section id="security">
+<h1>Security<a class="headerlink" href="#security" title="Permalink to this heading">¶</a></h1>
+<p>If you think you have found a potential security vulnerability in <code class="docutils literal notranslate"><span class="pre">joserfc</span></code>,
+please email &lt;<a class="reference external" href="mailto:me&#37;&#52;&#48;lepture&#46;com">me<span>&#64;</span>lepture<span>&#46;</span>com</a>&gt; directly.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Do not file a public issue.</p>
 </div>
+<p>Please do not disclose this to anyone else. We will retrieve a CVE identifier
+if necessary and give you full credit under whatever name or alias you provide.
+We will only request an identifier when we have a fix and can publish it in
+a release.</p>
+<section id="the-process">
+<h2>The Process<a class="headerlink" href="#the-process" title="Permalink to this heading">¶</a></h2>
+<p>Here is the process when we have received a security report:</p>
+<ol class="arabic simple">
+<li><p>we will reply to you in 24 hours</p></li>
+<li><p>we will confirm it in 2 days, if we can’t reproduce it, we will send emails
+to you for more information</p></li>
+<li><p>we will fix the issue in 1 week after we confirm it. If we can’t fix it for
+the moment, we will let you know.</p></li>
+<li><p>we will push the source code to GitHub when it has been released in PyPI
+for 1 week.</p></li>
+<li><p>if necessary, we will retrieve a CVE after releasing to PyPI.</p></li>
+</ol>
+</section>
+<section id="previous-cves">
+<h2>Previous CVEs<a class="headerlink" href="#previous-cves" title="Permalink to this heading">¶</a></h2>
+<p>Waiting…</p>
+</section>
 </section>
 
         </article>
@@ -235,21 +266,21 @@ to <code class="docutils literal notranslate"><span class="pre">joserfc</span></
       <div class="min-w-0 max-w-6xl px-6 pb-6 xl:pt-6 xl:px-12">
         <div class="navigation flex print:hidden">
   <div class="navigation-prev">
-    <a href="../guide/registry/">
+    <a href="../api/jwt/">
       <i class="i-icon chevron"></i>
       <div class="page-info">
         <span>Previous</span>
         
-        <div class="title">Registry</div>
+        <div class="title">JWT API</div>
         
       </div>
     </a>
   </div>
   <div class="navigation-next">
-    <a href="authlib/">
+    <a href="../stability/">
       <div class="page-info">
         <span>Next</span>
-        <div class="title">Migrating from Authlib</div>
+        <div class="title">API stability</div>
       </div>
       <i class="i-icon chevron"></i>
     </a>
