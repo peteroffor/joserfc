@@ -293,8 +293,8 @@ the value type.</p>
 </span><span id="1-5">  File <span class="nb">&quot;$/joserfc/jws.py&quot;</span>, line <span class="m">98</span>, in <span class="n">serialize_compact</span>
 </span><span id="1-6"><span class="w">    </span><span class="n">registry</span><span class="o">.</span><span class="n">check_header</span><span class="p">(</span><span class="n">protected</span><span class="p">)</span>
 </span><span id="1-7">  File <span class="nb">&quot;$/joserfc/rfc7515/registry.py&quot;</span>, line <span class="m">63</span>, in <span class="n">check_header</span>
-</span><span id="1-8"><span class="w">    </span><span class="n">check_registry_header</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">header_registry</span><span class="p">,</span> <span class="n">header</span><span class="p">)</span>
-</span><span id="1-9">  File <span class="nb">&quot;$/joserfc/registry.py&quot;</span>, line <span class="m">187</span>, in <span class="n">check_registry_header</span>
+</span><span id="1-8"><span class="w">    </span><span class="n">validate_registry_header</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">header_registry</span><span class="p">,</span> <span class="n">header</span><span class="p">)</span>
+</span><span id="1-9">  File <span class="nb">&quot;$/joserfc/registry.py&quot;</span>, line <span class="m">193</span>, in <span class="n">validate_registry_header</span>
 </span><span id="1-10"><span class="w">    </span><span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;&quot;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s1">&quot; in header </span><span class="si">{</span><span class="n">error</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </span><span id="1-11"><span class="gr">ValueError</span>: <span class="n">&quot;kid&quot; in header must be a str</span>
 </span></pre></div>
