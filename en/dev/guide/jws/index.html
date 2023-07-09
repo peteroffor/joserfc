@@ -214,6 +214,7 @@ html.dark {
 <li><a class="reference internal" href="#algorithm-not-allowed">Algorithm not allowed</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#unencoded-payload-option">Unencoded Payload Option</a></li>
 </ul>
 
   </div><a class="js-repo-stats repo-stats flex items-center" href="https://github.com/authlib/joserfc"
@@ -562,6 +563,43 @@ of using <a class="reference internal" href="../registry/#registry"><span class=
 </span></pre></div>
 </div>
 </section>
+</section>
+<section id="unencoded-payload-option">
+<span id="rfc7797"></span><h2>Unencoded Payload Option<a class="headerlink" href="#unencoded-payload-option" title="Permalink to this heading">¶</a></h2>
+<p>The unencoded payload option, defined in RFC7797, allows the payload of a
+JWS (JSON Web Signature) to remain unencoded, without using base64 encoding.</p>
+<p>To enable this option, you need to set the <code class="docutils literal notranslate"><span class="pre">b64</span></code> header parameter to <code class="docutils literal notranslate"><span class="pre">false</span></code>
+in the JWS header.</p>
+<p>To utilize the unencoded payload option in joserfc, you must import the
+serialize and deserialize methods from <code class="docutils literal notranslate"><span class="pre">joserfc.rfc7797</span></code>.</p>
+<p>Here are examples demonstrating the usage of the <code class="docutils literal notranslate"><span class="pre">b64</span></code> option:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="kn">from</span> <span class="nn">joserfc.rfc7797</span> <span class="kn">import</span> <span class="n">serialize_compact</span><span class="p">,</span> <span class="n">deserialize_compact</span>
+</span><span id="1-2">
+</span><span id="1-3"><span class="n">protected</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;alg&quot;</span><span class="p">:</span> <span class="s2">&quot;HS256&quot;</span><span class="p">,</span> <span class="s2">&quot;b64&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;crit&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;b64&quot;</span><span class="p">]}</span>
+</span><span id="1-4"><span class="n">value</span> <span class="o">=</span> <span class="n">serialize_compact</span><span class="p">(</span><span class="n">protected</span><span class="p">,</span> <span class="s2">&quot;hello&quot;</span><span class="p">,</span> <span class="s2">&quot;secret&quot;</span><span class="p">)</span>
+</span><span id="1-5"><span class="c1"># =&gt; &#39;eyJhbGciOiJIUzI1NiIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19.hello.mdPbZLtc3tqQ6NCV1pKF-qfEx-3jtR6rv109phKAc4I&#39;</span>
+</span><span id="1-6"><span class="n">deserialize_compact</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="s2">&quot;secret&quot;</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">crit</span></code> MUST be present with <code class="docutils literal notranslate"><span class="pre">&quot;b64&quot;</span></code> in its value set when
+<code class="docutils literal notranslate"><span class="pre">b64</span></code> is in the header.</p>
+</div>
+<p>Since the payload is not base64 encoded, if the payload contains non urlsafe
+characters, the compact serialization will detach the payload:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="kn">from</span> <span class="nn">joserfc.rfc7797</span> <span class="kn">import</span> <span class="n">serialize_compact</span><span class="p">,</span> <span class="n">deserialize_compact</span>
+</span><span id="1-2">
+</span><span id="1-3"><span class="n">protected</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;alg&quot;</span><span class="p">:</span> <span class="s2">&quot;HS256&quot;</span><span class="p">,</span> <span class="s2">&quot;b64&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;crit&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;b64&quot;</span><span class="p">]}</span>
+</span><span id="1-4"><span class="n">value</span> <span class="o">=</span> <span class="n">serialize_compact</span><span class="p">(</span><span class="n">protected</span><span class="p">,</span> <span class="s2">&quot;$.02&quot;</span><span class="p">,</span> <span class="s2">&quot;secret&quot;</span><span class="p">)</span>
+</span><span id="1-5"><span class="c1"># =&gt; &#39;eyJhbGciOiJIUzI1NiIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..GbtzAD3Cwe6snTZnaAxapwQz5QftEz7agx_6aMtZ4w0&#39;</span>
+</span><span id="1-6"><span class="c1"># since the payload is detached, you need to specify the</span>
+</span><span id="1-7"><span class="c1"># payload when calling deserialize_compact</span>
+</span><span id="1-8"><span class="n">deserialize_compact</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="s2">&quot;secret&quot;</span><span class="p">,</span> <span class="n">payload</span><span class="o">=</span><span class="s2">&quot;$.02&quot;</span><span class="p">)</span>
+</span></pre></div>
+</div>
+<p>There are also methods for JSON serialization: <code class="docutils literal notranslate"><span class="pre">serialize_json</span></code> and
+<code class="docutils literal notranslate"><span class="pre">deserialize_json</span></code>.</p>
 </section>
 </section>
 
