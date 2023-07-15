@@ -14,15 +14,15 @@
     } else if (isDarkTheme) {
       document.documentElement.classList.add('dark')
     }
-  </script><link rel="shortcut icon" href="../_static/icon.svg"/><link rel="stylesheet" href="../_static/pygments.css?v=2023.7.11" type="text/css" />
-    <link rel="stylesheet" href="../_static/shibuya.css?v=2023.7.11" type="text/css" />
+  </script><link rel="shortcut icon" href="../_static/icon.svg"/><link rel="stylesheet" href="../_static/pygments.css?v=2023.7.15" type="text/css" />
+    <link rel="stylesheet" href="../_static/shibuya.css?v=2023.7.15" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
-    <link media="print" rel="stylesheet" type="text/css" href="../_static/print.css?v=2023.7.11" />
+    <link media="print" rel="stylesheet" type="text/css" href="../_static/print.css?v=2023.7.15" />
     <style>
 :root {
-  --sy-f-sys:-apple-system, BlinkMacSystemFont, Segoe UI, Oxygen, Ubuntu, Droid Sans, Helvetica Neue;--sy-f-cjk:PingFang SC, Hiragino Sans GB, Droid Sans Fallback, Microsoft YaHei;--sy-f-heading:var(--sy-f-sys), var(--sy-f-cjk), sans-serif;--sy-f-text:var(--sy-f-sys), var(--sy-f-cjk), sans-serif;--sy-f-mono:Menlo, Monaco, Consolas, "Courier New", monospace;--sy-c-divider:rgba(var(--sy-rc-text), 0.1);--sy-c-divider-weak:rgba(var(--sy-rc-text), 0.05);--sy-c-border:rgba(var(--sy-rc-text), 0.14);--sy-s-banner-height:0rem;--sy-s-navbar-height:56px;--sy-s-offset-top:calc(var(--sy-s-navbar-height) + var(--sy-s-banner-height));--sy-c-link:rgb(var(--sy-rc-theme));
+  --sy-f-sys:-apple-system, BlinkMacSystemFont, Segoe UI, Oxygen, Ubuntu, Droid Sans, Helvetica Neue;--sy-f-cjk:PingFang SC, Hiragino Sans GB, Droid Sans Fallback, Microsoft YaHei;--sy-f-heading:var(--sy-f-sys), var(--sy-f-cjk), sans-serif;--sy-f-text:var(--sy-f-sys), var(--sy-f-cjk), sans-serif;--sy-f-mono:Menlo, Monaco, Consolas, "Courier New", monospace;--sy-c-divider:rgba(var(--sy-rc-text), 0.1);--sy-c-divider-weak:rgba(var(--sy-rc-text), 0.05);--sy-c-border:rgba(var(--sy-rc-text), 0.14);--sy-s-banner-height:0rem;--sy-s-navbar-height:56px;--sy-s-offset-top:calc(var(--sy-s-navbar-height) + var(--sy-s-banner-height));--sy-c-link:rgb(var(--sy-rc-theme));--sy-c-link-weak:rgba(var(--sy-rc-theme), 0.86);
   --sy-rc-theme:62,127,203;--sy-rc-bg:255, 255, 255;--sy-rc-invert:0, 0, 0;--sy-rc-text:0, 0, 0;--sy-c-bg:#fff;--sy-c-bg-weak:#f9f9f9;--sy-c-text:#374151;--sy-c-text-weak:#6b7280;--sy-c-heading:#111827;--sy-c-bold:#111827;--sy-c-foot-text:#232226;--sy-c-foot-bg:#fafafa;--sy-c-foot-divider:#f0f0f0;
 }
 @media (prefers-color-scheme: light) {
@@ -62,7 +62,7 @@ html.dark {
       <img class="dark-logo" src="../_static/dark-logo.svg" alt="joserfc" height="28" />
       <strong>joserfc</strong>
     </a>
-    <div class="sy-head-links" id="_sy_links">
+    <div class="sy-head-links" id="NavLinks">
       <nav class="sy-head-nav">
 
 <ul>
@@ -82,35 +82,45 @@ html.dark {
                 <small>One time password, HOTP/TOTP.</small>
               </a></li></ul>
       </li><li class="link">
-          <a href="https://github.com/sponsors/lepture"><span>Sponsor me</span><i class="i-icon external-link"></i></a>
+          <a href="https://github.com/sponsors/authlib"><span>Sponsor me</span><i class="i-icon external-link"></i></a>
         </li></ul></nav>
-      <div class="sy-head-extra flex gap-2 items-center print:hidden">
-        <form class="searchbox flex items-center" action="#" method="get">
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="#" method="get">
   <input type="text" name="q" placeholder="Search" />
   <kbd>/</kbd>
 </form>
         
-        <div class="flex gap-2 items-center">
-            <a class="flex items-center ml-1" href="https://github.com/authlib/joserfc" aria-label="GitHub">
+        
+<div class="nav-languages">
+  <button type="button">
+    <span class="md:hidden">Translations</span>
+    <i class="i-icon languages"></i>
+  </button>
+  <div class="nav-languages-choices">
+    <ul><li><a href="/en/dev/search/">English</a></li><li><a href="/zh/dev/search/">简体中文</a></li></ul>
+  </div>
+</div>
+
+        <div class="sy-head-social flex items-center">
+            <a class="flex items-center" href="https://github.com/authlib/joserfc" aria-label="GitHub">
               <i class="i-icon github"></i>
             </a>
-            <a class="flex items-center ml-1" href="https://discord.gg/HvBVAeNAaV" aria-label="Discord">
+            <a class="flex items-center" href="https://discord.gg/HvBVAeNAaV" aria-label="Discord">
               <i class="i-icon discord"></i>
             </a>
         </div>
       </div>
     </div>
-    <div class="sy-head-actions flex items-center ml-3 shrink-0 print:hidden">
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden">
       <button class="js-theme theme-switch flex items-center" data-aria-light="Switch to dark mode" data-aria-dark="Switch to light mode">
         <i class="i-icon theme-icon"></i>
       </button>
-      <div class="md:hidden flex items-center ml-3">
-        <button class="hamburger js-menu" aria-label="Menu" type="button" aria-controls="_sy_links" aria-expanded="false">
+      <button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="NavLinks" aria-expanded="false">
+        <div class="hamburger">
           <span class="hamburger_1"></span>
           <span class="hamburger_2 -translate-x-2"></span>
           <span class="hamburger_3 -translate-x-1"></span>
-        </button>
-      </div>
+        </div>
+      </button>
     </div>
   </div>
 </div><div class="sy-container mx-auto body">
@@ -179,7 +189,7 @@ html.dark {
       <script src="../_static/clipboard.min.js"></script>
       <script src="../_static/copybutton.js"></script>
       <script src="../_static/design-tabs.js"></script>
-      <script src="../_static/shibuya.js?v=2023.7.11"></script>
+      <script src="../_static/shibuya.js?v=2023.7.15"></script>
     
     <script src="../_static/searchtools.js"></script>
     <script src="../_static/language_data.js"></script>
