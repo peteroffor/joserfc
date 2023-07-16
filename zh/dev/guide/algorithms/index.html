@@ -14,12 +14,12 @@
     } else if (isDarkTheme) {
       document.documentElement.classList.add('dark')
     }
-  </script><link rel="shortcut icon" href="../../_static/icon.svg"/><link rel="stylesheet" href="../../_static/pygments.css?v=2023.7.15" type="text/css" />
-    <link rel="stylesheet" href="../../_static/shibuya.css?v=2023.7.15" type="text/css" />
+  </script><link rel="shortcut icon" href="../../_static/icon.svg"/><link rel="stylesheet" href="../../_static/pygments.css?v=2023.7.16" type="text/css" />
+    <link rel="stylesheet" href="../../_static/shibuya.css?v=2023.7.16" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
-    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=2023.7.15" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=2023.7.16" />
     <style>
 :root {
   --sy-f-sys:-apple-system, BlinkMacSystemFont, Segoe UI, Oxygen, Ubuntu, Droid Sans, Helvetica Neue;--sy-f-cjk:PingFang SC, Hiragino Sans GB, Droid Sans Fallback, Microsoft YaHei;--sy-f-heading:var(--sy-f-sys), var(--sy-f-cjk), sans-serif;--sy-f-text:var(--sy-f-sys), var(--sy-f-cjk), sans-serif;--sy-f-mono:Menlo, Monaco, Consolas, "Courier New", monospace;--sy-c-divider:rgba(var(--sy-rc-text), 0.1);--sy-c-divider-weak:rgba(var(--sy-rc-text), 0.05);--sy-c-border:rgba(var(--sy-rc-text), 0.14);--sy-s-banner-height:0rem;--sy-s-navbar-height:56px;--sy-s-offset-top:calc(var(--sy-s-navbar-height) + var(--sy-s-banner-height));--sy-c-link:rgb(var(--sy-rc-theme));--sy-c-link-weak:rgba(var(--sy-rc-theme), 0.86);
@@ -57,7 +57,10 @@ html.dark {
 <meta name="description" content="All available algorithms for JWS, JWE, JWK, and JWT."/>
 <meta property="og:description" content="All available algorithms for JWS, JWE, JWK, and JWT."/>
 <meta name="twitter:creator" content="@lepture"/>
-<meta name="twitter:site" content="@authlib"/></head>
+<meta name="twitter:site" content="@authlib"/>
+      <link rel="alternate" hreflang="en" href="/en/dev/guide/algorithms/" />
+      <link rel="alternate" hreflang="zh" href="/zh/dev/guide/algorithms/" />
+  </head>
 <body><div class="document"><div class="sy-head">
   <div class="sy-head-blur"></div>
   <div class="sy-head-inner sy-container mx-auto">
@@ -96,7 +99,7 @@ html.dark {
         
 <div class="nav-languages">
   <button type="button">
-    <span class="md:hidden">Translations</span>
+    <span class="md:hidden">翻译</span>
     <i class="i-icon languages"></i>
   </button>
   <div class="nav-languages-choices">
@@ -115,7 +118,7 @@ html.dark {
       </div>
     </div>
     <div class="sy-head-actions flex items-center shrink-0 print:hidden">
-      <button class="js-theme theme-switch flex items-center" data-aria-light="Switch to dark mode" data-aria-dark="Switch to light mode">
+      <button class="js-theme theme-switch flex items-center" data-aria-light="切换到暗色模式" data-aria-dark="切换到亮色模式">
         <i class="i-icon theme-icon"></i>
       </button>
       <button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="NavLinks" aria-expanded="false">
@@ -192,7 +195,7 @@ html.dark {
     </button>
     <div class="sy-scrollbar px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4">
   <div class="localtoc">
-    <h3>On this page</h3>
+    <h3>该页内容</h3>
     <ul>
 <li><a class="reference internal" href="#json-web-key">JSON Web Key</a></li>
 <li><a class="reference internal" href="#json-web-signature">JSON Web Signature</a></li>
@@ -227,7 +230,7 @@ html.dark {
     </span>
   </span>
 </a><div class="edit-this-page">
-  <a href="https://github.com/authlib/joserfc/blob/master/docs/guide/algorithms.rst">Edit this page</a>
+  <a href="https://github.com/authlib/joserfc/blob/master/docs/guide/algorithms.rst">编辑此页面</a>
 </div>
 <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CE7DKK3W&placement=joseauthliborg" id="_carbonads_js"></script><div id="ethical-ad-placement" data-ea-publisher="readthedocs"></div>
     </div>
@@ -263,23 +266,20 @@ html.dark {
         <article class="yue" role="main">
           <section id="algorithms">
 <span id="jwa"></span><h1>算法<a class="headerlink" href="#algorithms" title="此标题的永久链接">¶</a></h1>
-<p>This documentation describes the algorithms to be used with
-JSON Web Signature (JWS), JSON Web Encryption (JWE), and
-JSON Web Key (JWK).</p>
+<p>本文档描述了在 JSON Web Signature (JWS)、JSON Web Encryption (JWE) 和 JSON Web Key (JWK) 中使用的算法。</p>
 <section id="json-web-key">
 <h2>JSON Web Key<a class="headerlink" href="#json-web-key" title="此标题的永久链接">¶</a></h2>
 <p>JSON Web Key（JWK）的算法包括：</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="../jwk/#octkey"><span class="std std-ref">OctKey</span></a> : accepts key size in bits, which means the <code class="docutils literal notranslate"><span class="pre">key_size</span></code> MUST be dividable by 8.</p></li>
-<li><p><a class="reference internal" href="../jwk/#rsakey"><span class="std std-ref">RSAKey</span></a> : accepts key size in bits, <code class="docutils literal notranslate"><span class="pre">key_size</span></code> MUST <code class="docutils literal notranslate"><span class="pre">&gt;=512</span></code> and dividable by 8.</p></li>
-<li><p><a class="reference internal" href="../jwk/#eckey"><span class="std std-ref">ECKey</span></a> : accepts <code class="docutils literal notranslate"><span class="pre">crv</span></code> with <code class="docutils literal notranslate"><span class="pre">P-256</span></code>, <code class="docutils literal notranslate"><span class="pre">P-384</span></code>, <code class="docutils literal notranslate"><span class="pre">P-521</span></code>, and <code class="docutils literal notranslate"><span class="pre">secp256k1</span></code>.</p></li>
-<li><p><a class="reference internal" href="../jwk/#okpkey"><span class="std std-ref">OKPKey</span></a> : accepts <code class="docutils literal notranslate"><span class="pre">crv</span></code> with <code class="docutils literal notranslate"><span class="pre">Ed25519</span></code>, <code class="docutils literal notranslate"><span class="pre">Ed448</span></code>, <code class="docutils literal notranslate"><span class="pre">X25519</span></code>, and <code class="docutils literal notranslate"><span class="pre">X448</span></code>.</p></li>
+<li><p><a class="reference internal" href="../jwk/#octkey"><span class="std std-ref">OctKey</span></a> ：接受以比特为单位的密钥大小，这意味着 <code class="docutils literal notranslate"><span class="pre">key_size</span></code> 必须是 8 的倍数。</p></li>
+<li><p><a class="reference internal" href="../jwk/#rsakey"><span class="std std-ref">RSAKey</span></a> ：接受以比特为单位的密钥大小，<code class="docutils literal notranslate"><span class="pre">key_size</span></code> 必须 <code class="docutils literal notranslate"><span class="pre">&gt;=512</span></code> 且为 8 的倍数。</p></li>
+<li><p><a class="reference internal" href="../jwk/#eckey"><span class="std std-ref">ECKey</span></a> ：接受 <code class="docutils literal notranslate"><span class="pre">crv</span></code> 为 <code class="docutils literal notranslate"><span class="pre">P-256</span></code>、<code class="docutils literal notranslate"><span class="pre">P-384</span></code>、<code class="docutils literal notranslate"><span class="pre">P-521</span></code> 和 <code class="docutils literal notranslate"><span class="pre">secp256k1</span></code>。</p></li>
+<li><p><a class="reference internal" href="../jwk/#okpkey"><span class="std std-ref">OKPKey</span></a> ：接受 <code class="docutils literal notranslate"><span class="pre">crv</span></code> 为 <code class="docutils literal notranslate"><span class="pre">Ed25519</span></code>、<code class="docutils literal notranslate"><span class="pre">Ed448</span></code>、<code class="docutils literal notranslate"><span class="pre">X25519</span></code> 和 <code class="docutils literal notranslate"><span class="pre">X448</span></code>。</p></li>
 </ul>
 </section>
 <section id="json-web-signature">
 <span id="jws-algorithms"></span><h2>JSON Web Signature<a class="headerlink" href="#json-web-signature" title="此标题的永久链接">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">joserfc.jws</span></code> module supports algorithms from RFC7518, RFC8037,
-and RFC8812. You MUST specify the correct key type for each algorithm.</p>
+<p><code class="docutils literal notranslate"><span class="pre">joserfc.jws</span></code> 模块支持 RFC7518、RFC8037 和 RFC8812 中的算法。您必须为每个算法指定正确的密钥类型。</p>
 <div class="table-wrapper docutils container">
 <table class="docutils align-default">
 <thead>
@@ -354,13 +354,12 @@ and RFC8812. You MUST specify the correct key type for each algorithm.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">备注</p>
-<p><code class="docutils literal notranslate"><span class="pre">EdDSA</span></code> algorithm only accepts <code class="docutils literal notranslate"><span class="pre">OKPKey</span></code> with &quot;crv&quot; of &quot;Ed25519&quot; and &quot;Ed448&quot;.</p>
+<p><code class="docutils literal notranslate"><span class="pre">EdDSA</span></code> 算法只接受具有 &quot;crv&quot; 为 &quot;Ed25519&quot; 和 &quot;Ed448&quot; 的 <code class="docutils literal notranslate"><span class="pre">OKPKey</span></code>。</p>
 </div>
 </section>
 <section id="json-web-encryption">
 <span id="jwe-algorithms"></span><h2>JSON Web Encryption<a class="headerlink" href="#json-web-encryption" title="此标题的永久链接">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">joserfc.jwe</span></code> module supports algorithms from RFC7518, and drafts of
-<code class="docutils literal notranslate"><span class="pre">ECDH-1PU</span></code>. You MUST specify the correct key type for each algorithm.</p>
+<p><code class="docutils literal notranslate"><span class="pre">joserfc.jwe</span></code> 模块支持 RFC7518 中的算法，以及 <code class="docutils literal notranslate"><span class="pre">ECDH-1PU</span></code> 的草案。您必须为每个算法指定正确的密钥类型。</p>
 <div class="table-wrapper docutils container">
 <table class="docutils align-default">
 <thead>
@@ -441,8 +440,7 @@ and RFC8812. You MUST specify the correct key type for each algorithm.</p>
 </tbody>
 </table>
 </div>
-<p>All algorithms defined in RFC7518 for &quot;enc&quot; value are recommended, which
-including:</p>
+<p>RFC7518 中定义的所有用于 &quot;enc&quot; 值的算法都是推荐使用的，包括：</p>
 <ul class="simple">
 <li><p>A128CBC-HS256</p></li>
 <li><p>A192CBC-HS384</p></li>
@@ -451,14 +449,11 @@ including:</p>
 <li><p>A192GCM</p></li>
 <li><p>A256GCM</p></li>
 </ul>
-<p>A <code class="docutils literal notranslate"><span class="pre">DEF</span></code> algorithm for the &quot;zip&quot; (compression) header parameter is also defined in
-RFC7518, which is recommended.</p>
-<p>There are also additional algorithms for &quot;alg&quot; and &quot;enc&quot; in draft versions.
-Please refer to the following sections for more information.</p>
+<p>RFC7518 还定义了用于 &quot;zip&quot;（压缩）头参数的 <code class="docutils literal notranslate"><span class="pre">DEF</span></code> 算法，该算法推荐使用。</p>
+<p>草案版本中还有针对 &quot;alg&quot; 和 &quot;enc&quot; 的额外算法。请参考以下章节获取更多信息。</p>
 <section id="okpkey">
 <h3>OKPKey<a class="headerlink" href="#okpkey" title="此标题的永久链接">¶</a></h3>
-<p>You can use <code class="docutils literal notranslate"><span class="pre">OKPKey</span></code> with the &quot;crv&quot; (curve) parameter set to <code class="docutils literal notranslate"><span class="pre">X25519</span></code> or <code class="docutils literal notranslate"><span class="pre">X448</span></code>
-for the following algorithms:</p>
+<p>对于以下算法，您可以使用 <code class="docutils literal notranslate"><span class="pre">OKPKey</span></code> 并将 &quot;crv&quot;（曲线）参数设置为 <code class="docutils literal notranslate"><span class="pre">X25519</span></code> 或 <code class="docutils literal notranslate"><span class="pre">X448</span></code>：</p>
 <ul class="simple">
 <li><p>ECDH-ES</p></li>
 <li><p>ECDH-ES+A128KW</p></li>
@@ -470,17 +465,14 @@ cryptographic operations.</p>
 </section>
 <section id="c20p-and-xc20p">
 <span id="chacha20"></span><h3>C20P 与 XC20P<a class="headerlink" href="#c20p-and-xc20p" title="此标题的永久链接">¶</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">C20P</span></code> and <code class="docutils literal notranslate"><span class="pre">XC20P</span></code> algorithms are still in drafts, they are not registered by default.
-To use <code class="docutils literal notranslate"><span class="pre">C20P</span></code> and <code class="docutils literal notranslate"><span class="pre">XC20P</span></code>, developers have to install the <code class="docutils literal notranslate"><span class="pre">PyCryptodome</span></code> module.</p>
+<p><code class="docutils literal notranslate"><span class="pre">C20P</span></code> 和 <code class="docutils literal notranslate"><span class="pre">XC20P</span></code> 算法仍处于草案阶段，默认状态下他们未注册到 <code class="docutils literal notranslate"><span class="pre">JWERegistry</span></code>。要使用 <code class="docutils literal notranslate"><span class="pre">C20P</span></code> 和 <code class="docutils literal notranslate"><span class="pre">XC20P</span></code>，开发人员必须安装 <code class="docutils literal notranslate"><span class="pre">PyCryptodome</span></code> 模块。</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span id="1-1">pip<span class="w"> </span>install<span class="w"> </span>pycryptodome
 </span></pre></div>
 </div>
-<p>This is caused by <code class="docutils literal notranslate"><span class="pre">cryptography</span></code> package does only support &quot;ChaCha20&quot; cipher, not <strong>XChaCha20</strong>,
-while <code class="docutils literal notranslate"><span class="pre">pycryptodome</span></code> supports both &quot;ChaCha20&quot; and &quot;XChaCha20&quot; ciphers.</p>
+<p>这是由于 <code class="docutils literal notranslate"><span class="pre">cryptography</span></code> 库只支持 &quot;ChaCha20&quot; 密码算法，不支持 <strong>XChaCha20</strong>，而 <code class="docutils literal notranslate"><span class="pre">pycryptodome</span></code> 同时支持 &quot;ChaCha20&quot; 和 &quot;XChaCha20&quot; 密码算法。</p>
 <section id="register-ciphers">
 <h4>注册密码算法<a class="headerlink" href="#register-ciphers" title="此标题的永久链接">¶</a></h4>
-<p>The default <a class="reference internal" href="../registry/#registry"><span class="std std-ref">Registry</span></a> doesn't contain draft ciphers, developers MUST register
-<code class="docutils literal notranslate"><span class="pre">C20P</span></code> and <code class="docutils literal notranslate"><span class="pre">XC20P</span></code> at first:</p>
+<p>默认的 <a class="reference internal" href="../registry/#registry"><span class="std std-ref">Registry</span></a> 不包含草案算法，开发人员必须先注册 <code class="docutils literal notranslate"><span class="pre">C20P</span></code> 和 <code class="docutils literal notranslate"><span class="pre">XC20P</span></code>：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="kn">from</span> <span class="nn">joserfc.drafts.jwe_chacha20</span> <span class="kn">import</span> <span class="n">register_chaha20_poly1305</span>
 </span><span id="1-2">
 </span><span id="1-3"><span class="n">register_chaha20_poly1305</span><span class="p">()</span>
@@ -489,8 +481,7 @@ while <code class="docutils literal notranslate"><span class="pre">pycryptodome<
 </section>
 <section id="use-custom-registry">
 <h4>自定义注册表 <code class="docutils literal notranslate"><span class="pre">registry</span></code><a class="headerlink" href="#use-custom-registry" title="此标题的永久链接">¶</a></h4>
-<p>Use a custom <code class="docutils literal notranslate"><span class="pre">registry</span></code> in <a class="reference internal" href="../../api/jwe/#joserfc.jwe.encrypt_compact" title="joserfc.jwe.encrypt_compact"><code class="xref py py-meth docutils literal notranslate"><span class="pre">encrypt_compact()</span></code></a>, <a class="reference internal" href="../../api/jwe/#joserfc.jwe.decrypt_compact" title="joserfc.jwe.decrypt_compact"><code class="xref py py-meth docutils literal notranslate"><span class="pre">decrypt_compact()</span></code></a>,
-<a class="reference internal" href="../../api/jwe/#joserfc.jwe.encrypt_json" title="joserfc.jwe.encrypt_json"><code class="xref py py-meth docutils literal notranslate"><span class="pre">encrypt_json()</span></code></a>, and <a class="reference internal" href="../../api/jwe/#joserfc.jwe.decrypt_json" title="joserfc.jwe.decrypt_json"><code class="xref py py-meth docutils literal notranslate"><span class="pre">decrypt_json()</span></code></a>.</p>
+<p>在 <a class="reference internal" href="../../api/jwe/#joserfc.jwe.encrypt_compact" title="joserfc.jwe.encrypt_compact"><code class="xref py py-meth docutils literal notranslate"><span class="pre">encrypt_compact()</span></code></a>、<a class="reference internal" href="../../api/jwe/#joserfc.jwe.decrypt_compact" title="joserfc.jwe.decrypt_compact"><code class="xref py py-meth docutils literal notranslate"><span class="pre">decrypt_compact()</span></code></a>、<a class="reference internal" href="../../api/jwe/#joserfc.jwe.encrypt_json" title="joserfc.jwe.encrypt_json"><code class="xref py py-meth docutils literal notranslate"><span class="pre">encrypt_json()</span></code></a> 和 <a class="reference internal" href="../../api/jwe/#joserfc.jwe.decrypt_json" title="joserfc.jwe.decrypt_json"><code class="xref py py-meth docutils literal notranslate"><span class="pre">decrypt_json()</span></code></a> 中使用自定义 <code class="docutils literal notranslate"><span class="pre">registry</span></code>。</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="kn">from</span> <span class="nn">joserfc</span> <span class="kn">import</span> <span class="n">jwe</span>
 </span><span id="1-2"><span class="kn">from</span> <span class="nn">joserfc.jwk</span> <span class="kn">import</span> <span class="n">OctKey</span>
 </span><span id="1-3">
@@ -513,15 +504,13 @@ while <code class="docutils literal notranslate"><span class="pre">pycryptodome<
 </section>
 <section id="ecdh-1pu-algorithms">
 <span id="ecdh1pu"></span><h3>ECDH-1PU 相关算法<a class="headerlink" href="#ecdh-1pu-algorithms" title="此标题的永久链接">¶</a></h3>
-<p>Key Agreement with Elliptic Curve Diffie-Hellman One-Pass Unified Model (ECDH-1PU)
-are still in drafts, they are not registered by default. To use <code class="docutils literal notranslate"><span class="pre">ECDH-1PU</span></code> related
-algorithms, developers MUST register them manually:</p>
+<p>椭圆曲线迪菲-赫尔曼一次通用模型（ECDH-1PU）密钥协商仍然处于草案阶段，默认情况下未注册。要使用与 <code class="docutils literal notranslate"><span class="pre">ECDH-1PU</span></code> 相关的算法，开发人员必须手动注册它们：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="kn">from</span> <span class="nn">joserfc.drafts.jwe_ecdh_1pu</span> <span class="kn">import</span> <span class="n">register_ecdh_1pu</span>
 </span><span id="1-2">
 </span><span id="1-3"><span class="n">register_ecdh_1pu</span><span class="p">()</span>
 </span></pre></div>
 </div>
-<p>Then use a custom <code class="docutils literal notranslate"><span class="pre">registry</span></code> with the required <code class="docutils literal notranslate"><span class="pre">ECDH-1PU</span></code> algorithms. For instance:</p>
+<p>然后使用带有所需的 <code class="docutils literal notranslate"><span class="pre">ECDH-1PU</span></code> 算法的自定义 <code class="docutils literal notranslate"><span class="pre">registry</span></code>。例如：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="kn">from</span> <span class="nn">joserfc</span> <span class="kn">import</span> <span class="n">jwe</span>
 </span><span id="1-2"><span class="kn">from</span> <span class="nn">joserfc.jwk</span> <span class="kn">import</span> <span class="n">ECKey</span>
 </span><span id="1-3">
@@ -542,11 +531,9 @@ algorithms, developers MUST register them manually:</p>
 </div>
 <div class="admonition important">
 <p class="admonition-title">重要</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">ECDH-1PU</span></code> algorithms require a <strong>sender key</strong>, which MUST be a private key when
-calling <a class="reference internal" href="../../api/jwe/#joserfc.jwe.encrypt_compact" title="joserfc.jwe.encrypt_compact"><code class="xref py py-meth docutils literal notranslate"><span class="pre">encrypt_compact()</span></code></a> and <a class="reference internal" href="../../api/jwe/#joserfc.jwe.encrypt_json" title="joserfc.jwe.encrypt_json"><code class="xref py py-meth docutils literal notranslate"><span class="pre">encrypt_json()</span></code></a> methods.</p>
+<p><code class="docutils literal notranslate"><span class="pre">ECDH-1PU</span></code> 算法需要一个 <strong>发送方密钥</strong>，在调用 <a class="reference internal" href="../../api/jwe/#joserfc.jwe.encrypt_compact" title="joserfc.jwe.encrypt_compact"><code class="xref py py-meth docutils literal notranslate"><span class="pre">encrypt_compact()</span></code></a> 和 <a class="reference internal" href="../../api/jwe/#joserfc.jwe.encrypt_json" title="joserfc.jwe.encrypt_json"><code class="xref py py-meth docutils literal notranslate"><span class="pre">encrypt_json()</span></code></a> 方法时，该密钥必须是私钥。</p>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">sender_key</span></code> can be a <code class="xref py py-class docutils literal notranslate"><span class="pre">KeySet</span></code>, and JWE will find the correct key
-according to <code class="docutils literal notranslate"><span class="pre">skid</span></code> header value.</p>
+<p><code class="docutils literal notranslate"><span class="pre">sender_key</span></code> 可以是 <code class="xref py py-class docutils literal notranslate"><span class="pre">KeySet</span></code>，JWE 会根据 <code class="docutils literal notranslate"><span class="pre">skid</span></code> 头部值查找正确的密钥。</p>
 </section>
 </section>
 </section>
@@ -558,7 +545,7 @@ according to <code class="docutils literal notranslate"><span class="pre">skid</
     <a href="../jwe/">
       <i class="i-icon chevron"></i>
       <div class="page-info">
-        <span>Previous</span>
+        <span>上一章</span>
         
         <div class="title">JSON Web Encryption</div>
         
@@ -568,7 +555,7 @@ according to <code class="docutils literal notranslate"><span class="pre">skid</
   <div class="navigation-next">
     <a href="../registry/">
       <div class="page-info">
-        <span>Next</span>
+        <span>下一章</span>
         <div class="title">Registry</div>
       </div>
       <i class="i-icon chevron"></i>
@@ -608,7 +595,7 @@ according to <code class="docutils literal notranslate"><span class="pre">skid</
       <script src="../../_static/clipboard.min.js"></script>
       <script src="../../_static/copybutton.js"></script>
       <script src="../../_static/design-tabs.js"></script>
-      <script src="../../_static/shibuya.js?v=2023.7.15"></script>
+      <script src="../../_static/shibuya.js?v=2023.7.16"></script>
     
 </body>
 </html>

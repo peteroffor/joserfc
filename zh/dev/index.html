@@ -14,12 +14,12 @@
     } else if (isDarkTheme) {
       document.documentElement.classList.add('dark')
     }
-  </script><link rel="shortcut icon" href="_static/icon.svg"/><link rel="stylesheet" href="_static/pygments.css?v=2023.7.15" type="text/css" />
-    <link rel="stylesheet" href="_static/shibuya.css?v=2023.7.15" type="text/css" />
+  </script><link rel="shortcut icon" href="_static/icon.svg"/><link rel="stylesheet" href="_static/pygments.css?v=2023.7.16" type="text/css" />
+    <link rel="stylesheet" href="_static/shibuya.css?v=2023.7.16" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
-    <link media="print" rel="stylesheet" type="text/css" href="_static/print.css?v=2023.7.15" />
+    <link media="print" rel="stylesheet" type="text/css" href="_static/print.css?v=2023.7.16" />
     <style>
 :root {
   --sy-f-sys:-apple-system, BlinkMacSystemFont, Segoe UI, Oxygen, Ubuntu, Droid Sans, Helvetica Neue;--sy-f-cjk:PingFang SC, Hiragino Sans GB, Droid Sans Fallback, Microsoft YaHei;--sy-f-heading:var(--sy-f-sys), var(--sy-f-cjk), sans-serif;--sy-f-text:var(--sy-f-sys), var(--sy-f-cjk), sans-serif;--sy-f-mono:Menlo, Monaco, Consolas, "Courier New", monospace;--sy-c-divider:rgba(var(--sy-rc-text), 0.1);--sy-c-divider-weak:rgba(var(--sy-rc-text), 0.05);--sy-c-border:rgba(var(--sy-rc-text), 0.14);--sy-s-banner-height:0rem;--sy-s-navbar-height:56px;--sy-s-offset-top:calc(var(--sy-s-navbar-height) + var(--sy-s-banner-height));--sy-c-link:rgb(var(--sy-rc-theme));--sy-c-link-weak:rgba(var(--sy-rc-theme), 0.86);
@@ -55,7 +55,10 @@ html.dark {
 <meta property="og:title" content="JOSE RFC"/>
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:creator" content="@lepture"/>
-<meta name="twitter:site" content="@authlib"/></head>
+<meta name="twitter:site" content="@authlib"/>
+      <link rel="alternate" hreflang="en" href="/en/dev/" />
+      <link rel="alternate" hreflang="zh" href="/zh/dev/" />
+  </head>
 <body><div class="document"><div class="sy-head">
   <div class="sy-head-blur"></div>
   <div class="sy-head-inner sy-container mx-auto">
@@ -94,11 +97,11 @@ html.dark {
         
 <div class="nav-languages">
   <button type="button">
-    <span class="md:hidden">Translations</span>
+    <span class="md:hidden">翻译</span>
     <i class="i-icon languages"></i>
   </button>
   <div class="nav-languages-choices">
-    <ul><li><a href="/en/dev/index/">English</a></li><li><a href="/zh/dev/index/">简体中文</a></li></ul>
+    <ul><li><a href="/en/dev/">English</a></li><li><a href="/zh/dev/">简体中文</a></li></ul>
   </div>
 </div>
 
@@ -113,7 +116,7 @@ html.dark {
       </div>
     </div>
     <div class="sy-head-actions flex items-center shrink-0 print:hidden">
-      <button class="js-theme theme-switch flex items-center" data-aria-light="Switch to dark mode" data-aria-dark="Switch to light mode">
+      <button class="js-theme theme-switch flex items-center" data-aria-light="切换到暗色模式" data-aria-dark="切换到亮色模式">
         <i class="i-icon theme-icon"></i>
       </button>
       <button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="NavLinks" aria-expanded="false">
@@ -190,7 +193,7 @@ html.dark {
     </button>
     <div class="sy-scrollbar px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4">
   <div class="localtoc">
-    <h3>On this page</h3>
+    <h3>该页内容</h3>
     <ul>
 <li><a class="reference internal" href="#usage">&#20351;&#29992;&#26041;&#27861;</a></li>
 <li><a class="reference internal" href="#rfcs">RFCs</a></li>
@@ -218,7 +221,7 @@ html.dark {
     </span>
   </span>
 </a><div class="edit-this-page">
-  <a href="https://github.com/authlib/joserfc/blob/master/docs/index.rst">Edit this page</a>
+  <a href="https://github.com/authlib/joserfc/blob/master/docs/index.rst">编辑此页面</a>
 </div>
 <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CE7DKK3W&placement=joseauthliborg" id="_carbonads_js"></script><div id="ethical-ad-placement" data-ea-publisher="readthedocs"></div>
     </div>
@@ -254,14 +257,11 @@ html.dark {
         <article class="yue" role="main">
           <section id="jose-rfc">
 <h1>JOSE RFC<a class="headerlink" href="#jose-rfc" title="此标题的永久链接">¶</a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">joserfc</span></code> is a Python library that provides a comprehensive implementation of
-several essential JSON Object Signing and Encryption (JOSE) standards, including
-JWS (JSON Web Signature), JWE (JSON Web Encryption), JWK (JSON Web Key),
-JWA (JSON Web Algorithms), and JWT (JSON Web Tokens).</p>
-<p>It is derived from <a class="reference external" href="https://authlib.org/">Authlib</a>, but features a redesigned API specific to JOSE functionality.</p>
+<p><code class="docutils literal notranslate"><span class="pre">joserfc</span></code> 是一个提供了多个重要 JSON Object Signing and Encryption (JOSE) 标准的全面实现的 Python 库，包括 JWS (JSON Web Signature)，JWE (JSON Web Encryption)，JWK (JSON Web Key)，JWA (JSON Web Algorithms)，和 JWT (JSON Web Tokens)。</p>
+<p>它源于 <a class="reference external" href="https://authlib.org/">Authlib</a>，但我们专门为 JOSE 功能重新设计了 API。</p>
 <section id="usage">
 <h2>使用方法<a class="headerlink" href="#usage" title="此标题的永久链接">¶</a></h2>
-<p>A quick and simple JWT encoding and decoding would look something like this:</p>
+<p>一个快速而简单的 JWT 编码和解码的示例如下：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">joserfc</span> <span class="kn">import</span> <span class="n">jwt</span>
 </span><span id="1-2"><span class="gp">&gt;&gt;&gt; </span><span class="n">encoded</span> <span class="o">=</span> <span class="n">jwt</span><span class="o">.</span><span class="n">encode</span><span class="p">({</span><span class="s2">&quot;alg&quot;</span><span class="p">:</span> <span class="s2">&quot;HS256&quot;</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;k&quot;</span><span class="p">:</span> <span class="s2">&quot;value&quot;</span><span class="p">},</span> <span class="s2">&quot;secret&quot;</span><span class="p">)</span>
 </span><span id="1-3"><span class="gp">&gt;&gt;&gt; </span><span class="n">encoded</span>
@@ -273,11 +273,11 @@ JWA (JSON Web Algorithms), and JWT (JSON Web Tokens).</p>
 </span><span id="1-9"><span class="go">{&#39;k&#39;: &#39;value&#39;}</span>
 </span></pre></div>
 </div>
-<p>You would find more details and advanced usage in <a class="reference internal" href="guide/jwt/#jwt"><span class="std std-ref">JSON Web Token</span></a> section.</p>
+<p>您可以在 <a class="reference internal" href="guide/jwt/#jwt"><span class="std std-ref">JSON Web Token</span></a> 部分找到更多详细信息和高级用法。</p>
 </section>
 <section id="rfcs">
 <h2>RFCs<a class="headerlink" href="#rfcs" title="此标题的永久链接">¶</a></h2>
-<p>It follows RFCs with extensible API. The module has implementations of:</p>
+<p>它遵循可扩展的 API，并遵循 RFC 标准。该模块包含以下实现：</p>
 <ul class="simple">
 <li><p>RFC7515: <a class="reference internal" href="guide/jws/#jws"><span class="std std-ref">JSON Web Signature</span></a></p></li>
 <li><p>RFC7516: <a class="reference internal" href="guide/jwe/#jwe"><span class="std std-ref">JSON Web Encryption</span></a></p></li>
@@ -289,19 +289,19 @@ JWA (JSON Web Algorithms), and JWT (JSON Web Tokens).</p>
 <li><p>RFC8037: <code class="docutils literal notranslate"><span class="pre">OKP</span></code> Key and <code class="docutils literal notranslate"><span class="pre">EdDSA</span></code> algorithm</p></li>
 <li><p>RFC8812: <code class="docutils literal notranslate"><span class="pre">ES256K</span></code> algorithm</p></li>
 </ul>
-<p>And draft RFCs implementation of:</p>
+<p>同时包含如下 JOSE 草案的实现：</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="guide/algorithms/#chacha20"><span class="std std-ref">C20P 与 XC20P</span></a></p></li>
 <li><p><a class="reference internal" href="guide/algorithms/#ecdh1pu"><span class="std std-ref">ECDH-1PU 相关算法</span></a></p></li>
 </ul>
 <div class="admonition hint">
 <p class="admonition-title">提示</p>
-<p>RFC7520 is implemented as test cases.</p>
+<p>RFC7520 是测试案例，详情请参考源码里的 tests 部分。</p>
 </div>
 </section>
 <section id="next">
 <h2>继续阅读<a class="headerlink" href="#next" title="此标题的永久链接">¶</a></h2>
-<p>Explore the following sections to discover more about <code class="docutils literal notranslate"><span class="pre">joserfc</span></code> and its features.</p>
+<p>浏览以下部分，了解更多关于 <code class="docutils literal notranslate"><span class="pre">joserfc</span></code> 及其特性的内容。</p>
 <div class="toctree-wrapper compound">
 </div>
 <div class="toctree-wrapper compound">
@@ -320,7 +320,7 @@ JWA (JSON Web Algorithms), and JWT (JSON Web Tokens).</p>
   <div class="navigation-next">
     <a href="guide/introduction/">
       <div class="page-info">
-        <span>Next</span>
+        <span>下一章</span>
         <div class="title">介绍</div>
       </div>
       <i class="i-icon chevron"></i>
@@ -360,7 +360,7 @@ JWA (JSON Web Algorithms), and JWT (JSON Web Tokens).</p>
       <script src="_static/clipboard.min.js"></script>
       <script src="_static/copybutton.js"></script>
       <script src="_static/design-tabs.js"></script>
-      <script src="_static/shibuya.js?v=2023.7.15"></script>
+      <script src="_static/shibuya.js?v=2023.7.16"></script>
     
 </body>
 </html>

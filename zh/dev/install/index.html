@@ -14,12 +14,12 @@
     } else if (isDarkTheme) {
       document.documentElement.classList.add('dark')
     }
-  </script><link rel="shortcut icon" href="../_static/icon.svg"/><link rel="stylesheet" href="../_static/pygments.css?v=2023.7.15" type="text/css" />
-    <link rel="stylesheet" href="../_static/shibuya.css?v=2023.7.15" type="text/css" />
+  </script><link rel="shortcut icon" href="../_static/icon.svg"/><link rel="stylesheet" href="../_static/pygments.css?v=2023.7.16" type="text/css" />
+    <link rel="stylesheet" href="../_static/shibuya.css?v=2023.7.16" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
-    <link media="print" rel="stylesheet" type="text/css" href="../_static/print.css?v=2023.7.15" />
+    <link media="print" rel="stylesheet" type="text/css" href="../_static/print.css?v=2023.7.16" />
     <style>
 :root {
   --sy-f-sys:-apple-system, BlinkMacSystemFont, Segoe UI, Oxygen, Ubuntu, Droid Sans, Helvetica Neue;--sy-f-cjk:PingFang SC, Hiragino Sans GB, Droid Sans Fallback, Microsoft YaHei;--sy-f-heading:var(--sy-f-sys), var(--sy-f-cjk), sans-serif;--sy-f-text:var(--sy-f-sys), var(--sy-f-cjk), sans-serif;--sy-f-mono:Menlo, Monaco, Consolas, "Courier New", monospace;--sy-c-divider:rgba(var(--sy-rc-text), 0.1);--sy-c-divider-weak:rgba(var(--sy-rc-text), 0.05);--sy-c-border:rgba(var(--sy-rc-text), 0.14);--sy-s-banner-height:0rem;--sy-s-navbar-height:56px;--sy-s-offset-top:calc(var(--sy-s-navbar-height) + var(--sy-s-banner-height));--sy-c-link:rgb(var(--sy-rc-theme));--sy-c-link-weak:rgba(var(--sy-rc-theme), 0.86);
@@ -57,7 +57,10 @@ html.dark {
 <meta name="description" content="Get started with joserfc from installation."/>
 <meta property="og:description" content="Get started with joserfc from installation."/>
 <meta name="twitter:creator" content="@lepture"/>
-<meta name="twitter:site" content="@authlib"/></head>
+<meta name="twitter:site" content="@authlib"/>
+      <link rel="alternate" hreflang="en" href="/en/dev/install/" />
+      <link rel="alternate" hreflang="zh" href="/zh/dev/install/" />
+  </head>
 <body><div class="document"><div class="sy-head">
   <div class="sy-head-blur"></div>
   <div class="sy-head-inner sy-container mx-auto">
@@ -96,7 +99,7 @@ html.dark {
         
 <div class="nav-languages">
   <button type="button">
-    <span class="md:hidden">Translations</span>
+    <span class="md:hidden">翻译</span>
     <i class="i-icon languages"></i>
   </button>
   <div class="nav-languages-choices">
@@ -115,7 +118,7 @@ html.dark {
       </div>
     </div>
     <div class="sy-head-actions flex items-center shrink-0 print:hidden">
-      <button class="js-theme theme-switch flex items-center" data-aria-light="Switch to dark mode" data-aria-dark="Switch to light mode">
+      <button class="js-theme theme-switch flex items-center" data-aria-light="切换到暗色模式" data-aria-dark="切换到亮色模式">
         <i class="i-icon theme-icon"></i>
       </button>
       <button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="NavLinks" aria-expanded="false">
@@ -192,7 +195,7 @@ html.dark {
     </button>
     <div class="sy-scrollbar px-6 xl:top-16 xl:sticky xl:pl-0 pt-6 pb-4">
   <div class="localtoc">
-    <h3>On this page</h3>
+    <h3>该页内容</h3>
     <ul>
 <li><a class="reference internal" href="#pip-install">pip install</a></li>
 <li><a class="reference internal" href="#dependency-management">&#20381;&#36182;&#31649;&#29702;</a><ul>
@@ -222,7 +225,7 @@ html.dark {
     </span>
   </span>
 </a><div class="edit-this-page">
-  <a href="https://github.com/authlib/joserfc/blob/master/docs/install.rst">Edit this page</a>
+  <a href="https://github.com/authlib/joserfc/blob/master/docs/install.rst">编辑此页面</a>
 </div>
 <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CE7DKK3W&placement=joseauthliborg" id="_carbonads_js"></script><div id="ethical-ad-placement" data-ea-publisher="readthedocs"></div>
     </div>
@@ -258,14 +261,10 @@ html.dark {
         <article class="yue" role="main">
           <section id="installation">
 <h1>安装<a class="headerlink" href="#installation" title="此标题的永久链接">¶</a></h1>
-<p>We recommend using the latest version of Python. <code class="docutils literal notranslate"><span class="pre">joserfc</span></code> supports Python 3.8 and newer.
-The package has a dependency of <a class="reference external" href="https://cryptography.io/">cryptography</a>, if you encountered any issues related with
-cryptography, you can follow the documentation
-<a class="reference external" href="https://cryptography.io/en/latest/installation/">installation of cryptography</a>.</p>
+<p>我们建议使用最新版本的 Python。<code class="docutils literal notranslate"><span class="pre">joserfc</span></code> 支持 Python 3.8 及更高版本。该库依赖 <a class="reference external" href="https://cryptography.io/">cryptography</a>，如果您遇到与 cryptography 相关的任何问题，您可以参考文档 <a class="reference external" href="https://cryptography.io/en/latest/installation/">cryptography 的安装指南</a>。</p>
 <section id="pip-install">
 <h2>pip install<a class="headerlink" href="#pip-install" title="此标题的永久链接">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">joserfc</span></code> is conveniently available as a Python package on PyPI and can be easily
-installed using pip.</p>
+<p><code class="docutils literal notranslate"><span class="pre">joserfc</span></code> 是一个 Python 库，您可以方便地在 PyPI 上获取，并可使用 pip 进行安装。</p>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
 </input><label class="sd-tab-label" for="sd-tab-item-0">
@@ -284,17 +283,15 @@ C20P 与 XC20P</label><div class="sd-tab-content docutils">
 </div>
 <div class="admonition important">
 <p class="admonition-title">重要</p>
-<p>To use <a class="reference internal" href="../guide/algorithms/#chacha20"><span class="std std-ref">C20P 与 XC20P</span></a> algorithms, developers have to install the <code class="docutils literal notranslate"><span class="pre">PyCryptodome</span></code> module.</p>
+<p>要使用 <a class="reference internal" href="../guide/algorithms/#chacha20"><span class="std std-ref">C20P 与 XC20P</span></a> 算法，开发人员必须安装 <code class="docutils literal notranslate"><span class="pre">PyCryptodome</span></code> 模块。</p>
 </div>
 </section>
 <section id="dependency-management">
 <h2>依赖管理<a class="headerlink" href="#dependency-management" title="此标题的永久链接">¶</a></h2>
-<p>There are several ways to manage the dependencies of your project, here are some examples
-to track <code class="docutils literal notranslate"><span class="pre">joserfc</span></code> in your project.</p>
+<p>有多种方法可以管理项目的依赖关系，以下是一些示例，可以用来跟踪您项目中的 <code class="docutils literal notranslate"><span class="pre">joserfc</span></code>。</p>
 <section id="pyproject-toml">
 <h3>pyproject.toml<a class="headerlink" href="#pyproject-toml" title="此标题的永久链接">¶</a></h3>
-<p>If you're using <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> for your Python project, you can add <code class="docutils literal notranslate"><span class="pre">joserfc</span></code>
-to <code class="docutils literal notranslate"><span class="pre">project.dependencies</span></code>.</p>
+<p>如果您的 Python 项目使用 <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>，您可以将 <code class="docutils literal notranslate"><span class="pre">joserfc</span></code> 添加到 <code class="docutils literal notranslate"><span class="pre">project.dependencies</span></code> 中。</p>
 <div class="literal-block-wrapper docutils container" id="id1">
 <div class="code-block-caption"><span class="caption-text">pyproject.toml</span><a class="headerlink" href="#id1" title="此代码块的永久链接">¶</a></div>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="k">[project]</span>
@@ -307,8 +304,7 @@ to <code class="docutils literal notranslate"><span class="pre">project.dependen
 </section>
 <section id="pipfile">
 <h3>Pipfile<a class="headerlink" href="#pipfile" title="此标题的永久链接">¶</a></h3>
-<p>If you prefer <strong>pipenv</strong>, you would like to track dependencies in <code class="docutils literal notranslate"><span class="pre">Pipfile</span></code>, then
-add <code class="docutils literal notranslate"><span class="pre">joserfc</span></code> to <code class="docutils literal notranslate"><span class="pre">[packages]</span></code> section.</p>
+<p>如果您更喜欢使用 <strong>pipenv</strong>，您可以在 <code class="docutils literal notranslate"><span class="pre">Pipfile</span></code> 中跟踪依赖项，然后将 <code class="docutils literal notranslate"><span class="pre">joserfc</span></code> 添加到 <code class="docutils literal notranslate"><span class="pre">[packages]</span></code> 部分。</p>
 <div class="literal-block-wrapper docutils container" id="id2">
 <div class="code-block-caption"><span class="caption-text">Pipfile</span><a class="headerlink" href="#id2" title="此代码块的永久链接">¶</a></div>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="k">[packages]</span>
@@ -319,8 +315,7 @@ add <code class="docutils literal notranslate"><span class="pre">joserfc</span><
 </section>
 <section id="requirements-txt">
 <h3>requirements.txt<a class="headerlink" href="#requirements-txt" title="此标题的永久链接">¶</a></h3>
-<p>If you're tracking dependencies in <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code>, you can add <code class="docutils literal notranslate"><span class="pre">joserfc</span></code> to
-the requirements file.</p>
+<p>如果您在 <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> 中跟踪依赖项，您可以将 <code class="docutils literal notranslate"><span class="pre">joserfc</span></code> 添加到 <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> 文件中。</p>
 <div class="literal-block-wrapper docutils container" id="id3">
 <div class="code-block-caption"><span class="caption-text">requirements.txt</span><a class="headerlink" href="#id3" title="此代码块的永久链接">¶</a></div>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span><span id="1-1">joserfc
@@ -338,7 +333,7 @@ the requirements file.</p>
     <a href="../guide/introduction/">
       <i class="i-icon chevron"></i>
       <div class="page-info">
-        <span>Previous</span>
+        <span>上一章</span>
         
         <div class="title">介绍</div>
         
@@ -348,7 +343,7 @@ the requirements file.</p>
   <div class="navigation-next">
     <a href="../guide/">
       <div class="page-info">
-        <span>Next</span>
+        <span>下一章</span>
         <div class="title">教程</div>
       </div>
       <i class="i-icon chevron"></i>
@@ -388,7 +383,7 @@ the requirements file.</p>
       <script src="../_static/clipboard.min.js"></script>
       <script src="../_static/copybutton.js"></script>
       <script src="../_static/design-tabs.js"></script>
-      <script src="../_static/shibuya.js?v=2023.7.15"></script>
+      <script src="../_static/shibuya.js?v=2023.7.16"></script>
     
 </body>
 </html>
