@@ -274,15 +274,14 @@ html.dark {
 <span class="target" id="module-joserfc.jwt"></span><dl class="py class">
 <dt class="sig sig-object py" id="joserfc.jwt.ClaimsOption">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">joserfc.jwt.</span></span><span class="sig-name descname"><span class="pre">ClaimsOption</span></span><a class="headerlink" href="#joserfc.jwt.ClaimsOption" title="Permalink to this definition">¶</a></dt>
-<dd><p><a class="reference external" href="http://openid.net/specs/openid-connect-core-1_0.html#IndividualClaimsRequests">http://openid.net/specs/openid-connect-core-1_0.html#IndividualClaimsRequests</a></p>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="joserfc.jwt.JWTClaimsRegistry">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">joserfc.jwt.</span></span><span class="sig-name descname"><span class="pre">JWTClaimsRegistry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">now</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">leeway</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#joserfc.jwt.ClaimsOption" title="joserfc.rfc7519.registry.ClaimsOption"><span class="pre">ClaimsOption</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#joserfc.jwt.JWTClaimsRegistry" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="py method">
 <dt class="sig sig-object py" id="joserfc.jwt.JWTClaimsRegistry.validate_aud">
-<span class="sig-name descname"><span class="pre">validate_aud</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#joserfc.jwt.JWTClaimsRegistry.validate_aud" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">validate_aud</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#joserfc.jwt.JWTClaimsRegistry.validate_aud" title="Permalink to this definition">¶</a></dt>
 <dd><p>The “aud” (audience) claim identifies the recipients that the JWT is
 intended for.  Each principal intended to process the JWT MUST
 identify itself with a value in the audience claim.  If the principal
