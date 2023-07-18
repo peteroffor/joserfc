@@ -354,11 +354,11 @@ URL safe.</p>
 <section id="id1">
 <h3>Encryption<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h3>
 <p>The structure for JSON JWE serialization is a little complex, developers
-SHOULD create an object of <a class="reference internal" href="../../api/jwe/#joserfc.jwe.JSONEncryption" title="joserfc.jwe.JSONEncryption"><code class="xref py py-class docutils literal notranslate"><span class="pre">jwe.JSONEncryption</span></code></a> at first:</p>
+SHOULD create an object of <a class="reference internal" href="../../api/jwe/#joserfc.jwe.GeneralJSONEncryption" title="joserfc.jwe.GeneralJSONEncryption"><code class="xref py py-class docutils literal notranslate"><span class="pre">jwe.GeneralJSONEncryption</span></code></a> at first:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="kn">from</span> <span class="nn">joserfc.jwk</span> <span class="kn">import</span> <span class="n">OctKey</span><span class="p">,</span> <span class="n">RSAKey</span>
-</span><span id="1-2"><span class="kn">from</span> <span class="nn">joserfc.jwe</span> <span class="kn">import</span> <span class="n">JSONEncryption</span><span class="p">,</span> <span class="n">encrypt_json</span>
+</span><span id="1-2"><span class="kn">from</span> <span class="nn">joserfc.jwe</span> <span class="kn">import</span> <span class="n">GeneralJSONEncryption</span><span class="p">,</span> <span class="n">encrypt_json</span>
 </span><span id="1-3">
-</span><span id="1-4"><span class="n">obj</span> <span class="o">=</span> <span class="n">JSONEncryption</span><span class="p">({</span><span class="s2">&quot;enc&quot;</span><span class="p">:</span> <span class="s2">&quot;A128GCM&quot;</span><span class="p">},</span> <span class="sa">b</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span>
+</span><span id="1-4"><span class="n">obj</span> <span class="o">=</span> <span class="n">GeneralJSONEncryption</span><span class="p">({</span><span class="s2">&quot;enc&quot;</span><span class="p">:</span> <span class="s2">&quot;A128GCM&quot;</span><span class="p">},</span> <span class="sa">b</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span>
 </span><span id="1-5">
 </span><span id="1-6"><span class="c1"># add first recipient with alg of A128KW</span>
 </span><span id="1-7"><span class="n">key1</span> <span class="o">=</span> <span class="n">OctKey</span><span class="o">.</span><span class="n">generate_key</span><span class="p">(</span><span class="mi">128</span><span class="p">)</span>
@@ -425,10 +425,9 @@ JWE JSON Serialization. The Flattened one MUST ONLY contain one recipient.</p>
 </span></pre></div>
 </div>
 <p>It is flattened, it moves all the members out of the <code class="docutils literal notranslate"><span class="pre">recipients</span></code> field. To
-<code class="docutils literal notranslate"><span class="pre">encrypt_json</span></code> into a flattened serialization, you can just mark the
-<code class="docutils literal notranslate"><span class="pre">JSONEncryption.flattened</span> <span class="pre">=</span> <span class="pre">True</span></code>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="n">obj</span> <span class="o">=</span> <span class="n">JSONEncryption</span><span class="p">(</span><span class="n">protected</span><span class="p">,</span> <span class="n">plaintext</span><span class="p">)</span>
-</span><span id="1-2"><span class="n">obj</span><span class="o">.</span><span class="n">flattened</span> <span class="o">=</span> <span class="kc">True</span>
+<code class="docutils literal notranslate"><span class="pre">encrypt_json</span></code> into a flattened serialization, you can construct a
+:class`jwe.FlattenedJSONEncryption` instead:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="n">obj</span> <span class="o">=</span> <span class="n">FlattenedJSONEncryption</span><span class="p">(</span><span class="n">protected</span><span class="p">,</span> <span class="n">plaintext</span><span class="p">)</span>
 </span></pre></div>
 </div>
 <p>And make sure only adding one recipient.</p>

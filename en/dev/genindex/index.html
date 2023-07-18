@@ -129,6 +129,7 @@ html.dark {
 
 <div class="genindex-jumpbox">
  <a href="#A"><strong>A</strong></a>
+ | <a href="#B"><strong>B</strong></a>
  | <a href="#C"><strong>C</strong></a>
  | <a href="#D"><strong>D</strong></a>
  | <a href="#E"><strong>E</strong></a>
@@ -143,19 +144,22 @@ html.dark {
  | <a href="#R"><strong>R</strong></a>
  | <a href="#S"><strong>S</strong></a>
  | <a href="#T"><strong>T</strong></a>
- | <a href="#U"><strong>U</strong></a>
  | <a href="#V"><strong>V</strong></a>
  
 </div>
 <h2 id="A">A</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="../api/jwe/#joserfc.jwe.JSONEncryption.aad">aad (joserfc.jwe.JSONEncryption attribute)</a>
+      <li><a href="../api/jwe/#joserfc.jwe.FlattenedJSONEncryption.add_recipient">add_recipient() (joserfc.jwe.FlattenedJSONEncryption method)</a>
+
+      <ul>
+        <li><a href="../api/jwe/#joserfc.jwe.GeneralJSONEncryption.add_recipient">(joserfc.jwe.GeneralJSONEncryption method)</a>
 </li>
-      <li><a href="../api/jwe/#joserfc.jwe.JSONEncryption.add_recipient">add_recipient() (joserfc.jwe.JSONEncryption method)</a>
-</li>
+      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="../api/jwk/#joserfc.jwk.BaseKey.as_dict">as_dict() (joserfc.jwk.BaseKey method)</a>
+</li>
       <li><a href="../api/jwk/#joserfc.jwk.AsymmetricKey">AsymmetricKey (class in joserfc.jwk)</a>
 </li>
       <li><a href="../api/jwe/#joserfc.jwe.CompactEncryption.attach_recipient">attach_recipient() (joserfc.jwe.CompactEncryption method)</a>
@@ -163,21 +167,35 @@ html.dark {
   </ul></td>
 </tr></table>
 
+<h2 id="B">B</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="../api/jwk/#joserfc.jwk.BaseKey">BaseKey (class in joserfc.jwk)</a>
+</li>
+  </ul></td>
+</tr></table>
+
 <h2 id="C">C</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="../api/jwk/#joserfc.jwk.BaseKey.check_alg">check_alg() (joserfc.jwk.BaseKey method)</a>
+</li>
       <li><a href="../api/jwe/#joserfc.jwe.JWERegistry.check_header">check_header() (joserfc.jwe.JWERegistry method)</a>
 
       <ul>
         <li><a href="../api/jws/#joserfc.jws.JWSRegistry.check_header">(joserfc.jws.JWSRegistry method)</a>
 </li>
       </ul></li>
-      <li><a href="../api/jwt/#joserfc.jwt.check_sensitive_data">check_sensitive_data() (in module joserfc.jwt)</a>
+      <li><a href="../api/jwk/#joserfc.jwk.BaseKey.check_key_op">check_key_op() (joserfc.jwk.BaseKey method)</a>
 </li>
-      <li><a href="../api/jwt/#joserfc.jwt.Token.claims">claims (joserfc.jwt.Token attribute)</a>
+      <li><a href="../api/jwt/#joserfc.jwt.check_sensitive_data">check_sensitive_data() (in module joserfc.jwt)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="../api/jwk/#joserfc.jwk.BaseKey.check_use">check_use() (joserfc.jwk.BaseKey method)</a>
+</li>
+      <li><a href="../api/jwt/#joserfc.jwt.Token.claims">claims (joserfc.jwt.Token attribute)</a>
+</li>
       <li><a href="../api/jwt/#joserfc.jwt.ClaimsOption">ClaimsOption (class in joserfc.jwt)</a>
 </li>
       <li><a href="../api/jwe/#joserfc.jwe.CompactEncryption">CompactEncryption (class in joserfc.jwe)</a>
@@ -206,6 +224,8 @@ html.dark {
 </li>
       <li><a href="../api/jws/#joserfc.jws.detach_content">detach_content() (in module joserfc.jws)</a>
 </li>
+      <li><a href="../api/jwk/#joserfc.jwk.BaseKey.dict_value">dict_value (joserfc.jwk.BaseKey property)</a>
+</li>
   </ul></td>
 </tr></table>
 
@@ -216,15 +236,13 @@ html.dark {
 </li>
       <li><a href="../api/jwt/#joserfc.jwt.encode">encode() (in module joserfc.jwt)</a>
 </li>
-      <li><a href="../api/jwe/#joserfc.jwe.encrypt_compact">encrypt_compact() (in module joserfc.jwe)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="../api/jwe/#joserfc.jwe.encrypt_compact">encrypt_compact() (in module joserfc.jwe)</a>
+</li>
       <li><a href="../api/jwe/#joserfc.jwe.encrypt_json">encrypt_json() (in module joserfc.jwe)</a>
 </li>
       <li><a href="../api/jws/#joserfc.jws.extract_compact">extract_compact() (in module joserfc.jws)</a>
-</li>
-      <li><a href="../api/jws/#joserfc.jws.extract_json">extract_json() (in module joserfc.jws)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -232,7 +250,17 @@ html.dark {
 <h2 id="F">F</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="../api/jwe/#joserfc.jwe.JSONEncryption.flattened">flattened (joserfc.jwe.JSONEncryption attribute)</a>
+      <li><a href="../api/jwe/#joserfc.jwe.FlattenedJSONEncryption.flattened">flattened (joserfc.jwe.FlattenedJSONEncryption attribute)</a>
+
+      <ul>
+        <li><a href="../api/jwe/#joserfc.jwe.GeneralJSONEncryption.flattened">(joserfc.jwe.GeneralJSONEncryption attribute)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="../api/jwe/#joserfc.jwe.FlattenedJSONEncryption">FlattenedJSONEncryption (class in joserfc.jwe)</a>
+</li>
+      <li><a href="../api/jws/#joserfc.jws.FlattenedJSONSerialization">FlattenedJSONSerialization (class in joserfc.jws)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -240,20 +268,24 @@ html.dark {
 <h2 id="G">G</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="../api/jwe/#joserfc.jwe.GeneralJSONEncryption">GeneralJSONEncryption (class in joserfc.jwe)</a>
+</li>
+      <li><a href="../api/jws/#joserfc.jws.GeneralJSONSerialization">GeneralJSONSerialization (class in joserfc.jws)</a>
+</li>
       <li><a href="../api/jwk/#joserfc.jwk.JWKRegistry.generate_key">generate_key() (joserfc.jwk.JWKRegistry class method)</a>
 
       <ul>
         <li><a href="../api/jwk/#joserfc.jwk.OctKey.generate_key">(joserfc.jwk.OctKey class method)</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="../api/jwe/#joserfc.jwe.JWERegistry.get_alg">get_alg() (joserfc.jwe.JWERegistry method)</a>
 
       <ul>
         <li><a href="../api/jws/#joserfc.jws.JWSRegistry.get_alg">(joserfc.jws.JWSRegistry method)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="../api/jwe/#joserfc.jwe.JWERegistry.get_enc">get_enc() (joserfc.jwe.JWERegistry method)</a>
 </li>
       <li><a href="../api/jwe/#joserfc.jwe.JWERegistry.get_zip">get_zip() (joserfc.jwe.JWERegistry method)</a>
@@ -267,6 +299,10 @@ html.dark {
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="../api/jwt/#joserfc.jwt.Token.header">header (joserfc.jwt.Token attribute)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="../api/jws/#joserfc.jws.HeaderDict">HeaderDict (class in joserfc.jws)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -307,6 +343,8 @@ html.dark {
         <li><a href="../api/jws/#module-joserfc.jws">module</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     joserfc.jwt
 
@@ -314,12 +352,6 @@ html.dark {
         <li><a href="../api/jwt/#module-joserfc.jwt">module</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="../api/jwe/#joserfc.jwe.JSONEncryption">JSONEncryption (class in joserfc.jwe)</a>
-</li>
-      <li><a href="../api/jws/#joserfc.jws.JSONSignature">JSONSignature (class in joserfc.jws)</a>
-</li>
       <li><a href="../api/jwe/#joserfc.jwe.JWERegistry">JWERegistry (class in joserfc.jwe)</a>
 </li>
       <li><a href="../api/jwk/#joserfc.jwk.JWKRegistry">JWKRegistry (class in joserfc.jwk)</a>
@@ -368,21 +400,13 @@ html.dark {
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="../api/jwe/#joserfc.jwe.CompactEncryption.plaintext">plaintext (joserfc.jwe.CompactEncryption attribute)</a>
-
-      <ul>
-        <li><a href="../api/jwe/#joserfc.jwe.JSONEncryption.plaintext">(joserfc.jwe.JSONEncryption attribute)</a>
 </li>
-      </ul></li>
       <li><a href="../api/jwk/#joserfc.jwk.SymmetricKey.private_key">private_key (joserfc.jwk.SymmetricKey property)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="../api/jwe/#joserfc.jwe.CompactEncryption.protected">protected (joserfc.jwe.CompactEncryption attribute)</a>
-
-      <ul>
-        <li><a href="../api/jwe/#joserfc.jwe.JSONEncryption.protected">(joserfc.jwe.JSONEncryption attribute)</a>
 </li>
-      </ul></li>
       <li><a href="../api/jwk/#joserfc.jwk.SymmetricKey.public_key">public_key (joserfc.jwk.SymmetricKey property)</a>
 </li>
   </ul></td>
@@ -392,8 +416,6 @@ html.dark {
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="../api/jwk/#joserfc.jwk.SymmetricKey.raw_value">raw_value (joserfc.jwk.SymmetricKey property)</a>
-</li>
-      <li><a href="../api/jwe/#joserfc.jwe.JSONEncryption.recipients">recipients (joserfc.jwe.JSONEncryption attribute)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
@@ -423,15 +445,11 @@ html.dark {
 <h2 id="T">T</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="../api/jwt/#joserfc.jwt.Token">Token (class in joserfc.jwt)</a>
+      <li><a href="../api/jwk/#joserfc.jwk.BaseKey.thumbprint">thumbprint() (joserfc.jwk.BaseKey method)</a>
 </li>
   </ul></td>
-</tr></table>
-
-<h2 id="U">U</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="../api/jwe/#joserfc.jwe.JSONEncryption.unprotected">unprotected (joserfc.jwe.JSONEncryption attribute)</a>
+      <li><a href="../api/jwt/#joserfc.jwt.Token">Token (class in joserfc.jwt)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -447,12 +465,10 @@ html.dark {
 </li>
       <li><a href="../api/jwt/#joserfc.jwt.JWTClaimsRegistry.validate_iat">validate_iat() (joserfc.jwt.JWTClaimsRegistry method)</a>
 </li>
-      <li><a href="../api/jws/#joserfc.jws.validate_json">validate_json() (in module joserfc.jws)</a>
+      <li><a href="../api/jwt/#joserfc.jwt.JWTClaimsRegistry.validate_nbf">validate_nbf() (joserfc.jwt.JWTClaimsRegistry method)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="../api/jwt/#joserfc.jwt.JWTClaimsRegistry.validate_nbf">validate_nbf() (joserfc.jwt.JWTClaimsRegistry method)</a>
-</li>
       <li><a href="../api/jwk/#joserfc.jwk.ECKey.value_registry">value_registry (joserfc.jwk.ECKey attribute)</a>
 
       <ul>
