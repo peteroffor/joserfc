@@ -466,7 +466,8 @@ a list of members to construct a general serialization:</p>
 </span><span id="1-10"><span class="n">jws</span><span class="o">.</span><span class="n">serialize_json</span><span class="p">([</span><span class="n">member</span><span class="p">],</span> <span class="n">payload</span><span class="p">,</span> <span class="n">private_key</span><span class="p">)</span>
 </span></pre></div>
 </div>
-<p>The returned value from <code class="docutils literal notranslate"><span class="pre">deserialize_json</span></code> is an object of <a class="reference internal" href="../../api/jws/#joserfc.jws.JSONSignature" title="joserfc.jws.JSONSignature"><code class="xref py py-class docutils literal notranslate"><span class="pre">jws.JSONSignature</span></code></a>,
+<p>The returned value from <code class="docutils literal notranslate"><span class="pre">deserialize_json</span></code> is an object of
+<code class="xref py py-class docutils literal notranslate"><span class="pre">jws.GeneralJSONSignature</span></code> or <code class="xref py py-class docutils literal notranslate"><span class="pre">jws.FlattenedJSONSignature</span></code>,
 you can tell if the signature is flattened or general with <code class="docutils literal notranslate"><span class="pre">obj.flattened</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="n">obj</span> <span class="o">=</span> <span class="n">jws</span><span class="o">.</span><span class="n">deserialize_json</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">public_key</span><span class="p">)</span>
 </span><span id="1-2"><span class="k">if</span> <span class="n">obj</span><span class="o">.</span><span class="n">flattened</span><span class="p">:</span>
