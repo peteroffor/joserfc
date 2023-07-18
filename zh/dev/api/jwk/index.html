@@ -210,11 +210,7 @@ html.dark {
 <li><a class="reference internal" href="#joserfc.jwk.ECKey.value_registry"><code class="docutils literal notranslate"><span class="pre">ECKey.value_registry</span></code></a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#joserfc.jwk.JWKRegistry"><code class="docutils literal notranslate"><span class="pre">JWKRegistry</span></code></a><ul>
-<li><a class="reference internal" href="#joserfc.jwk.JWKRegistry.generate_key"><code class="docutils literal notranslate"><span class="pre">JWKRegistry.generate_key()</span></code></a></li>
-<li><a class="reference internal" href="#joserfc.jwk.JWKRegistry.import_key"><code class="docutils literal notranslate"><span class="pre">JWKRegistry.import_key()</span></code></a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#joserfc.jwk.JWKRegistry"><code class="docutils literal notranslate"><span class="pre">JWKRegistry</span></code></a></li>
 <li><a class="reference internal" href="#joserfc.jwk.OKPKey"><code class="docutils literal notranslate"><span class="pre">OKPKey</span></code></a><ul>
 <li><a class="reference internal" href="#joserfc.jwk.OKPKey.value_registry"><code class="docutils literal notranslate"><span class="pre">OKPKey.value_registry</span></code></a></li>
 </ul>
@@ -411,39 +407,6 @@ For instance:</p>
 </span><span id="1-6"><span class="n">key</span> <span class="o">=</span> <span class="n">JWKRegistry</span><span class="o">.</span><span class="n">import_key</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </span></pre></div>
 </div>
-<dl class="py method">
-<dt class="sig sig-object py" id="joserfc.jwk.JWKRegistry.generate_key">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">generate_key</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">crv_or_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameters</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">KeyParameters</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">private</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#joserfc.jwk.BaseKey" title="joserfc.rfc7517.models.BaseKey"><span class="pre">BaseKey</span></a></span></span><a class="headerlink" href="#joserfc.jwk.JWKRegistry.generate_key" title="永久链接至目标">¶</a></dt>
-<dd><p>A class method for generating key according to the given key type.
-When <code class="docutils literal notranslate"><span class="pre">key_type</span></code> is &quot;oct&quot; and &quot;RSA&quot;, the second parameter SHOULD be
-a key size in bits. When <code class="docutils literal notranslate"><span class="pre">key_type</span></code> is &quot;EC&quot; and &quot;OKP&quot;, the second
-parameter SHOULD be a &quot;crv&quot; string.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="n">JWKRegistry</span><span class="o">.</span><span class="n">generate_key</span><span class="p">(</span><span class="s2">&quot;RSA&quot;</span><span class="p">,</span> <span class="mi">2048</span><span class="p">)</span>
-</span><span id="1-2"><span class="n">JWKRegistry</span><span class="o">.</span><span class="n">generate_key</span><span class="p">(</span><span class="s2">&quot;EC&quot;</span><span class="p">,</span> <span class="s2">&quot;P-256&quot;</span><span class="p">)</span>
-</span></pre></div>
-</div>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="joserfc.jwk.JWKRegistry.import_key">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">import_key</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bytes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameters</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">KeyParameters</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#joserfc.jwk.BaseKey" title="joserfc.rfc7517.models.BaseKey"><span class="pre">BaseKey</span></a></span></span><a class="headerlink" href="#joserfc.jwk.JWKRegistry.import_key" title="永久链接至目标">¶</a></dt>
-<dd><p>A class method for importing a key from bytes, string, and dict.
-When <code class="docutils literal notranslate"><span class="pre">value</span></code> is a dict, this method can tell the key type automatically,
-otherwise, developers SHOULD pass the <code class="docutils literal notranslate"><span class="pre">key_type</span></code> themselves.</p>
-<dl class="field-list simple">
-<dt class="field-odd">参数<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>data</strong> -- the key data in bytes, string, or dict.</p></li>
-<li><p><strong>key_type</strong> -- an optional key type in string.</p></li>
-<li><p><strong>parameters</strong> -- extra key parameters</p></li>
-</ul>
-</dd>
-<dt class="field-even">返回<span class="colon">:</span></dt>
-<dd class="field-even"><p>OctKey, RSAKey, ECKey, or OKPKey</p>
-</dd>
-</dl>
-</dd></dl>
-
 </dd></dl>
 
 <dl class="py class">
