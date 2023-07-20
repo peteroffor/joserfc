@@ -151,10 +151,10 @@ html.dark {
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../algorithms/">算法</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../registry/">Registry</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../migrations/">Migrations</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../migrations/authlib/">Migrating from Authlib</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../migrations/pyjwt/">Migrating from PyJWT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../registry/">注册表</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../migrations/">迁移</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../migrations/authlib/">从 Authlib 迁移到 joserfc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../migrations/pyjwt/">从 PyJWT 迁移到 joserfc</a></li>
 </ul>
 </li>
 </ul>
@@ -165,22 +165,22 @@ html.dark {
 </ul>
 <p class="caption" role="heading"><span class="caption-text">开发者文档</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../api/">API References</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/">API 参考</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../api/jws/">JWS API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/jwe/">JWE API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/jwk/">JWK API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../api/jwt/">JWT API</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../security/">Security</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../stability/">API stability</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../contributing/">Contributing</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../contributing/structure/">Understand code structure</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../contributing/authors/">Authors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../contributing/sponsors/">Sponsors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../security/">安全</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../stability/">稳定性</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/">参与贡献</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../contributing/structure/">理解代码结构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../contributing/authors/">作者列表</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../contributing/sponsors/">赞助者</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../changelog/">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog/">历史记录</a></li>
 </ul>
 
         </div>
@@ -351,6 +351,9 @@ URL safe.</p>
 </div>
 <section id="id1">
 <h3>加密<a class="headerlink" href="#id1" title="此标题的永久链接">¶</a></h3>
+<div class="versionchanged">
+<p><span class="versionmodified changed">在 0.6.0 版本发生变更: </span><code class="docutils literal notranslate"><span class="pre">jwe.JSONEncryption</span></code> is seperated to <code class="docutils literal notranslate"><span class="pre">GeneralJSONEncryption</span></code> and <code class="docutils literal notranslate"><span class="pre">FlattenedJSONEncryption</span></code>.</p>
+</div>
 <p>The structure for JSON JWE serialization is a little complex, developers
 SHOULD create an object of <a class="reference internal" href="../../api/jwe/#joserfc.jwe.GeneralJSONEncryption" title="joserfc.jwe.GeneralJSONEncryption"><code class="xref py py-class docutils literal notranslate"><span class="pre">jwe.GeneralJSONEncryption</span></code></a> at first:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="kn">from</span> <span class="nn">joserfc.jwk</span> <span class="kn">import</span> <span class="n">OctKey</span><span class="p">,</span> <span class="n">RSAKey</span>
@@ -444,7 +447,7 @@ you can find which algorithm is recommended according to
 </span><span id="1-4"><span class="n">jwe</span><span class="o">.</span><span class="n">encrypt_compact</span><span class="p">(</span><span class="n">protected</span><span class="p">,</span> <span class="n">plaintext</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">registry</span><span class="o">=</span><span class="n">registry</span><span class="p">)</span>
 </span></pre></div>
 </div>
-<p>The registry is a little complex, find out more on the <a class="reference internal" href="../registry/#registry"><span class="std std-ref">Registry</span></a> section.</p>
+<p>The registry is a little complex, find out more on the <a class="reference internal" href="../registry/#registry"><span class="std std-ref">注册表</span></a> section.</p>
 </section>
 </section>
 

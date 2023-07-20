@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Migrations - joserfc</title>
-    <link rel="index" title="索引" href="../genindex/" /><link rel="search" title="搜索" href="../search/" /><link rel="next" title="Migrating from Authlib" href="authlib/" /><link rel="prev" title="Registry" href="../guide/registry/" />
+      <title>迁移 - joserfc</title>
+    <link rel="index" title="索引" href="../genindex/" /><link rel="search" title="搜索" href="../search/" /><link rel="next" title="从 Authlib 迁移到 joserfc" href="authlib/" /><link rel="prev" title="注册表" href="../guide/registry/" />
     <link rel="canonical" href="https://jose.authlib.org/zh/dev/migrations/" />
   <script>
     const isDarkTheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -52,7 +52,7 @@ html.dark {
 </style>
     <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://jose.authlib.org/zh/dev/migrations/"/>
-<meta property="og:title" content="Migrations"/>
+<meta property="og:title" content="迁移"/>
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:creator" content="@lepture"/>
 <meta name="twitter:site" content="@authlib"/>
@@ -149,10 +149,10 @@ html.dark {
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../guide/algorithms/">算法</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../guide/registry/">Registry</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Migrations</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="authlib/">Migrating from Authlib</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pyjwt/">Migrating from PyJWT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide/registry/">注册表</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">迁移</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="authlib/">从 Authlib 迁移到 joserfc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyjwt/">从 PyJWT 迁移到 joserfc</a></li>
 </ul>
 </li>
 </ul>
@@ -163,22 +163,22 @@ html.dark {
 </ul>
 <p class="caption" role="heading"><span class="caption-text">开发者文档</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../api/">API References</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/">API 参考</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../api/jws/">JWS API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/jwe/">JWE API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/jwk/">JWK API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api/jwt/">JWT API</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../security/">Security</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../stability/">API stability</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../contributing/">Contributing</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../contributing/structure/">Understand code structure</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../contributing/authors/">Authors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../contributing/sponsors/">Sponsors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../security/">安全</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stability/">稳定性</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing/">参与贡献</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../contributing/structure/">理解代码结构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing/authors/">作者列表</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing/sponsors/">赞助者</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../changelog/">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog/">历史记录</a></li>
 </ul>
 
         </div>
@@ -229,7 +229,7 @@ html.dark {
       
       <li><a href="../">joserfc</a><span>/</span></li>
       
-      <li><strong>Migrations</strong></li>
+      <li><strong>迁移</strong></li>
       
       
     </ul>
@@ -245,13 +245,13 @@ html.dark {
       <div class="min-w-0 max-w-6xl px-6 pb-6 pt-8 xl:px-12">
         <article class="yue" role="main">
           <section id="migrations">
-<h1>Migrations<a class="headerlink" href="#migrations" title="此标题的永久链接">¶</a></h1>
+<h1>迁移<a class="headerlink" href="#migrations" title="此标题的永久链接">¶</a></h1>
 <p>Here are some migration guides to help you transition from other libraries
 to <code class="docutils literal notranslate"><span class="pre">joserfc</span></code>:</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="authlib/">Migrating from Authlib</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pyjwt/">Migrating from PyJWT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="authlib/">从 Authlib 迁移到 joserfc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pyjwt/">从 PyJWT 迁移到 joserfc</a></li>
 </ul>
 </div>
 </section>
@@ -265,7 +265,7 @@ to <code class="docutils literal notranslate"><span class="pre">joserfc</span></
       <div class="page-info">
         <span>上一章</span>
         
-        <div class="title">Registry</div>
+        <div class="title">注册表</div>
         
       </div>
     </a>
@@ -274,7 +274,7 @@ to <code class="docutils literal notranslate"><span class="pre">joserfc</span></
     <a href="authlib/">
       <div class="page-info">
         <span>下一章</span>
-        <div class="title">Migrating from Authlib</div>
+        <div class="title">从 Authlib 迁移到 joserfc</div>
       </div>
       <i class="i-icon chevron"></i>
     </a>
