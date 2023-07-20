@@ -353,6 +353,9 @@ URL safe.</p>
 </div>
 <section id="id1">
 <h3>Encryption<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h3>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 0.6.0: </span><code class="docutils literal notranslate"><span class="pre">jwe.JSONEncryption</span></code> is seperated to <code class="docutils literal notranslate"><span class="pre">GeneralJSONEncryption</span></code> and <code class="docutils literal notranslate"><span class="pre">FlattenedJSONEncryption</span></code>.</p>
+</div>
 <p>The structure for JSON JWE serialization is a little complex, developers
 SHOULD create an object of <a class="reference internal" href="../../api/jwe/#joserfc.jwe.GeneralJSONEncryption" title="joserfc.jwe.GeneralJSONEncryption"><code class="xref py py-class docutils literal notranslate"><span class="pre">jwe.GeneralJSONEncryption</span></code></a> at first:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="kn">from</span> <span class="nn">joserfc.jwk</span> <span class="kn">import</span> <span class="n">OctKey</span><span class="p">,</span> <span class="n">RSAKey</span>
