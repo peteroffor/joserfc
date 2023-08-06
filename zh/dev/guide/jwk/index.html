@@ -582,7 +582,7 @@ typically use specific key types such as <code class="docutils literal notransla
 this registry offers a means to dynamically import and generate keys.</p>
 <section id="import-keys">
 <h3>Import keys<a class="headerlink" href="#import-keys" title="此标题的永久链接">¶</a></h3>
-<p>The <code class="xref py py-meth docutils literal notranslate"><span class="pre">JWKRegistry.import_key()</span></code> can choose the correct key type
+<p>The <a class="reference internal" href="../../api/jwk/#joserfc.jwk.JWKRegistry.import_key" title="joserfc.jwk.JWKRegistry.import_key"><code class="xref py py-meth docutils literal notranslate"><span class="pre">JWKRegistry.import_key()</span></code></a> can choose the correct key type
 automatically when importing a JWK in dict:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;kty&quot;</span><span class="p">:</span> <span class="s2">&quot;oct&quot;</span><span class="p">,</span> <span class="s2">&quot;k&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">}</span>
 </span><span id="1-2"><span class="n">key</span> <span class="o">=</span> <span class="n">JWKRegistry</span><span class="o">.</span><span class="n">import_key</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>  <span class="c1"># returns a OctKey</span>
@@ -606,7 +606,7 @@ the key type manually:</p>
 </section>
 <section id="generate-keys">
 <h3>Generate keys<a class="headerlink" href="#generate-keys" title="此标题的永久链接">¶</a></h3>
-<p>The <code class="xref py py-meth docutils literal notranslate"><span class="pre">JWKRegistry.generate_key()</span></code> can generate a key with all
+<p>The <a class="reference internal" href="../../api/jwk/#joserfc.jwk.JWKRegistry.generate_key" title="joserfc.jwk.JWKRegistry.generate_key"><code class="xref py py-meth docutils literal notranslate"><span class="pre">JWKRegistry.generate_key()</span></code></a> can generate a key with all
 the supported key types. For <code class="docutils literal notranslate"><span class="pre">oct</span></code> and <code class="docutils literal notranslate"><span class="pre">RSA</span></code> the parameters
 in this method:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="c1"># (key_type: str, size: int, parameters: Optional[dict], private: bool=True)</span>

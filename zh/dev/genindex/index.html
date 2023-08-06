@@ -129,7 +129,6 @@ html.dark {
 
 <div class="genindex-jumpbox">
  <a href="#A"><strong>A</strong></a>
- | <a href="#B"><strong>B</strong></a>
  | <a href="#C"><strong>C</strong></a>
  | <a href="#D"><strong>D</strong></a>
  | <a href="#E"><strong>E</strong></a>
@@ -153,23 +152,11 @@ html.dark {
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="../api/jwe/#joserfc.jwe.FlattenedJSONEncryption.add_recipient">add_recipient() （joserfc.jwe.FlattenedJSONEncryption 方法）</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="../api/jwe/#joserfc.jwe.GeneralJSONEncryption.add_recipient">add_recipient() （joserfc.jwe.GeneralJSONEncryption 方法）</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="../api/jwk/#joserfc.jwk.BaseKey.as_dict">as_dict() （joserfc.jwk.BaseKey 方法）</a>
-</li>
-      <li><a href="../api/jwk/#joserfc.jwk.AsymmetricKey">AsymmetricKey（joserfc.jwk 中的类）</a>
-</li>
       <li><a href="../api/jwe/#joserfc.jwe.CompactEncryption.attach_recipient">attach_recipient() （joserfc.jwe.CompactEncryption 方法）</a>
-</li>
-  </ul></td>
-</tr></table>
-
-<h2 id="B">B</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="../api/jwk/#joserfc.jwk.BaseKey">BaseKey（joserfc.jwk 中的类）</a>
 </li>
   </ul></td>
 </tr></table>
@@ -177,20 +164,14 @@ html.dark {
 <h2 id="C">C</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="../api/jwk/#joserfc.jwk.BaseKey.check_alg">check_alg() （joserfc.jwk.BaseKey 方法）</a>
-</li>
       <li><a href="../api/jwe/#joserfc.jwe.JWERegistry.check_header">check_header() （joserfc.jwe.JWERegistry 方法）</a>
 </li>
       <li><a href="../api/jws/#joserfc.jws.JWSRegistry.check_header">check_header() （joserfc.jws.JWSRegistry 方法）</a>
-</li>
-      <li><a href="../api/jwk/#joserfc.jwk.BaseKey.check_key_op">check_key_op() （joserfc.jwk.BaseKey 方法）</a>
 </li>
       <li><a href="../api/jwt/#joserfc.jwt.check_sensitive_data">check_sensitive_data()（在 joserfc.jwt 模块中）</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="../api/jwk/#joserfc.jwk.BaseKey.check_use">check_use() （joserfc.jwk.BaseKey 方法）</a>
-</li>
       <li><a href="../api/jwt/#joserfc.jwt.ClaimsOption">ClaimsOption（joserfc.jwt 中的类）</a>
 </li>
       <li><a href="../api/jwt/#joserfc.jwt.Token.claims">claims（joserfc.jwt.Token 属性）</a>
@@ -198,8 +179,6 @@ html.dark {
       <li><a href="../api/jwe/#joserfc.jwe.CompactEncryption">CompactEncryption（joserfc.jwe 中的类）</a>
 </li>
       <li><a href="../api/jws/#joserfc.jws.CompactSignature">CompactSignature（joserfc.jws 中的类）</a>
-</li>
-      <li><a href="../api/jwk/#joserfc.jwk.CurveKey">CurveKey（joserfc.jwk 中的类）</a>
 </li>
   </ul></td>
 </tr></table>
@@ -220,8 +199,6 @@ html.dark {
       <li><a href="../api/jws/#joserfc.jws.deserialize_json">deserialize_json()（在 joserfc.jws 模块中）</a>
 </li>
       <li><a href="../api/jws/#joserfc.jws.detach_content">detach_content()（在 joserfc.jws 模块中）</a>
-</li>
-      <li><a href="../api/jwk/#joserfc.jwk.BaseKey.dict_value">dict_value（joserfc.jwk.BaseKey 属性）</a>
 </li>
   </ul></td>
 </tr></table>
@@ -275,6 +252,8 @@ html.dark {
 </li>
       <li><a href="../api/jws/#joserfc.jws.GeneralJSONSignature">GeneralJSONSignature（joserfc.jws 中的类）</a>
 </li>
+      <li><a href="../api/jwk/#joserfc.jwk.JWKRegistry.generate_key">generate_key()（joserfc.jwk.JWKRegistry 类方法）</a>
+</li>
       <li><a href="../api/jwk/#joserfc.jwk.OctKey.generate_key">generate_key()（joserfc.jwk.OctKey 类方法）</a>
 </li>
   </ul></td>
@@ -311,7 +290,7 @@ html.dark {
 <h2 id="I">I</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="../api/jwk/#joserfc.jwk.SymmetricKey.is_private">is_private（joserfc.jwk.SymmetricKey 属性）</a>
+      <li><a href="../api/jwk/#joserfc.jwk.JWKRegistry.import_key">import_key()（joserfc.jwk.JWKRegistry 类方法）</a>
 </li>
   </ul></td>
 </tr></table>
@@ -393,17 +372,13 @@ html.dark {
 </li>
       <li><a href="../api/jws/#joserfc.jws.GeneralJSONSignature.payload">payload（joserfc.jws.GeneralJSONSignature 属性）</a>
 </li>
-      <li><a href="../api/jwe/#joserfc.jwe.CompactEncryption.plaintext">plaintext（joserfc.jwe.CompactEncryption 属性）</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="../api/jwk/#joserfc.jwk.SymmetricKey.private_key">private_key（joserfc.jwk.SymmetricKey 属性）</a>
+      <li><a href="../api/jwe/#joserfc.jwe.CompactEncryption.plaintext">plaintext（joserfc.jwe.CompactEncryption 属性）</a>
 </li>
       <li><a href="../api/jwe/#joserfc.jwe.CompactEncryption.protected">protected（joserfc.jwe.CompactEncryption 属性）</a>
 </li>
       <li><a href="../api/jws/#joserfc.jws.HeaderMember.protected">protected（joserfc.jws.HeaderMember 属性）</a>
-</li>
-      <li><a href="../api/jwk/#joserfc.jwk.SymmetricKey.public_key">public_key（joserfc.jwk.SymmetricKey 属性）</a>
 </li>
   </ul></td>
 </tr></table>
@@ -411,8 +386,6 @@ html.dark {
 <h2 id="R">R</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="../api/jwk/#joserfc.jwk.SymmetricKey.raw_value">raw_value（joserfc.jwk.SymmetricKey 属性）</a>
-</li>
       <li><a href="../api/jwe/#joserfc.jwe.Recipient">Recipient（joserfc.jwe 中的类）</a>
 </li>
   </ul></td>
@@ -429,23 +402,17 @@ html.dark {
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="../api/jws/#joserfc.jws.serialize_compact">serialize_compact()（在 joserfc.jws 模块中）</a>
 </li>
-      <li><a href="../api/jws/#joserfc.jws.serialize_json">serialize_json()（在 joserfc.jws 模块中）</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="../api/jws/#joserfc.jws.JWSAlgModel.sign">sign() （joserfc.jws.JWSAlgModel 方法）</a>
+      <li><a href="../api/jws/#joserfc.jws.serialize_json">serialize_json()（在 joserfc.jws 模块中）</a>
 </li>
-      <li><a href="../api/jwk/#joserfc.jwk.SymmetricKey">SymmetricKey（joserfc.jwk 中的类）</a>
+      <li><a href="../api/jws/#joserfc.jws.JWSAlgModel.sign">sign() （joserfc.jws.JWSAlgModel 方法）</a>
 </li>
   </ul></td>
 </tr></table>
 
 <h2 id="T">T</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="../api/jwk/#joserfc.jwk.BaseKey.thumbprint">thumbprint() （joserfc.jwk.BaseKey 方法）</a>
-</li>
-  </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="../api/jwt/#joserfc.jwt.Token">Token（joserfc.jwt 中的类）</a>
 </li>
