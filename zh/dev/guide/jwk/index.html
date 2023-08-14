@@ -302,7 +302,7 @@ represents a cryptographic key (via <a class="reference external" href="https://
 <a class="reference external" href="https://www.rfc-editor.org/rfc/rfc7518#section-6.4">RFC7518 section 6.4</a>.</p>
 <section id="create-an-oct-key">
 <h3>生成一个 OctKey<a class="headerlink" href="#create-an-oct-key" title="此标题的永久链接">¶</a></h3>
-<p>You can generate an <code class="docutils literal notranslate"><span class="pre">OctKey</span></code> with the <a class="reference internal" href="../../api/jwk/#joserfc.jwk.OctKey.generate_key" title="joserfc.jwk.OctKey.generate_key"><code class="xref py py-meth docutils literal notranslate"><span class="pre">OctKey.generate_key()</span></code></a> method:</p>
+<p>你可以调用 <a class="reference internal" href="../../api/jwk/#joserfc.jwk.OctKey.generate_key" title="joserfc.jwk.OctKey.generate_key"><code class="xref py py-meth docutils literal notranslate"><span class="pre">OctKey.generate_key()</span></code></a> 来生成一个 <code class="docutils literal notranslate"><span class="pre">OctKey</span></code>：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="kn">from</span> <span class="nn">joserfc.jwk</span> <span class="kn">import</span> <span class="n">OctKey</span>
 </span><span id="1-2">
 </span><span id="1-3"><span class="n">key_size</span> <span class="o">=</span> <span class="mi">256</span>  <span class="c1"># in bit size, 256 equals 32 bytes</span>
@@ -312,7 +312,7 @@ represents a cryptographic key (via <a class="reference external" href="https://
 </section>
 <section id="import-an-oct-key">
 <h3>导入一个 OctKey<a class="headerlink" href="#import-an-oct-key" title="此标题的永久链接">¶</a></h3>
-<p>You can import an <code class="docutils literal notranslate"><span class="pre">OctKey</span></code> from string, bytes and a JWK (in dict).</p>
+<p>您可以从字符串、字节和 JWK（dict）导入一个 <code class="docutils literal notranslate"><span class="pre">OctKey</span></code>。</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="kn">from</span> <span class="nn">joserfc.jwk</span> <span class="kn">import</span> <span class="n">OctKey</span>
 </span><span id="1-2">
 </span><span id="1-3"><span class="n">OctKey</span><span class="o">.</span><span class="n">import_key</span><span class="p">(</span><span class="s2">&quot;a-random-string-as-key&quot;</span><span class="p">)</span>
@@ -349,7 +349,7 @@ It represents RSA keys.</p>
 </section>
 <section id="import-an-rsa-key">
 <h3>导入一个 RSAKey<a class="headerlink" href="#import-an-rsa-key" title="此标题的永久链接">¶</a></h3>
-<p>You can import an <code class="docutils literal notranslate"><span class="pre">RSAKey</span></code> from string, bytes and a JWK (in dict).</p>
+<p>您可以从字符串、字节和 JWK（dict）导入一个 <code class="docutils literal notranslate"><span class="pre">RSAKey</span></code>。</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="kn">from</span> <span class="nn">joserfc.jwk</span> <span class="kn">import</span> <span class="n">RSAKey</span>
 </span><span id="1-2">
 </span><span id="1-3"><span class="n">pem_file</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
@@ -401,19 +401,19 @@ It represents Elliptic Curve [DSS] keys.</p>
 </div>
 <p>The &quot;crv&quot; values that <a class="reference internal" href="../../api/jwk/#joserfc.jwk.ECKey" title="joserfc.jwk.ECKey"><code class="xref py py-class docutils literal notranslate"><span class="pre">ECKey</span></code></a> supports:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">P-256</span></code> via RFC7518</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">P-384</span></code> via RFC7518</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">P-521</span></code> via RFC7518</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">secp256k1</span></code> via RFC8812</p></li>
+<li><p>RFC7518 的 <code class="docutils literal notranslate"><span class="pre">P-256</span></code></p></li>
+<li><p>RFC7518 的 <code class="docutils literal notranslate"><span class="pre">P-384</span></code></p></li>
+<li><p>RFC7518 的 <code class="docutils literal notranslate"><span class="pre">P-521</span></code></p></li>
+<li><p>RFC8812 的 <code class="docutils literal notranslate"><span class="pre">secp256k1</span></code></p></li>
 </ul>
 <div class="admonition hint">
 <p class="admonition-title">提示</p>
-<p>It is <code class="docutils literal notranslate"><span class="pre">P-521</span></code>, not <code class="docutils literal notranslate"><span class="pre">P-512</span></code>, it is not a typo.</p>
+<p>这里确实是``P-521``，而不是``P-512``，我们没有写错。</p>
 </div>
 </section>
 <section id="import-an-ec-key">
 <h3>导入一个 ECKey<a class="headerlink" href="#import-an-ec-key" title="此标题的永久链接">¶</a></h3>
-<p>You can import an <code class="docutils literal notranslate"><span class="pre">ECKey</span></code> from string, bytes and a JWK (in dict).</p>
+<p>您可以从字符串、字节和 JWK（dict）导入一个 <code class="docutils literal notranslate"><span class="pre">ECKey</span></code>。</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="kn">from</span> <span class="nn">joserfc.jwk</span> <span class="kn">import</span> <span class="n">ECKey</span>
 </span><span id="1-2">
 </span><span id="1-3"><span class="n">pem_file</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
@@ -438,7 +438,7 @@ It represents Elliptic Curve [DSS] keys.</p>
 </section>
 <section id="okpkey">
 <span id="id4"></span><h2>OKPKey<a class="headerlink" href="#okpkey" title="此标题的永久链接">¶</a></h2>
-<p>An <a class="reference internal" href="../../api/jwk/#joserfc.jwk.OKPKey" title="joserfc.jwk.OKPKey"><code class="xref py py-class docutils literal notranslate"><span class="pre">OKPKey</span></code></a> is an asymmetric key defined in <a class="reference external" href="https://www.rfc-editor.org/rfc/rfc8037#section-2">RFC8037</a>.</p>
+<p><a class="reference internal" href="../../api/jwk/#joserfc.jwk.OKPKey" title="joserfc.jwk.OKPKey"><code class="xref py py-class docutils literal notranslate"><span class="pre">OKPKey</span></code></a> 是 <a class="reference external" href="https://www.rfc-editor.org/rfc/rfc8037#section-2">RFC8037</a> 中定义的一种非对称密钥。</p>
 <section id="generate-an-okp-key">
 <h3>生成一个 OKPKey<a class="headerlink" href="#generate-an-okp-key" title="此标题的永久链接">¶</a></h3>
 <p>You can generate an &quot;OKP&quot; key with the given curve:</p>
@@ -452,7 +452,7 @@ It represents Elliptic Curve [DSS] keys.</p>
 </section>
 <section id="import-an-okp-key">
 <h3>导入一个 OKPKey<a class="headerlink" href="#import-an-okp-key" title="此标题的永久链接">¶</a></h3>
-<p>You can import an <code class="docutils literal notranslate"><span class="pre">OKPKey</span></code> from string, bytes and a JWK (in dict).</p>
+<p>您可以从字符串、字节和 JWK（dict）导入一个 <code class="docutils literal notranslate"><span class="pre">OKPKey</span></code>。</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="kn">from</span> <span class="nn">joserfc.jwk</span> <span class="kn">import</span> <span class="n">OKPKey</span>
 </span><span id="1-2">
 </span><span id="1-3"><span class="n">pem_file</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
@@ -512,7 +512,7 @@ of a JWK Set:</p>
 </section>
 <section id="import-a-key-set">
 <h3>导入一个 KeySet<a class="headerlink" href="#import-a-key-set" title="此标题的永久链接">¶</a></h3>
-<p>An example about importing JWKS from a local file:</p>
+<p>以下是一个从本地文件导入 JWKS 的例子：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="kn">import</span> <span class="nn">json</span>
 </span><span id="1-2">
 </span><span id="1-3"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;your-jwks.json&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>

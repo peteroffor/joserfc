@@ -197,7 +197,7 @@ html.dark {
   <div class="localtoc">
     <h3>该页内容</h3>
     <ul>
-<li><a class="reference internal" href="#compact-encryption">Compact Encryption</a><ul>
+<li><a class="reference internal" href="#compact-encryption">&#32039;&#20945;&#22411;&#21152;&#23494;</a><ul>
 <li><a class="reference internal" href="#encryption">&#21152;&#23494;</a></li>
 <li><a class="reference internal" href="#decryption">&#35299;&#23494;</a></li>
 </ul>
@@ -270,8 +270,8 @@ html.dark {
 <span id="jwe"></span><h1>JSON Web Encryption<a class="headerlink" href="#json-web-encryption" title="此标题的永久链接">¶</a></h1>
 <p>JSON Web Encryption (JWE) 使用基于 JSON 的数据结构表示加密内容。（参考 <a class="reference external" href="https://www.rfc-editor.org/rfc/rfc7516">RFC7516</a>）</p>
 <section id="compact-encryption">
-<h2>Compact Encryption<a class="headerlink" href="#compact-encryption" title="此标题的永久链接">¶</a></h2>
-<p>JWE Compact Serialization 将加密内容表示为紧凑的、URL 安全的字符串。该字符串为：</p>
+<h2>紧凑型加密<a class="headerlink" href="#compact-encryption" title="此标题的永久链接">¶</a></h2>
+<p>JWE 紧凑型（Compact）序列化将加密内容表示为紧凑的、URL 安全的字符串。该字符串为：</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span><span id="1-1">BASE64URL(UTF8(JWE Protected Header)) || &#39;.&#39; ||
 </span><span id="1-2">BASE64URL(JWE Encrypted Key) || &#39;.&#39; ||
 </span><span id="1-3">BASE64URL(JWE Initialization Vector) || &#39;.&#39; ||
@@ -279,7 +279,7 @@ html.dark {
 </span><span id="1-5">BASE64URL(JWE Authentication Tag)
 </span></pre></div>
 </div>
-<p>An example of a compact serialization (line breaks for display purposes only):</p>
+<p>以下是一个紧凑型序列化的例子（换行符仅用于显示目的）：</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span><span id="1-1">eyJhbGciOiJSU0EtT0FFUCIsImVuYyI6IkEyNTZHQ00ifQ.
 </span><span id="1-2">OKOawDo13gRp2ojaHV7LFpZcgV7T6DVZKTyKOMTYUmKoTCVJRgckCL9kiMT03JGe
 </span><span id="1-3">ipsEdY3mx_etLbbWSrFr05kLzcSr4qKAq7YN7e9jwQRb23nfa6c9d-StnImGyFDb
@@ -295,7 +295,7 @@ html.dark {
 </div>
 <section id="encryption">
 <h3>加密<a class="headerlink" href="#encryption" title="此标题的永久链接">¶</a></h3>
-<p>You can call <a class="reference internal" href="../../api/jwe/#joserfc.jwe.encrypt_compact" title="joserfc.jwe.encrypt_compact"><code class="xref py py-meth docutils literal notranslate"><span class="pre">jwe.encrypt_compact()</span></code></a> to construct a compact JWE serialization:</p>
+<p>你可以调用 <a class="reference internal" href="../../api/jwe/#joserfc.jwe.encrypt_compact" title="joserfc.jwe.encrypt_compact"><code class="xref py py-meth docutils literal notranslate"><span class="pre">jwe.encrypt_compact()</span></code></a> 来构建一个紧凑型序列化：</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="kn">from</span> <span class="nn">joserfc</span> <span class="kn">import</span> <span class="n">jwe</span>
 </span><span id="1-2"><span class="kn">from</span> <span class="nn">joserfc.jwk</span> <span class="kn">import</span> <span class="n">OctKey</span>
 </span><span id="1-3">
@@ -431,7 +431,7 @@ JWE JSON Serialization. The Flattened one MUST ONLY contain one recipient.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span id="1-1"><span class="n">obj</span> <span class="o">=</span> <span class="n">FlattenedJSONEncryption</span><span class="p">(</span><span class="n">protected</span><span class="p">,</span> <span class="n">plaintext</span><span class="p">)</span>
 </span></pre></div>
 </div>
-<p>And make sure only adding one recipient.</p>
+<p>同时注意，你只能增加一位成员。</p>
 </section>
 </section>
 <section id="algorithms-registry">
